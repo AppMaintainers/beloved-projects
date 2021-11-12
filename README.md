@@ -1,5 +1,8 @@
 # Beloved Projects
-An application to manage projects within a team.
+An application where users are able to see different projects uploaded by others, also give give feedback by commenting or reviewing them.
+#### Built With
+- [Ruby on Rails](https://rubyonrails.org/) - Core framework
+- [PostgreSQL](https://www.postgresql.org/) - Used for development database
 ## Getting Started
 These instructions will give you a copy of the project up and running on your local machine for development and testing purposes.
 ### Prerequisites
@@ -37,34 +40,19 @@ After installing the [Prerequisites](#prerequisites), you need to
     ```bash
     rails s
     ```
-4. Optionally you can run webpacker dev server to speed up asset handling
-    ```bash
-    bin/webpack-dev-server
-    ```
-   or
-   ```cmd
-   ruby bin/webpack-dev-server
-   ```
-   on Windows
 
-## Running the tests
+## Testing
 
-For automated tests, we are using Rails' defaults
-
-### End to end tests
-
-You can run the test suit with `rails test`
-
-### Coding style checks
-For basic test setup, we use [RSpec](https://github.com/rspec/rspec-rails), [FactoryBot](https://github.com/thoughtbot/factory_bot_rails), [Faker](https://github.com/faker-ruby/faker) and [RuboCop](https://github.com/rubocop/rubocop-rails)
+For test purposes we're using the followings:
+* [RSpec](https://github.com/rspec/rspec-rails)
+* [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
+* [Faker](https://github.com/faker-ruby/faker)
+* [RuboCop](https://github.com/rubocop/rubocop-rails)
 
 ## Deployment
-
-### Staging environment
-staging.beloved-projects.herokuapp.com (not done yet)
-### Production environment
-app.beloved-projects.herokuapp.com (not done yet)
-## Built With
-
-- [Ruby on Rails](https://rubyonrails.org/) - Core framework
-- [PostgreSQL](https://www.postgresql.org/) - Used for development database
+On your local machine, you can run the server by running:
+```bash
+bundle install
+rails s
+```
+There are two separated environment on Heroku: a [staging](https://staging.beloved-projects.herokuapp.com) and a [production](https://app.beloved-projects.herokuapp.com) environment. These are in progress right now.

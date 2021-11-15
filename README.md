@@ -1,10 +1,10 @@
 # Beloved Projects
-An application where users are able to see different projects uploaded by others, also give give feedback by commenting or reviewing them.
+An application where users are able to browse different projects uploaded by others, and also give feedback by commenting or reviewing.
 #### Built With
 - [Ruby on Rails](https://rubyonrails.org/) - Core framework
 - [PostgreSQL](https://www.postgresql.org/) - Used for development database
 ## Getting Started
-These instructions will give you a copy of the project up and running on your local machine for development and testing purposes.
+This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 Make sure you have installed all of the following prerequisites on your development machine:
 #### Linux or macOS
@@ -43,7 +43,7 @@ After installing the [Prerequisites](#prerequisites), you need to
 
 ## Testing
 
-For test purposes we're using the followings:
+For testing purposes we're using the followings:
 * [RSpec](https://github.com/rspec/rspec-rails)
 * [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 * [Faker](https://github.com/faker-ruby/faker)
@@ -55,4 +55,4 @@ On your local machine, you can run the server by running:
 bundle install
 rails s
 ```
-There are two separated environment on Heroku: a [staging](https://staging.beloved-projects.herokuapp.com) and a [production](https://app.beloved-projects.herokuapp.com) environment. These are in progress right now.
+There are two separate environments on Heroku: a [staging](https://staging.beloved-projects.herokuapp.com) and a [production](https://app.beloved-projects.herokuapp.com) environment. These are a work-in-progress at the moment.

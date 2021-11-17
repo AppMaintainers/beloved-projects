@@ -36,7 +36,11 @@ After installing the [Prerequisites](#prerequisites), you need to
     ```bash
     rails db:setup
     ```
-3. Finally start your local development server
+3. Start your postgres server by running
+   ```bash
+   postgres
+   ```
+4. Finally start your local development server
     ```bash
     rails s
     ```

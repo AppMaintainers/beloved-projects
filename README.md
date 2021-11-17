@@ -14,7 +14,7 @@ Make sure you have installed all of the following prerequisites on your developm
     asdf plugin add ruby
     asdf plugin add nodejs
     asdf plugin add yarn
-    asdf plugin add sqlite
+    asdf plugin add postgres
     ```
 3. Install tools
    ```bash

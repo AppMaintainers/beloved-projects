@@ -7,7 +7,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-// Tailwind CSS
+
 import "stylesheets/application"
 
 Rails.start()

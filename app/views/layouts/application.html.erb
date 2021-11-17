@@ -11,8 +11,13 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/header' %>
+
+    <!-- messages -->
+    <% flash.each do |type, msg| %>
+      <strong><%= msg %></strong>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

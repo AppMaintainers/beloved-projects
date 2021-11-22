@@ -10,13 +10,9 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
+  <body class="pt-5">
     <%= render 'layouts/header' %>
 
-    <!-- messages -->
-    <% flash.each do |type, msg| %>
-      <strong><%= msg %></strong>
-    <% end %>
 
     <%= yield %>
   </body>

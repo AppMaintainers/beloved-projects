@@ -33,6 +33,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.19'
+  gem "capybara"
+  gem 'warden', '~> 1.2', '>= 1.2.9'
 end
 
 group :development do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.fdescribe "Registration workflow", type: :feature do
+RSpec.describe "Registration workflow", type: :feature do
   let(:user) { FactoryBot.create(:user) }
 
   before do

@@ -13,6 +13,10 @@
   <body class="pt-5">
     <%= render 'layouts/header' %>
 
+    <!-- Messages -->
+    <% flash.each do |type, msg| %>
+      <strong><%= msg %></strong>
+    <% end %>
 
     <%= yield %>
   </body>

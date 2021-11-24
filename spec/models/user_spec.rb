@@ -1,14 +1,11 @@
 require 'rails_helper'
 
-RSpec.fdescribe User, type: :model do
-  context "User model" do
+RSpec.describe User, type: :model do
+  describe "User model" do
     let(:user) { FactoryBot.create(:user) }
-    let(:params) { { user: { email: user.email, password: password } } }
 
     context "when user attributes are valid" do
-      let(:password) { user.password }
-
-      it 'should be ok' do
+      it 'should pass' do
         expect(user).to be_valid
       end
     end
@@ -16,10 +13,39 @@ RSpec.fdescribe User, type: :model do
     context "when user password is too short" do
       let(:password){ "12345" }
 
-      it 'should fail' do
-        expect(user.valid_password?(params[:user][:password])).to be_falsey
+      it 'should not pass' do
+        expect(user).not_to be_valid_password(password)
       end
     end
 
+    context "when email address is valid" do
+      let(:valid_addresses){ %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn] }
+
+      it 'should pass' do
+        valid_addresses.each do |address|
+          user.email = address
+          expect(user).to be_valid
+        end
+      end
+    end
+
+    context "when email address is not valid" do
+      let(:invalid_addresses){ %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com] }
+
+      it 'should reject' do
+        invalid_addresses.each do |address|
+          user.email = address
+          expect(user).not_to be_valid
+        end
+      end
+    end
+
+    context "when an email is already in use" do
+      let(:duplicate_user){ FactoryBot.build(:user, email: user.email) }
+
+      it 'should be rejected' do
+        expect(duplicate_user).not_to be_valid
+      end
+    end
   end
 end

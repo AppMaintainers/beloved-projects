@@ -12,3 +12,5 @@ import "stylesheets/application"
 
 Rails.start()
 ActiveStorage.start()
+
+console.log('Hello')

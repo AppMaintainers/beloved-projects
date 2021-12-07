@@ -1,0 +1,22 @@
+<div class="container mx-auto">
+  <% if @projects.any? %>
+<div class="grid md:grid-cols-3 sm:grid-cols-2">
+  <% @projects.each do |project| %>
+    <div id="project-<%= project.id %>" class="bg-white m-3 rounded-lg px-3 py-2 hover:shadow-md">
+      <h2 class="text-2xl font-bold"><%= project.title %></h2>
+      <p class="text-sm text-gray-400">Created <%= time_ago_in_words(project.created_at) %> ago</p>
+      <p class="py-3"><%= project.context %></p>
+      <span class="inline-block">Associated users:</span>
+      <ul class="inline-block">
+        <% project.users.each do |user| %>
+          <li><%= link_to user.first_name, user %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+</div>
+  <% else %>
+    <p>There isn't any projects yet.</p>
+  <%end %>
+</div>

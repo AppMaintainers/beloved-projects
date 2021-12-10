@@ -9,8 +9,7 @@ import "channels"
 
 
 import "stylesheets/application"
+import "@fortawesome/fontawesome-free/css/all"
 
 Rails.start()
 ActiveStorage.start()
-
-console.log('Hello')

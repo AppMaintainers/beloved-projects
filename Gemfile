@@ -21,6 +21,10 @@ gem 'webpacker', '~> 5.0'
 # devise
 gem 'devise'
 
+# font-awesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+gem 'font-awesome-sass'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

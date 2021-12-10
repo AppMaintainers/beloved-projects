@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body class="pt-5">
+  <body class="pt-5 bg-gray-100">
     <%= render 'layouts/header' %>
 
     <!-- Messages -->
@@ -19,5 +19,7 @@
     <% end %>
 
     <%= yield %>
-  </body>
+
+    <%= debug(params) if Rails.env.development? %>
+    </body>
 </html>

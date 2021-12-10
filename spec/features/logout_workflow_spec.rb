@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.fdescribe "Logout workflow", type: :feature do
+RSpec.describe "Logout workflow", type: :feature do
   let(:user){ FactoryBot.create(:user) }
 
   before do

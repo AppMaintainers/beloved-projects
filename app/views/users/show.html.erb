@@ -1,0 +1,56 @@
+<div class="container mx-auto">
+  <div class="flex">
+    <div class="col1">
+      <div class="profile-pic">
+        <%= image_tag('200.png', class: "" ) %>
+      </div>
+
+    </div>
+    <div class="col2 px-5 w-full">
+      <div class="full-name">
+        <h2 class="text-2xl align-middle"><%= @user.first_name %> <%= @user.last_name %></h2>
+        <span class="text-sm text-purple-700">Junior Developer</span>
+        <div class="message mt-3">
+          <%= button_tag(:type => 'submit', :class => 'bg-gray-200 hover:bg-gray-300 duration-150 py-2 px-4') do %>
+            <i class="fas fa-comment-alt pr-2"></i> Send message
+          <% end %>
+        </div>
+      </div>
+
+      <div class="user-info py-4">
+        <h4 class="text-xs text-gray-400 uppercase">Info</h4>
+        <table>
+          <tbody>
+            <tr>
+              <td class="pr-3">E-mail:</td>
+              <td><%= mail_to @user.email, @user.email, class: "hover:underline" %></td>
+            </tr>
+            <tr>
+              <td class="pr-3">Phone:</td>
+              <td>+36/30 123 1234</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+      <div>
+        <h4 class="text-xs text-gray-400 uppercase">Attached projects</h4>
+        <% if @user.projects.any? %>
+
+        <% @user.projects.each do |project| %>
+         <%= link_to project.title, project %>
+        <% end %>
+          <%else %>
+        This user isn't attached to any projects yet.
+        <% end %>
+      </div>
+
+      <% if current_user == @user %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "hover:underline text-blue-500" %>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>

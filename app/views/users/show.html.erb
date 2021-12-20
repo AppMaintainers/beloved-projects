@@ -2,7 +2,11 @@
   <div class="flex">
     <div class="col1">
       <div class="profile-pic">
-        <%= image_tag('200.png', class: "" ) %>
+        <% if @user.image.attached? %>
+          <%= image_tag(@user.image, class: "" ) %>
+        <% else %>
+          <%= image_tag('default_avatar.jpg', class: "" ) %>
+        <% end %>
       </div>
 
     </div>

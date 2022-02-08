@@ -14,7 +14,7 @@ RSpec.describe "Registration workflow", type: :feature do
     click_button("Sign up")
   end
 
-  context "with valid credentials" do
+  context "users with valid credentials" do
     let(:email) { "john@email.com" }
     let(:password) { "password" }
     let(:password_confirmation) { "password" }
@@ -23,7 +23,7 @@ RSpec.describe "Registration workflow", type: :feature do
       expect(page).to have_text("Welcome! You have signed up successfully.")
     end
 
-    it 'users count will be increased' do
+    it 'will increase Users count' do
       expect { User.create(
         first_name: user.first_name,
         last_name: user.last_name,
@@ -34,7 +34,7 @@ RSpec.describe "Registration workflow", type: :feature do
     end
   end
 
-  context "with duplicated email" do
+  context "users with duplicated email" do
     let(:email) { user.email }
     let(:password) { "password" }
     let(:password_confirmation) { "password" }

@@ -19,33 +19,19 @@ RSpec.describe User, type: :model do
     end
 
     context "when email address is valid" do
-      let(:valid_addresses){ %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn] }
-
-      it 'should pass' do
-        valid_addresses.each do |address|
-          user.email = address
-          expect(user).to be_valid
-        end
-      end
+      it { is_expected.to allow_value('user@example.com',
+                              'USER@foo.COM',
+                              'A_US-ER@foo.bar.org',
+                              'first.last@foo.jp',
+                              'alice+bob@baz.cn').for(:email) }
     end
 
     context "when email address is not valid" do
-      let(:invalid_addresses){ %w[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com] }
-
-      it 'should reject' do
-        invalid_addresses.each do |address|
-          user.email = address
-          expect(user).not_to be_valid
-        end
-      end
+      it { is_expected.not_to allow_value('user@@example.com').for(:email) }
     end
 
     context "when an email is already in use" do
-      let(:duplicate_user){ FactoryBot.build(:user, email: user.email) }
-
-      it 'should be rejected' do
-        expect(duplicate_user).not_to be_valid
-      end
+      it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     end
   end
 end

@@ -20,27 +20,6 @@ RSpec.describe "Sessions", type: :request do
         expect(response.body).to include("Invalid Email or password.")
       end
     end
-
-    it "it redirects when is user not logged in" do
-
-    end
-  end
-
-  context "can login when they are not signed in" do
-
-  end
-
-  context "redirected from sign in when they are signed in" do
-
-  end
-
-  context "redirected from sign up when they are signed in" do
-
-  end
-
-  it "works! (now write some real specs)" do
-    get sessions_path
-    expect(response).to have_http_status(200)
   end
 end
 

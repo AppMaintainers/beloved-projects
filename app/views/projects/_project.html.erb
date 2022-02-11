@@ -1,20 +1,11 @@
-<div class="container mx-auto">
-  <% if @projects.any? %>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2">
-      <% @projects.each do |project| %>
-        <div id="project-<%= project.id %>" class="bg-white m-3 rounded-md px-4 py-3 hover:shadow-md duration-150" style="border-left: 6px solid <%= project.status.background %>">
-          <h2 class="text-lg font-bold"><%= link_to project.title, project, class: "hover:text-purple-700 duration-150" %></h2>
-          <p class="text-sm text-gray-400">Created <%= time_ago_in_words(project.created_at) %> ago</p>
-          <span class="inline-block">Associated users:</span>
-          <ul class="inline-block">
-            <% project.users.each do |user| %>
-              <li><%= link_to user.first_name, user %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p>There isn't any projects yet.</p>
-  <%end %>
+<div id="project-<%= project.id %>" class="bg-white m-3 rounded-md px-4 py-3 hover:shadow-md duration-150"
+     style="border-left: 6px solid <%= project.status.background %>">
+  <h2 class="text-lg font-bold"><%= link_to project.title, project, class: "hover:text-purple-700 duration-150" %></h2>
+  <p class="text-sm text-gray-400">Created <%= time_ago_in_words(project.created_at) %> ago</p>
+  <span class="inline-block">Associated users:</span>
+  <ul class="inline-block">
+    <% project.users.each do |user| %>
+    <li><%= link_to user.first_name, user %></li>
+    <% end %>
+  </ul>
 </div>

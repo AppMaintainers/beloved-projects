@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    #byebug
     @project = current_user.projects.build(project_params)
     @project.users << current_user
     if @project.save
@@ -26,10 +25,5 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:title, :context, :status_id)
-    end
-
-    def correct_user
-      @project = current_user.projects.find_by(id: params[id])
-      redirect_to root if @project.nil?
     end
 end

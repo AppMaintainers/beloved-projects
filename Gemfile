@@ -42,6 +42,7 @@ group :development, :test do
   gem 'faker', '~> 2.19'
   gem "capybara"
   gem 'warden', '~> 1.2', '>= 1.2.9'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do

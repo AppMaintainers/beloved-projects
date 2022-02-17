@@ -11,11 +11,7 @@ RSpec.describe User, type: :model do
     end
 
     context "when user password is too short" do
-      let(:password){ "12345" }
-
-      it 'should not pass' do
-        expect(user).not_to be_valid_password(password)
-      end
+      it { is_expected.to validate_length_of(:password).is_at_least(6) }
     end
 
     context "when email address is valid" do

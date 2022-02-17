@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2021_12_07_125124) do
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "project_id"
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
   end
 
   create_table "statuses", force: :cascade do |t|

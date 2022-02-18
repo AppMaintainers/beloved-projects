@@ -242,6 +242,7 @@ DEPENDENCIES
   faker (~> 2.19)
   font-awesome-rails (~> 4.7, >= 4.7.0.7)
   font-awesome-sass
+  i18n
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

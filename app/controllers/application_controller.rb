@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
     permitted_attributes = [:first_name, :last_name, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: permitted_attributes
     devise_parameter_sanitizer.permit :account_update, keys: permitted_attributes
-
   end
+
 end

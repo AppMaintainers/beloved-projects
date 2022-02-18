@@ -1,6 +1,6 @@
 <div class="container mx-auto">
   <div class="py-5">
-    <div class="text-3xl">
+    <div class="text-3xl font-bold">
       <%= @project.title %>
     </div>
     <div class="px-2 py-1 align-top mt-1 rounded-full text-xs w-auto inline-block text-white" style="background: <%= @project.status.background %>">
@@ -9,7 +9,7 @@
 
   </div>
   <div class="display-inline">
-    <span>Members attached:</span>
+    <strong>Members attached:</strong>
     <div>
       <% @project.users.each do |user| %>
         <%= user.first_name %>
@@ -20,4 +20,8 @@
   <div class="content py-8">
     <%= @project.context %>
   </div>
+
+  <% unless current_user.nil? %>
+    <%= link_to 'Edit', edit_project_path %>
+  <% end %>
 </div>

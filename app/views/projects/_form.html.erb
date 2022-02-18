@@ -1,0 +1,45 @@
+<%= form_with model: @project do |f| %>
+  <div class="md:flex">
+    <div class="flex-grow md:w-2/3 my-3">
+      <%= f.label :title, class: "block text-gray-700 font-bold" %>
+      <%= f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <% if @project.errors.include?(:title) %>
+        <% @project.errors.full_messages_for(:title).each do |msg| %>
+          <p class="text-red-500"><%= msg %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="flex-grow md:pl-3 my-3">
+      <%= f.label :status, class: "block text-gray-700 font-bold" %>
+      <%= f.select :status_id, Status.all.map{ |s| [s.title, s.id] }, {},
+                   {class: "shadow border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white form-select"} %>
+      <% if @project.errors.include?(:status) %>
+        <% @project.errors.full_messages_for(:status).each do |msg| %>
+          <p class="text-red-500"><%= msg %></p>>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="my-3">
+    <%= f.label :context, class: "block text-gray-700 font-bold" %>
+    <%= f.text_area :context, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <% if @project.errors.include?(:context) %>
+      <% @project.errors.full_messages_for(:context).each do |msg| %>
+        <p class="text-red-500"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="sm:flex">
+    <%= link_to "Cancel", root_path,
+                class: "flex-grow shadow bg-white duration-150 focus:shadow-outline
+               focus:outline-none border-2 border-black font-bold py-2 px-4 rounded md:w-80 w-full mt-4 cursor-pointer text-center w-full block"  %>
+
+    <%= f.submit "Submit",
+                 class: "flex-grow shadow bg-purple-700 hover:bg-purple-500 duration-150 focus:shadow-outline
+               focus:outline-none text-white font-bold py-2 px-4 rounded md:w-80 w-full mt-4 cursor-pointer sm:ml-3" %>
+  </div>
+
+<% end %>

@@ -1,10 +1,20 @@
 <%= form_with model: @project do |f| %>
   <div class="md:flex">
-    <div class="flex-grow md:w-2/3 my-3">
+    <div class="flex-grow md:w-1/3 my-3">
       <%= f.label :title, class: "block text-gray-700 font-bold" %>
       <%= f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       <% if @project.errors.include?(:title) %>
         <% @project.errors.full_messages_for(:title).each do |msg| %>
+          <p class="text-red-500"><%= msg %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="flex-grow md:pl-3 my-3">
+      <%= f.label :acquired_at, class: "block text-gray-700 font-bold" %>
+      <%= f.date_field :acquired_at, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      <% if @project.errors.include?(:acquired_at) %>
+        <% @project.errors.full_messages_for(:acquired_at).each do |msg| %>
           <p class="text-red-500"><%= msg %></p>
         <% end %>
       <% end %>
@@ -16,7 +26,7 @@
                    {class: "shadow border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white form-select"} %>
       <% if @project.errors.include?(:status) %>
         <% @project.errors.full_messages_for(:status).each do |msg| %>
-          <p class="text-red-500"><%= msg %></p>>
+          <p class="text-red-500"><%= msg %></p>
         <% end %>
       <% end %>
     </div>

@@ -1,27 +1,31 @@
 <div class="container mx-auto">
-  <div class="py-5">
-    <div class="text-3xl font-bold">
+  <div class="mt-5">
+    <div class="text-3xl font-bold mb-3">
       <%= @project.title %>
     </div>
-    <div class="px-2 py-1 align-top mt-1 rounded-full text-xs w-auto inline-block text-white" style="background: <%= @project.status.background %>">
-      <%= @project.status.title %>
-    </div>
 
+    <span>Status:</span>
+    <div class="px-2 py-1 align-top rounded-full text-xs w-auto inline-block text-white" style="background: <%= @project.status.background %>">
+       <%= @project.status.title %>
+    </div>
+    <br>
+    <span>Moved to our ownership at <strong><%= @project.acquired_at.strftime("%Y, %B") %></strong></span><br>
   </div>
   <div class="display-inline">
-    <strong>Members attached:</strong>
-    <div>
-      <% @project.users.each do |user| %>
-        <%= user.first_name %>
-      <% end %>
-    </div>
+    <strong>Attached members:</strong>
+
+    <% @project.users.each do |user| %>
+      <%= link_to user.first_name, user %>
+    <% end %>
+
   </div>
 
   <div class="content py-8">
+    <h4 class="text-lg font-bold">Description</h4>
     <%= @project.context %>
   </div>
 
   <% unless current_user.nil? %>
-    <%= link_to 'Edit', edit_project_path %>
+    <%= link_to 'Edit', edit_project_path, class: "bg-purple-700 px-4 py-2 text-white rounded-sm" %>
   <% end %>
 </div>

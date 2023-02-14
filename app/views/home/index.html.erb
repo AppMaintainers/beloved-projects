@@ -1,6 +1,6 @@
 <div class="container mx-auto">
   <% if @projects.any? %>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2">
+    <div class="grid">
       <% @projects.each do |project| %>
         <%= render "projects/project", project: project %>
       <% end %>

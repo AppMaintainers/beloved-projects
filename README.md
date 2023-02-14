@@ -20,9 +20,7 @@ Make sure you have installed all of the following prerequisites on your developm
    ```bash
    asdf install
    ```
-4. If using vagrant VM, refer to:
-    ```https://github.com/smashedtoatoms/asdf-postgres#run
-    ```
+4. If using vagrant VM, refer to [asdf-postgres](https://github.com/smashedtoatoms/asdf-postgres#run)
 #### Windows
 1. Install Ruby with [RubyInstaller](https://rubyinstaller.org/downloads/archives/). (Note: you need a Ruby+Devkit installer) (3.0.2)
 2. Install [NodeJs](https://nodejs.org/en/download/releases/) (16.13.0)

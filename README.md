@@ -20,6 +20,9 @@ Make sure you have installed all of the following prerequisites on your developm
    ```bash
    asdf install
    ```
+4. If using vagrant VM, refer to:
+    ```https://github.com/smashedtoatoms/asdf-postgres#run
+    ```
 #### Windows
 1. Install Ruby with [RubyInstaller](https://rubyinstaller.org/downloads/archives/). (Note: you need a Ruby+Devkit installer) (3.0.2)
 2. Install [NodeJs](https://nodejs.org/en/download/releases/) (16.13.0)
@@ -33,17 +36,14 @@ After installing the [Prerequisites](#prerequisites), you need to
     yarn install
     ```
 2. Start your postgres server by running
-```bash
-postgres
-```
-3. If using vagrant VM, refer to:
-   ```https://github.com/smashedtoatoms/asdf-postgres#run
-   ```
-4. Create the database
+    ```bash
+    postgres
+    ```
+3. Create the database
     ```bash
     rails db:setup
     ```
-5. Finally start your local development server
+4. Finally start your local development server
     ```bash
     rails s
     ```

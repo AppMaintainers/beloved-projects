@@ -39,11 +39,11 @@ postgres
 3. If using vagrant VM, refer to:
    ```https://github.com/smashedtoatoms/asdf-postgres#run
    ```
-2. Create the database
+4. Create the database
     ```bash
     rails db:setup
     ```
-4. Finally start your local development server
+5. Finally start your local development server
     ```bash
     rails s
     ```

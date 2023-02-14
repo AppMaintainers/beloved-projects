@@ -32,14 +32,17 @@ After installing the [Prerequisites](#prerequisites), you need to
     bundle install
     yarn install
     ```
+2. Start your postgres server by running
+```bash
+postgres
+```
+3. If using vagrant VM, refer to:
+   ```https://github.com/smashedtoatoms/asdf-postgres#run
+   ```
 2. Create the database
     ```bash
     rails db:setup
     ```
-3. Start your postgres server by running
-   ```bash
-   postgres
-   ```
 4. Finally start your local development server
     ```bash
     rails s

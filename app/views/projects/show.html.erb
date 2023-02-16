@@ -27,6 +27,7 @@
 
   <div class="content py-8">
     <h4 class="text-lg font-bold">Accounts</h4>
+    <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
     <table class="table">
       <thead>
         <th scope="col">Name</th>

@@ -25,6 +25,24 @@
     <%= @project.description %>
   </div>
 
+  <div class="content py-8">
+    <h4 class="text-lg font-bold">Accounts</h4>
+    <table class="table">
+      <thead>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+      </thead>
+      <tbody>
+        <% @project.accounts.each do |account| %>
+          <tr>
+            <td><%= account.name %></td>
+            <td><%= account.description %></td>
+          <tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
   <% unless current_user.nil? %>
     <%= link_to 'Edit', edit_project_path, class: "px-4 py-2 text-white" %>
   <% end %>

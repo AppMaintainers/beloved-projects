@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :get_project
+  before_action :load_project
   
   def new
     @account = Account.new
@@ -11,14 +11,14 @@ class AccountsController < ApplicationController
       flash[:success] = "Account created successfully!"
       redirect_to project_path
     else
-      flash.now[:warning] = "#{@account.errors.full_messages.join('. ')}"
+      flash[:warning] = "#{@account.errors.full_messages.join('. ')}"
       redirect_to new_project_account_path
     end
   end
 
 private
 
-  def get_project
+  def load_project
     @project = Project.find(params[:project_id])
   end
 

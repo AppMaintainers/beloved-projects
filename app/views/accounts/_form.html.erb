@@ -19,12 +19,10 @@
         <% end %>
       <% end %>
     </div>
-
-  
   </div>
 
   <div class="sm:flex">
-    <%= link_to "Cancel", root_path,
+    <%= link_to "Cancel", project_path(@project),
                 class: "flex-grow shadow bg-white duration-150 focus:shadow-outline
                focus:outline-none border-2 border-black font-bold py-2 px-4 rounded md:w-80 w-full mt-4 cursor-pointer text-center w-full block"  %>
 
@@ -32,5 +30,4 @@
                  class: "flex-grow shadow bg-purple-700 hover:bg-purple-500 duration-150 focus:shadow-outline
                focus:outline-none text-white font-bold py-2 px-4 rounded md:w-80 w-full mt-4 cursor-pointer sm:ml-3" %>
   </div>
-
 <% end %>

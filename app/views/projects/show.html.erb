@@ -25,13 +25,13 @@
     <%= @project.description %>
   </div>
 
-  <div class="content py-8">
-    <h4 class="text-lg font-bold">Accounts</h4>
+  <div class="content">
+    <h4 class="text-lg">Accounts</h4>
     <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
     <table class="table">
       <thead>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
+        <th>Name</th>
+        <th>Description</th>
       </thead>
       <tbody>
         <% @project.accounts.each do |account| %>

@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
     @account = @project.accounts.build(account_params)
     if @account.save
       flash[:success] = "Account created successfully!"
-      redirect_to project_path
+      redirect_to project_path(@project)
     else
       flash[:warning] = "#{@account.errors.full_messages.join('. ')}"
       redirect_to new_project_account_path

@@ -13,11 +13,9 @@
   </div>
   <div class="display-inline">
     <strong>Attached members:</strong>
-
     <% @project.users.each do |user| %>
       <%= link_to user.first_name, user %>
     <% end %>
-
   </div>
 
   <div class="content py-8">

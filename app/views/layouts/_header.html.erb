@@ -1,14 +1,31 @@
-<header>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <% if user_signed_in? %>
-      <p>Üdv, <%= current_user[:first_name] %>!</p>
-      <li><%= link_to "Profile", current_user %></li>
-      <li><%= link_to "Log out", destroy_user_session_path %></li>
-      <li><%= link_to "Create project", new_project_path %></li>
-      <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+<%= stylesheet_pack_tag 'dropdown' %>
+<header class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="navbar">
+  <div class="container-fluid">
+  <% if user_signed_in? %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Create project", new_project_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="profile" class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Profile<b class="caret"></b></a>
+          <ul id="dropdown-menu" class="dropdown-menu">
+            <li><%= link_to "View", current_user, class: "dropdown-item" %></li>
+            <li><%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item" %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class='navbar-brand'>Üdv, <%= current_user[:first_name] %>!</div>
     <% else %>
-      <li><%= link_to "Log in", new_user_session_path %></li>
+    <div><%= link_to "Log in", new_user_session_path %></div>
     <% end %>
-  </ul>
+  </div>
 </header>

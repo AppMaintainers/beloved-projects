@@ -10,6 +10,10 @@ import "channels"
 import "../util/checkcss.js"
 
 import "../stylesheets/application.scss"
+import * as bootstrap from "bootstrap"
 
 Rails.start()
 ActiveStorage.start()
+
+const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));

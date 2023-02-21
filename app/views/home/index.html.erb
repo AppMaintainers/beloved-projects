@@ -1,11 +1,16 @@
 <div class="container mx-auto">
   <% if @projects.any? %>
-    <div>
+    <% if params[:all] == 'true' %>
+      <%= link_to 'View my projects', root_path(all: 'false'), class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
+    <% end %>
+      <div class="grid">
       <% @projects.each do |project| %>
         <%= render "projects/project", project: project %>
       <% end %>
     </div>
   <% else %>
     <p>There isn't any projects yet.</p>
-  <%end %>
+  <% end %>
 </div>

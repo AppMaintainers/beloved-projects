@@ -7,6 +7,10 @@ checkcss.onClassnameDetected = function (classname, element) {
     return false;
   }
 
+  if(element.nodeName === "FORM" && element.id === classname) {
+    return false;
+  }
+
   return true;
 };
 

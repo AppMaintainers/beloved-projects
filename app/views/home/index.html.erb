@@ -11,6 +11,7 @@
       <% end %>
     </div>
   <% else %>
+    <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
     <p>No projects could be found.</p>
   <% end %>
 </div>

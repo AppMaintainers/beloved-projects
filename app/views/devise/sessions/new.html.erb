@@ -1,33 +1,33 @@
-<div class="container max-w-full mx-auto py-6">
-  <div class="max-w-sm mx-auto px-6">
-    <h2 class="text-center text-3xl">Sign in</h2>
-    <div class="relative flex flex-wrap">
-      <div class="w-full relative p-5 rounded-md">
+<div class="container mx-auto">
+  <div class="mx-auto">
+    <h2 class="text-center">Sign in</h2>
+    <div class="flex-wrap">
+      <div class="p-5">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <div class="field pb-3">
+          <div class="pb-3">
             <%= f.label :email %><br/>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "w-full bg-gray-200 py-2 px-3" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "py-2 px-3" %>
           </div>
 
-          <div class="field pb-3">
+          <div class="pb-3">
             <%= f.label :password %><br/>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full bg-gray-200 py-2 px-3" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "py-2 px-3" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
-            <div class="field">
+            <div>
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
             </div>
           <% end %>
 
-          <div class="actions text-center my-4">
-            <%= f.submit "Sign in", class: "bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-600 duration-100 px-5 py-1 rounded-sm cursor-pointer hover:text-white w-full" %>
+          <div class="text-center my-4">
+            <%= f.submit "Sign in", class: "bg-white border-2 px-5 py-1" %>
           </div>
         <% end %>
-        <div class="underline">
+        <div>
           <%= render "devise/shared/links" %>
         </div>
       </div>

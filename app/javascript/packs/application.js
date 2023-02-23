@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "../util/checkcss.js"
+
 import "../stylesheets/application.scss"
 
 Rails.start()

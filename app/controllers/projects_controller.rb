@@ -22,8 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find_by(id: params[:id])
-    authorize @project
+    @project = authorize Project.find_by(id: params[:id])
   end
 
   def update

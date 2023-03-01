@@ -12,7 +12,5 @@ import "../packs/dropdown.js"
 
 import "../stylesheets/application.scss"
 
-
 Rails.start()
 ActiveStorage.start()
-

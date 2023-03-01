@@ -4,7 +4,7 @@
   <% else %>
     <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
   <% end %>
-  <% if @projects.any? %>
+  <% if !@projects.nil? %>
     <div>
       <% @projects.each do |project| %>
         <%= render "projects/project", project: project %>

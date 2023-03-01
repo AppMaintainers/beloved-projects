@@ -2,7 +2,7 @@
   <div>
     <div class="my-3">
       <%= f.label :title %>
-      <%= f.text_field :title, class: "shadow border rounded py-2 px-3" %>
+      <%= f.text_field :title %>
       <% if @project.errors.include?(:title) %>
         <% @project.errors.full_messages_for(:title).each do |msg| %>
           <p><%= msg %></p>
@@ -12,7 +12,7 @@
 
     <div class="my-3">
       <%= f.label :acquired_at %>
-      <%= f.date_field :acquired_at, class: "shadow border rounded py-2 px-3" %>
+      <%= f.date_field :acquired_at %>
       <% if @project.errors.include?(:acquired_at) %>
         <% @project.errors.full_messages_for(:acquired_at).each do |msg| %>
           <p><%= msg %></p>
@@ -22,8 +22,7 @@
 
     <div class="my-3">
       <%= f.label :status %>
-      <%= f.select :status_id, Status.all.map{ |s| [s.title, s.id] }, {},
-                   {class: "shadow border rounded py-2 px-2 bg-white form-select"} %>
+      <%= f.select :status_id, Status.all.map{ |s| [s.title, s.id] }, {} %>
       <% if @project.errors.include?(:status) %>
         <% @project.errors.full_messages_for(:status).each do |msg| %>
           <p><%= msg %></p>
@@ -34,7 +33,7 @@
 
   <div class="my-3">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "shadow border rounded py-2 px-3" %>
+    <%= f.text_area :description, %>
     <% if @project.errors.include?(:description) %>
       <% @project.errors.full_messages_for(:description).each do |msg| %>
         <p><%= msg %></p>
@@ -43,11 +42,9 @@
   </div>
 
   <div>
-    <%= link_to "Cancel", root_path,
-                class: "shadow bg-white border-2 py-2 px-4 rounded mt-4 text-center"  %>
+    <%= link_to "Cancel", root_path %>
 
-    <%= f.submit "Submit",
-                 class: "shadow text-white py-2 px-4 rounded mt-4" %>
+    <%= f.submit "Submit" %>
   </div>
 
 <% end %>

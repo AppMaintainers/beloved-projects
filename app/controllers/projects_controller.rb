@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
 
-
   def create
     @project = current_user.projects.build(project_params)
     @project.users << current_user

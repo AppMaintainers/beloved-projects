@@ -1,6 +1,6 @@
 class ProjectPolicy < ApplicationPolicy
   def update?
-   @record.users.include? @user
+    @record.users.include? @user
   end
 
   class Scope < Scope

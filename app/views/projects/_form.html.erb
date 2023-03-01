@@ -33,7 +33,7 @@
 
   <div class="my-3">
     <%= f.label :description %>
-    <%= f.text_area :description, %>
+    <%= f.text_area :description %>
     <% if @project.errors.include?(:description) %>
       <% @project.errors.full_messages_for(:description).each do |msg| %>
         <p><%= msg %></p>

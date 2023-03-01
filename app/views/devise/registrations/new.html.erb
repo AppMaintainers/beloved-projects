@@ -8,17 +8,17 @@
 
           <div class="pb-3">
             <%= f.label :first_name %><br/>
-            <%= f.text_field :first_name, placeholder: "First name", class: "py-2 px-3" %>
+            <%= f.text_field :first_name, placeholder: "First name"%>
           </div>
 
           <div class="pb-3">
             <%= f.label :last_name %><br/>
-            <%= f.text_field :last_name, placeholder: "Last name", class: "py-2 px-3" %>
+            <%= f.text_field :last_name, placeholder: "Last name"%>
           </div>
 
           <div class="pb-3">
             <%= f.label :email %><br/>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "py-2 px-3" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail" %>
           </div>
 
           <div class="pb-3">
@@ -26,16 +26,16 @@
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br/>
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "py-2 px-3" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
           </div>
 
           <div class="pb-3">
             <%= f.label :password_confirmation %><br/>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", class: "py-2 px-3" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation" %>
           </div>
 
           <div class="text-center my-4">
-            <%= f.submit "Sign up", class: "bg-white border-2 px-5 py-1" %>
+            <%= f.submit "Sign up", class: "bg-white border-2" %>
           </div>
         <% end %>
         <div>

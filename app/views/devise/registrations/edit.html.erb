@@ -12,15 +12,15 @@
   <div class="pb-3">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name,
-                     placeholder: "First name",
-                     class: "py-2 px-3"  %>
+                     placeholder: "First name"
+                     %>
   </div>
 
   <div class="pb-3">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name,
-                     placeholder: "Last name",
-                     class: "py-2 px-3"  %>
+                     placeholder: "Last name"
+                      %>
   </div>
 
   <div class="pb-3">
@@ -28,8 +28,8 @@
     <%= f.email_field :email,
                       autofocus: true,
                       autocomplete: "email",
-                      placeholder: "E-mail",
-                      class: "py-2 px-3"  %>
+                      placeholder: "E-mail"
+                      %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -40,8 +40,8 @@
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password,
                          autocomplete: "new-password",
-                         placeholder: "Password",
-                         class: "py-2 px-3"  %>
+                         placeholder: "Password"
+                         %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -52,20 +52,20 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation,
                          autocomplete: "new-password",
-                         placeholder: "New password",
-                         class: "py-2 px-3"  %>
+                         placeholder: "New password"
+                         %>
   </div>
 
   <div class="pb-3">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password,
                          autocomplete: "current-password",
-                         placeholder: "Current password",
-                         class: "py-2 px-3"  %>
+                         placeholder: "Current password"
+                         %>
   </div>
 
   <div>
-    <%= f.submit "Update", class: "text-white border-2 px-5 py-1"  %>
+    <%= f.submit "Update", class: "text-white border-2" %>
   </div>
 <% end %>
 

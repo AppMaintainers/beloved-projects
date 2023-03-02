@@ -6,9 +6,9 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'bootstrap'
 
 import "../util/checkcss.js"
-import "../packs/dropdown.js"
 
 import "../stylesheets/application.scss"
 

@@ -9,7 +9,6 @@ import "channels"
 import 'bootstrap'
 
 import "../util/checkcss.js"
-
 import "../stylesheets/application.scss"
 
 Rails.start()

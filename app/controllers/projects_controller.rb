@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def create
-    @project = current_user.projects.build(project_params)
+    @project = authorize current_user.projects.build(project_params)
     @project.users << current_user
     if @project.save
       flash[:success] = "Project created successfully!"
@@ -14,11 +13,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = authorize Project.new
   end
 
   def show
-    @project = Project.find_by(id: params[:id])
+    @project = authorize Project.find_by(id: params[:id])
   end
 
   def edit
@@ -26,7 +25,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = authorize Project.find(params[:id])
     if @project.update(project_params)
       flash.now[:success] = 'Project updated successfully!'
       render 'projects/edit'

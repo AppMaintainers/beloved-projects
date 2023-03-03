@@ -13,11 +13,11 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    user.present?
   end
 
   def create?
-    false
+    user.present?
   end
 
   def new?
@@ -29,11 +29,11 @@ class ApplicationPolicy
   end
 
   def edit?
-    update?
+    @record.users.include? @user
   end
 
   def destroy?
-    false
+    true
   end
 
   class Scope
@@ -43,7 +43,11 @@ class ApplicationPolicy
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      if user.present?
+        scope.all
+      else
+        raise Pundit::NotAuthorizedError
+      end
     end
 
     private

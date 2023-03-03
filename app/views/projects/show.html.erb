@@ -28,7 +28,7 @@
   <div>
     <h4>Accounts</h4>
     <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
-    <% if @project.accounts.any? %>
+    <% if @project.accounts.present? %>
       <table class="table">
         <thead>
           <th>Name</th>

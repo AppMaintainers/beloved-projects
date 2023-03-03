@@ -31,6 +31,10 @@ gem 'font-awesome-sass'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'rubocop', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
+
 gem "sentry-ruby"
 gem "sentry-rails"
 

@@ -33,7 +33,6 @@ class ProjectsController < ApplicationController
       flash.now[:warning] = "#{@project.errors.full_messages.join('. ')}"
       render 'projects/edit'
     end
-
   end
 
   private

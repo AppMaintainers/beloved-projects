@@ -34,6 +34,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
+gem 'rubocop-capybara'
+gem 'rubocop-rspec'
 
 gem "sentry-ruby"
 gem "sentry-rails"

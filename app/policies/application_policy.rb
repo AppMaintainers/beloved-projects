@@ -29,7 +29,7 @@ class ApplicationPolicy
   end
 
   def edit?
-    if @record.users.include? @user
+    @record.users.include? @user
   end
 
   def destroy?

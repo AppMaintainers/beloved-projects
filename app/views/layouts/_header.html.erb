@@ -24,7 +24,7 @@
     </div>
     <div class='navbar-brand'>Üdv, <%= current_user[:first_name] %>!</div>
   <% else %>
-    <%= link_to "Log in", new_user_session_path %>
+    <%= link_to "Log in", new_user_session_path, class: "text-info" %>
   <% end %>
   </div>
 </header>

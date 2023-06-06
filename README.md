@@ -28,8 +28,12 @@ Make sure you have installed all of the following prerequisites on your developm
    ```bash
    asdf install
    ```
-4. To make sure you have the right roles for postgres, read asdf-postgres' [readme](https://github.com/smashedtoatoms/asdf-postgres#run)
-
+4.  NOTE: You may get an error here saying `role <username> does not exist`. If this happens, try the following:
+    ```bash
+    psql -U postgres
+    CREATE ROLE <username> SUPERUSER;
+    ALTER ROLE "<username>" WITH LOGIN;
+    ```
 #### Windows
 
 1. Install Ruby with [RubyInstaller](https://rubyinstaller.org/downloads/archives/). (Note: you need a Ruby+Devkit installer) (3.0.2)

@@ -28,20 +28,24 @@
   <div>
     <h4>Accounts</h4>
     <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
-    <table class="table">
-      <thead>
-        <th>Name</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <% @project.accounts.each do |account| %>
-          <tr>
-            <td><%= account.name %></td>
-            <td><%= account.description %></td>
-          <tr>
-        <% end %>
-      </tbody>
-    </table>
+    <% if @project.accounts.any? %>
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <% @project.accounts.each do |account| %>
+            <tr>
+              <td><%= account.name %></td>
+              <td><%= account.description %></td>
+            <tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No accounts could be found for this project.</p>
+    <% end %>
   </div>
 
   <% unless current_user.nil? %>

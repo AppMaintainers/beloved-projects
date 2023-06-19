@@ -2,11 +2,11 @@ class AccountsController < ApplicationController
   before_action :load_project
   
   def new
-    @account = Account.new
+    @account = authorize Account.new
   end
 
   def create
-    @account = @project.accounts.build(account_params)
+    @account = authorize @project.accounts.build(account_params)
     if @account.save
       flash[:success] = "Account created successfully!"
       redirect_to project_path(@project)

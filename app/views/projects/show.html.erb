@@ -48,7 +48,7 @@
     <% end %>
   </div>
 
-  <% unless current_user.nil? %>
-    <%= link_to 'Edit', edit_project_path, class: "px-4 text-white" %>
+  <% if policy(@project).edit? %>
+    <%= link_to 'Edit', edit_project_path, class: "btn btn-outline-primary" %>
   <% end %>
 </div>

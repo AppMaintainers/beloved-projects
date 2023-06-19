@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
 
   def create
-    @project = current_user.projects.build(project_params)
+    @project = authorize current_user.projects.build(project_params)
     @project.maintainers << current_user
+
     if @project.save
       flash[:success] = "Project created successfully!"
       redirect_to root_path
@@ -13,19 +14,19 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = authorize Project.new
   end
 
   def show
-    @project = Project.find_by(id: params[:id])
+    @project = authorize Project.find_by(id: params[:id])
   end
 
   def edit
-    @project = Project.find_by(id: params[:id])
+    @project = authorize Project.find_by(id: params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = authorize Project.find(params[:id])
     if @project.update(project_params)
       flash.now[:success] = 'Project updated successfully!'
       render 'projects/edit'

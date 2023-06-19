@@ -12,11 +12,12 @@
     <span>Moved to our ownership at <strong><%= @project.acquired_at.strftime("%Y, %B") %></strong></span><br>
   </div>
   <div>
-    <strong>Attached members:</strong>
-
-    <% @project.maintainers.each do |maintainer| %>
-      <%= link_to maintainer.first_name, maintainer %>
-    <% end %>
+    <h4>Maintainers</h4>
+      <ul class="list-group list-group-flush">
+        <% @project.maintainers.each do |maintainer| %>
+          <li class="list-group-item"><%= link_to maintainer.first_name, maintainer, class: "nav-link" %></li>
+        <% end %>
+      </ul>
 
   </div>
 

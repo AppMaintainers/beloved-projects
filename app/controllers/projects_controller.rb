@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :load_project, only: [:show, :edit, :update]
 
   def create
     @project = authorize current_user.projects.build(project_params)
@@ -18,15 +19,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = authorize Project.find_by(id: params[:id])
   end
 
   def edit
-    @project = authorize Project.find_by(id: params[:id])
   end
 
   def update
-    @project = authorize Project.find(params[:id])
     if @project.update(project_params)
       flash.now[:success] = 'Project updated successfully!'
       render 'projects/edit'
@@ -41,5 +39,9 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:title, :description, :status_id, :acquired_at)
+    end
+
+    def load_project
+      @project = authorize Project.find_by(id: params[:id])
     end
 end

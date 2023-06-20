@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountPolicy < ApplicationPolicy
   def new?
     true
@@ -8,10 +10,8 @@ class AccountPolicy < ApplicationPolicy
   end
 
   class Scope < Scope
-
     def resolve
       scope.all
     end
-
   end
 end

@@ -9,3 +9,13 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: "3.0"
   TargetRailsVersion: "6.1"
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectPolicy < ApplicationPolicy
   def new?
     true
@@ -16,10 +18,8 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   class Scope < Scope
-
     def resolve
-       scope.all
+      scope.all
     end
-
   end
 end

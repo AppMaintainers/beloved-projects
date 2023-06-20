@@ -14,8 +14,8 @@
   <div>
     <strong>Attached members:</strong>
 
-    <% @project.users.each do |user| %>
-      <%= link_to user.first_name, user %>
+    <% @project.maintainers.each do |maintainer| %>
+      <%= link_to maintainer.first_name, maintainer %>
     <% end %>
 
   </div>

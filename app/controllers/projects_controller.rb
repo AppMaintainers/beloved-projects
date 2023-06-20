@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
-    @project.users << current_user
+    @project.maintainers << current_user
     if @project.save
       flash[:success] = "Project created successfully!"
       redirect_to root_path

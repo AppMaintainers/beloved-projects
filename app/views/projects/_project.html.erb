@@ -3,8 +3,8 @@
   <h2><%= link_to project.title, project%></h2>
   <span class="pt-3">Associated users:</span>
   <ul>
-    <% project.users.each do |user| %>
-    <li><%= link_to user.first_name, user %></li>
+    <% project.maintainers.each do |maintainer| %>
+    <li><%= link_to maintainer.first_name, maintainer %></li>
     <% end %>
   </ul>
 </div>

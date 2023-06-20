@@ -5,8 +5,7 @@ class HomeController < ApplicationController
                 elsif signed_in?
                   policy_scope(current_user.projects)
                 else
-                  skip_policy_scope
-                  []
+                  policy_scope(Project.none)
                 end
   end
 end

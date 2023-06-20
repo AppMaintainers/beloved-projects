@@ -14,8 +14,10 @@ Rails/I18nLocaleTexts:
   Enabled: false
 
 Style/AccessorGrouping:
-  Enabled: false
+  EnforcedStyle: separated
 
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded

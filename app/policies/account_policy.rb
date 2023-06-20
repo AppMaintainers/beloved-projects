@@ -6,7 +6,7 @@ class AccountPolicy < ApplicationPolicy
   end
 
   def create?
-    record.project.users.include?(user)
+    record.project.maintainers.include?(user)
   end
 
   class Scope < Scope

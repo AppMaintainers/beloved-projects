@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
     flash[:alert] = 'You are not authorized to perform this action.'
     redirect_back(fallback_location: root_path)
   end
+
+  private
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for
+    new_user_session_path
+  end
 end

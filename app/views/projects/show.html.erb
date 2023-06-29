@@ -13,6 +13,7 @@
   </div>
   <div>
     <h4>Maintainers</h4>
+    <%= link_to "Add Maintainer", edit_project_maintainers_path(@project),class: "btn btn-primary" %>
       <ul class="list-group list-group-flush">
         <% @project.maintainers.each do |maintainer| %>
           <li class="list-group-item"><%= link_to maintainer.first_name, maintainer, class: "nav-link" %></li>

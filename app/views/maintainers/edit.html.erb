@@ -1,0 +1,27 @@
+<th class="container">
+  <h2>Add Maintainer for <strong><%= @project.title %></strong></h2>
+  <table class="table table-striped">
+    <thead><tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Add or Remove</th>
+    </tr></thead>
+    <tbody>
+      <% User.all.each do |user| %>
+      <tr><th scope="row"><%= user.id %></th>
+          <td><%= user.first_name %></td>
+          <td>
+            <% if @project.maintainers.include?(user) %>
+              <%= button_to "Remove", project_maintainer_connection_path(@project, user), method: :delete, class: "btn btn-danger", remote: false %>
+            <% else %>
+              <%= button_to "Add", project_maintainer_connection_path(@project, user), method: :post, class: "btn btn-success", remote: false %>
+            <% end %>
+      </tr></td>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+  <%= link_to "Back", project_path(@project), class: "btn btn-warning"  %>
+  </div>
+</th>

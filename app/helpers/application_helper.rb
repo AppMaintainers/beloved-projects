@@ -9,6 +9,5 @@ module ApplicationHelper
       else
         'text-bg-warning'
     end
-
   end
 end

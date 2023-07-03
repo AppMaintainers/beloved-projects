@@ -26,10 +26,11 @@
       </div>
 
       <script>
-        toastFade = document.getElementById("unique")
-        const toast = new bootstrap.Toast(toastFade)
-
-        toast.show()
+          addEventListener("load", (event) => {
+            toastFade = document.getElementById("unique")
+            const toast = new window.bootstrap.Toast(toastFade)
+            toast.show()
+        });
       </script>
     <% end %>
 

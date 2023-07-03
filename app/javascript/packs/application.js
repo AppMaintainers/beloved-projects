@@ -6,10 +6,11 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'bootstrap'
+import * as bootstrap from 'bootstrap'
 
 import "../util/checkcss.js"
 import "../stylesheets/application.scss"
 
 Rails.start()
 ActiveStorage.start()
+window.bootstrap = bootstrap

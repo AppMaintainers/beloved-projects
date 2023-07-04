@@ -13,4 +13,11 @@ import "../stylesheets/application.scss"
 
 Rails.start()
 ActiveStorage.start()
-window.bootstrap = bootstrap
+
+addEventListener("load", (event) => {
+  let toasts = document.getElementsByClassName("toast")
+  Array.from(toasts).map((toastFade) => {
+    const toast = new bootstrap.Toast(toastFade)
+    toast.show()
+  })
+});

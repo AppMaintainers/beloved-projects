@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :accounts, only: [:new, :create]
     resource :maintainers, only: [:edit]
     resources :maintainers, only: [] do
-      resource :connection, only: [:create, :destroy], controller: 'maintainers'
+      resource :connection, only: [:create, :destroy], controller: 'maintainers', path: ''
     end
   end
   resources :users, :only =>[:show]

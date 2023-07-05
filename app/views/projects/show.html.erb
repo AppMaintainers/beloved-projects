@@ -28,7 +28,9 @@
 
   <div>
     <h4>Accounts</h4>
-    <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
+    <% if policy(@project).edit? %>
+      <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
+    <% end %>
     <% if @project.accounts.any? %>
       <table class="table">
         <thead>

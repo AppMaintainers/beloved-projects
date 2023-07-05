@@ -7,7 +7,7 @@
       <th scope="col">Add or Remove</th>
     </tr></thead>
     <tbody>
-      <% User.all.each do |user| %>
+      <% @users.each do |user| %>
       <tr><th scope="row"><%= user.id %></th>
           <td><%= user.first_name %></td>
           <td>

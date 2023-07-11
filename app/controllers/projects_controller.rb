@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   before_action :load_project, only: [:show, :edit, :update]
 
@@ -6,10 +8,10 @@ class ProjectsController < ApplicationController
     @project.maintainers << current_user
 
     if @project.save
-      flash[:success] = "Project created successfully!"
+      flash[:notice] = "Project created successfully!"
       redirect_to root_path
     else
-      flash.now[:warning] = "#{@project.errors.full_messages.join('. ')}"
+      flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
       render 'projects/new'
     end
   end
@@ -26,10 +28,10 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      flash.now[:success] = 'Project updated successfully!'
+      flash.now[:notice] = 'Project updated successfully!'
       render 'projects/edit'
     else
-      flash.now[:warning] = "#{@project.errors.full_messages.join('. ')}"
+      flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
       render 'projects/edit'
     end
 

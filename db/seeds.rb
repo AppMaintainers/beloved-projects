@@ -10,13 +10,6 @@
                password_confirmation: password)
 end
 
-# generate data for statuses
-Status.create(title: "Done", background: "#64d974")
-Status.create(title: "In progress", background: "#07c0e3")
-Status.create(title: "Ongoing", background: "#6d28f1")
-Status.create(title: "Unknown", background: "#b3a8a9")
-
-
 # Generate microposts for a subset of users.
 users = User.order(:created_at).take(6)
 1.times do |index|

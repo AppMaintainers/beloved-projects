@@ -34,13 +34,12 @@ class ProjectsController < ApplicationController
       flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
       render 'projects/edit'
     end
-
   end
 
   private
 
     def project_params
-      params.require(:project).permit(:title, :description, :status_id, :acquired_at)
+      params.require(:project).permit(:title, :description, :acquired_at)
     end
 
     def load_project

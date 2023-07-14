@@ -19,16 +19,6 @@
         <% end %>
       <% end %>
     </div>
-
-    <div class="my-3">
-      <%= f.label :status %>
-      <%= f.select :status_id, Status.all.map{ |s| [s.title, s.id] }, {} %>
-      <% if @project.errors.include?(:status) %>
-        <% @project.errors.full_messages_for(:status).each do |msg| %>
-          <p><%= msg %></p>
-        <% end %>
-      <% end %>
-    </div>
   </div>
 
   <div class="my-3">

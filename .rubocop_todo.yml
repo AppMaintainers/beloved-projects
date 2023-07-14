@@ -337,7 +337,6 @@ Style/FrozenStringLiteralComment:
     - 'app/models/account.rb'
     - 'app/models/application_record.rb'
     - 'app/models/project.rb'
-    - 'app/models/status.rb'
     - 'app/models/user.rb'
     - 'config.ru'
     - 'config/application.rb'

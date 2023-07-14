@@ -4,10 +4,6 @@
       <%= @project.title %>
     </div>
 
-    <span>Status:</span>
-    <div class="px-2 align-top w-auto text-white" style="background: <%= @project.status.background %>">
-       <%= @project.status.title %>
-    </div>
     <br>
     <span>Moved to our ownership at <strong><%= @project.acquired_at.strftime("%Y, %B") %></strong></span><br>
   </div>

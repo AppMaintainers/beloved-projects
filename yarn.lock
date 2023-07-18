@@ -1033,6 +1033,11 @@
     "@popperjs/core" "^2.11.6"
     bootstrap "5.3.0-alpha1"
 
+"@tabler/icons@^2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.26.0.tgz#2ec4c30cda1964fcfca473a1334a1254727fbe17"
+  integrity sha512-fYUgqy2txHrFLxhO54lFbNCLdTIf0WtEwABdQ70fH/C6WvGDWpXSln7ntUwK1Z3MNtBkoyXUhtJgtue1yP8Gww==
+
 "@trysound/sax@0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"

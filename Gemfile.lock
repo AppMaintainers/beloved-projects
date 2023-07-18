@@ -104,6 +104,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     json (2.6.3)
     loofah (2.13.0)
       crass (~> 1.0.2)
@@ -278,6 +281,7 @@ DEPENDENCIES
   font-awesome-rails (~> 4.7, >= 4.7.0.7)
   font-awesome-sass
   i18n
+  inline_svg
   pg (~> 1.1)
   puma (~> 5.0)
   pundit

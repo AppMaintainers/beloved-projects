@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import * as bootstrap from 'bootstrap'
+import '@tabler/core'
 
 import "../util/checkcss.js"
 import "../stylesheets/application.scss"

@@ -18,6 +18,7 @@
     "@babel/plugin-transform-runtime": "7",
     "@babel/preset-env": "7",
     "@babel/runtime": "7",
+    "@tabler/core": "1.0.0-beta17",
     "babel-loader": "8",
     "compression-webpack-plugin": "9",
     "css-loader": "^6.7.1",

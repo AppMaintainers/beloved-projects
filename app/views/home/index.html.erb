@@ -1,14 +1,45 @@
+<div class="page-header d-print-none text-white">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <!-- Page pre-title -->
+        <div class="page-pretitle">
+          Overview
+        </div>
+        <h2 class="page-title">
+          Projects
+        </h2>
+      </div>
+      <!-- Page title actions -->
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+          <% if params[:all] == 'true' %>
+            <%= link_to 'View my projects', root_path(all: 'false'), class: 'btn btn-primary' %>
+          <% else %>
+            <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
+          <% end %>
+          <%= link_to new_project_path, class: 'btn btn-primary d-none d-sm-inline-block' do %>
+            <%= inline_svg_pack_tag('static/@tabler/icons/icons/plus.svg') %>
+            Create new project
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container mx-auto">
-  <% if params[:all] == 'true' %>
-    <%= link_to 'View my projects', root_path(all: 'false'), class: 'btn btn-primary' %>
-  <% else %>
-    <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
-  <% end %>
   <% if !@projects.nil? %>
     <div>
-      <% @projects.each do |project| %>
-        <%= render "projects/project", project: project %>
-      <% end %>
+      <div class="page-body">
+        <div class="container-xl">
+          <div class="row row-deck row-cards">
+            <% @projects.each do |project| %>
+              <%= render "projects/project", project: project %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   <% else %>
     <p>No projects could be found.</p>

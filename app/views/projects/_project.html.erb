@@ -1,10 +1,37 @@
-<div id="project-<%= project.id %>" class="bg-white m-3 px-4"
-     style="border-left: 6px solid <%= project.status.background %>">
-  <h2><%= link_to project.title, project%></h2>
-  <span class="pt-3">Associated users:</span>
-  <ul>
-    <% project.maintainers.each do |maintainer| %>
-    <li><%= link_to maintainer.first_name, maintainer %></li>
-    <% end %>
-  </ul>
+<div class="col-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">
+        <%= link_to project.title, project, class: 'link-secondary' %>
+      </h3>
+    </div>
+    <div class="card-body">
+      <div class="datagrid">
+        <div class="datagrid-item">
+          <div class="datagrid-title">Maintainers</div>
+          <div class="datagrid-content">
+            <div class="avatar-list avatar-list-stacked">
+              <% project.maintainers.each do |maintainer| %>
+                <span class="avatar avatar-xs avatar-rounded">
+                  <%= maintainer.first_name.first%><%= maintainer.last_name.first%>
+                </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="datagrid-item">
+          <div class="datagrid-title">Accounts</div>
+          <div class="datagrid-content">
+            <%= link_to project.accounts.count,  project, class: 'link-secondary' %>
+          </div>
+        </div>
+        <div class="datagrid-item">
+          <div class="datagrid-title">Last updated</div>
+          <div class="datagrid-content">
+            <%= (Date.today - project.updated_at.to_date).to_i %> days ago
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

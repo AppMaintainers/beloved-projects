@@ -9,26 +9,6 @@
         <% end %>
       <% end %>
     </div>
-
-    <div class="my-3">
-      <%= f.label :acquired_at %>
-      <%= f.date_field :acquired_at %>
-      <% if @project.errors.include?(:acquired_at) %>
-        <% @project.errors.full_messages_for(:acquired_at).each do |msg| %>
-          <p><%= msg %></p>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="my-3">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <% if @project.errors.include?(:description) %>
-      <% @project.errors.full_messages_for(:description).each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    <% end %>
   </div>
 
   <div>

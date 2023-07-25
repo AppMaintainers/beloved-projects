@@ -3,10 +3,8 @@
     <div class="mb-3">
       <%= @project.title %>
     </div>
-
-    <br>
-    <span>Moved to our ownership at <strong><%= @project.acquired_at.strftime("%Y, %B") %></strong></span><br>
   </div>
+
   <div>
     <h4>Maintainers</h4>
     <%= link_to "Add Maintainer", edit_project_maintainers_path(@project),class: "btn btn-primary" %>
@@ -15,12 +13,6 @@
           <li class="list-group-item"><%= link_to maintainer.first_name, maintainer, class: "nav-link" %></li>
         <% end %>
       </ul>
-
-  </div>
-
-  <div>
-    <h4>Description</h4>
-    <%= @project.description %>
   </div>
 
   <div>

@@ -7,6 +7,7 @@ RSpec.describe "Sessions", type: :request do
 
     context "when user credentials are valid" do
       let(:password) { user.password }
+
       it "signs in when user is valid" do
         expect(post user_session_path, params: params).to redirect_to(root_path)
       end

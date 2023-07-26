@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Login workflow", type: :feature do
   let(:user) { FactoryBot.create(:user) }
+
   before do
     visit "/"
     fill_in("user[email]", with: user.email)

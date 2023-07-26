@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   before_action :load_project
-  
+
   def new
     @account = authorize Account.new
   end

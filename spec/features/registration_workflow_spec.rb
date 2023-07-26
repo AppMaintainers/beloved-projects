@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Registration workflow", type: :feature do
+RSpec.describe "Registration workflow" do
   before do
     visit "/users/sign_in/"
     click_on("Sign up")

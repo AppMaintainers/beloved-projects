@@ -38,11 +38,11 @@ class ProjectsController < ApplicationController
 
   private
 
-    def project_params
-      params.require(:project).permit(:title)
-    end
+  def project_params
+    params.require(:project).permit(:title, :description, :status_id, :acquired_at)
+  end
 
-    def load_project
-      @project = authorize Project.find_by(id: params[:id])
-    end
+  def load_project
+    @project = authorize Project.find_by(id: params[:id])
+  end
 end

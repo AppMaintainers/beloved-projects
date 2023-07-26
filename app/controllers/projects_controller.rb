@@ -3,6 +3,16 @@
 class ProjectsController < ApplicationController
   before_action :load_project, only: [:show, :edit, :update]
 
+  def show
+  end
+
+  def new
+    @project = authorize Project.new
+  end
+
+  def edit
+  end
+
   def create
     @project = authorize current_user.projects.build(project_params)
     @project.maintainers << current_user
@@ -14,16 +24,6 @@ class ProjectsController < ApplicationController
       flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
       render 'projects/new'
     end
-  end
-
-  def new
-    @project = authorize Project.new
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def update

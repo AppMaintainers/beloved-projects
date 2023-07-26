@@ -24,5 +24,4 @@ RSpec.describe "Login workflow", type: :feature do
       expect(page).to have_text("Invalid Email or password.")
     end
   end
-
 end

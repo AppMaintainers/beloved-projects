@@ -14,5 +14,4 @@ RSpec.describe "Logout workflow", type: :feature do
       expect(page).to have_text("Signed out successfully.")
     end
   end
-
 end

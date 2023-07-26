@@ -15,11 +15,12 @@ RSpec.describe User, type: :model do
     end
 
     context "when email address is valid" do
-      it { is_expected.to allow_value('user@example.com',
-                                      'USER@foo.COM',
-                                      'A_US-ER@foo.bar.org',
-                                      'first.last@foo.jp',
-                                      'alice+bob@baz.cn').for(:email) }
+      it {
+        is_expected.to allow_value('user@example.com',
+                                   'USER@foo.COM',
+                                   'A_US-ER@foo.bar.org',
+                                   'first.last@foo.jp',
+                                   'alice+bob@baz.cn').for(:email) }
     end
 
     context "when email address is not valid" do

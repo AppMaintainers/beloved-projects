@@ -22,7 +22,7 @@ RSpec.describe 'Registration workflow' do
     end
 
     it 'will increase Users count' do
-      expect { click_button('Sign up') }.to change { User.count }.by(1)
+      expect { click_button('Sign up') }.to change(User, :count).by(1)
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe 'Registration workflow' do
     end
 
     it "won't increase Users count" do
-      expect { click_button('Sign up') }.not_to change { User.count }
+      expect { click_button('Sign up') }.not_to change(User, :count)
     end
   end
 end

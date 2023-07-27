@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -39,8 +41,8 @@ gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 
-gem "sentry-rails"
-gem "sentry-ruby"
+gem 'sentry-rails'
+gem 'sentry-ruby'
 
 gem 'i18n'
 
@@ -49,7 +51,7 @@ gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara"
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.19'
   gem 'rspec-rails', '~> 5.0.0'

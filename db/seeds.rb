@@ -21,6 +21,6 @@ users = User.order(:created_at).take(6)
 1.times do |index|
   title = "Awesome project #{index + 1}"
   description = Faker::Lorem.sentence(word_count: 5)
-  acquired_at = Time.now
+  acquired_at = Time.zone.now
   users.each { |user| user.projects.create!(title: title, description: description, status: Status.last, acquired_at: acquired_at) }
 end

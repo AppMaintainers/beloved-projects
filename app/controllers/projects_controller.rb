@@ -29,11 +29,10 @@ class ProjectsController < ApplicationController
   def update
     if @project.update(project_params)
       flash.now[:notice] = 'Project updated successfully!'
-      render 'projects/edit'
     else
       flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
-      render 'projects/edit'
     end
+    render 'projects/edit'
   end
 
   private

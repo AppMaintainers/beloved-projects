@@ -22,7 +22,8 @@ RSpec.describe User do
                                        'USER@foo.COM',
                                        'A_US-ER@foo.bar.org',
                                        'first.last@foo.jp',
-                                       'alice+bob@baz.cn').for(:email) }
+                                       'alice+bob@baz.cn').for(:email)
+      }
     end
 
     context 'when email address is not valid' do

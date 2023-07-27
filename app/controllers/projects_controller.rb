@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project.maintainers << current_user
 
     if @project.save
-      flash[:notice] = "Project created successfully!"
+      flash[:notice] = 'Project created successfully!'
       redirect_to root_path
     else
       flash.now[:alert] = @project.errors.full_messages.join('. ').to_s

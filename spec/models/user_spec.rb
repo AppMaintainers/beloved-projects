@@ -3,20 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  describe "User model" do
+  describe 'User model' do
     let(:user) { FactoryBot.create(:user) }
 
-    context "when user attributes are valid" do
+    context 'when user attributes are valid' do
       it 'passes' do
         expect(user).to be_valid
       end
     end
 
-    context "when user password is too short" do
+    context 'when user password is too short' do
       it { is_expected.to validate_length_of(:password).is_at_least(6) }
     end
 
-    context "when email address is valid" do
+    context 'when email address is valid' do
       it {
         expect(subject).to allow_value('user@example.com',
                                        'USER@foo.COM',
@@ -25,11 +25,11 @@ RSpec.describe User do
                                        'alice+bob@baz.cn').for(:email) }
     end
 
-    context "when email address is not valid" do
+    context 'when email address is not valid' do
       it { is_expected.not_to allow_value('user@@example.com').for(:email) }
     end
 
-    context "when an email is already in use" do
+    context 'when an email is already in use' do
       it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     end
   end

@@ -12,9 +12,15 @@
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
           <% if params[:all] == 'true' %>
-            <%= link_to 'View my projects', root_path(all: 'false'), class: 'btn btn-primary' %>
+            <%= link_to root_path(all: 'false'), class: 'btn btn-primary' do %>
+              <%= inline_svg_pack_tag('static/@tabler/icons/icons/eye.svg') %>
+              View my projects
+            <% end %>
           <% else %>
-            <%= link_to 'View all projects', root_path(all: 'true'), class: 'btn btn-primary' %>
+            <%= link_to root_path(all: 'true'), class: 'btn btn-primary' do %>
+              <%= inline_svg_pack_tag('static/@tabler/icons/icons/eye.svg') %>
+              View all projects
+            <% end %>
           <% end %>
           <%= link_to new_project_path, class: 'btn btn-primary d-none d-sm-inline-block' do %>
             <%= inline_svg_pack_tag('static/@tabler/icons/icons/plus.svg') %>

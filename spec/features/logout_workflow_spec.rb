@@ -10,7 +10,7 @@ RSpec.describe "Logout workflow", type: :feature do
 
   context "when user is logged in" do
     it "can log out" do
-      click_on("Log out")
+      click_on("Logout")
       expect(page).to have_text("Signed out successfully.")
     end
   end

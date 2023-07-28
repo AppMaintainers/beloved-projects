@@ -1,6 +1,9 @@
 require.resolve('../../../node_modules/@tabler/icons/icons/eye.svg');
 require.resolve('../../../node_modules/@tabler/icons/icons/home.svg');
+require.resolve('../../../node_modules/@tabler/icons/icons/key.svg');
 require.resolve('../../../node_modules/@tabler/icons/icons/lifebuoy.svg');
 require.resolve('../../../node_modules/@tabler/icons/icons/link.svg');
+require.resolve('../../../node_modules/@tabler/icons/icons/pencil.svg');
 require.resolve('../../../node_modules/@tabler/icons/icons/plus.svg');
 require.resolve('../../../node_modules/@tabler/icons/icons/trash.svg');
+require.resolve('../../../node_modules/@tabler/icons/icons/users.svg');

@@ -64,6 +64,13 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     bcrypt (3.1.16)
+    better_html (2.0.2)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bindex (0.8.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
@@ -87,6 +94,13 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    erb_lint (0.4.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.10.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -241,6 +255,7 @@ GEM
       semantic_range (>= 2.3.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    smart_properties (1.17.0)
     spring (3.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -276,6 +291,7 @@ DEPENDENCIES
   byebug
   capybara
   devise
+  erb_lint
   factory_bot_rails
   faker (~> 2.19)
   font-awesome-rails (~> 4.7, >= 4.7.0.7)

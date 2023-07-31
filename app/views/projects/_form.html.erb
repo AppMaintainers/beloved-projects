@@ -3,8 +3,8 @@
     <div class="my-3">
       <%= f.label :title %>
       <%= f.text_field :title %>
-      <% if @project.errors.include?(:title) %>
-        <% @project.errors.full_messages_for(:title).each do |msg| %>
+      <% if project.errors.include?(:title) %>
+        <% project.errors.full_messages_for(:title).each do |msg| %>
           <p><%= msg %></p>
         <% end %>
       <% end %>

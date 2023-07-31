@@ -1,4 +1,4 @@
-<%= form_with(model: @account, url: project_accounts_path(@project)) do |f| %>
+<%= form_with(model: account, url: project_accounts_path(project)) do |f| %>
   <div class="input-group-sm mb-3">
     <%= f.label :name, class: 'input-group-text' %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -7,6 +7,6 @@
     <%= f.label :description, class: 'input-group-text' %>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
-    <%= link_to 'Cancel', project_path(@project), class: 'btn btn-warning' %>
+    <%= link_to 'Cancel', project_path(project), class: 'btn btn-warning' %>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
 <% end %>

@@ -7,10 +7,10 @@
 
   <div>
     <h4>Maintainers</h4>
-    <%= link_to "Add Maintainer", edit_project_maintainers_path(@project),class: "btn btn-primary" %>
+    <%= link_to 'Add Maintainer', edit_project_maintainers_path(@project), class: 'btn btn-primary' %>
       <ul class="list-group list-group-flush">
         <% @project.maintainers.each do |maintainer| %>
-          <li class="list-group-item"><%= link_to maintainer.first_name, maintainer, class: "nav-link" %></li>
+          <li class="list-group-item"><%= link_to maintainer.first_name, maintainer, class: 'nav-link' %></li>
         <% end %>
       </ul>
   </div>
@@ -18,7 +18,7 @@
   <div>
     <h4>Accounts</h4>
     <% if policy(@project).edit? %>
-      <%= button_to "Add new Account", new_project_account_path(@project), method: :get, class: "btn btn-primary" %>
+      <%= button_to 'Add new Account', new_project_account_path(@project), method: :get, class: 'btn btn-primary' %>
     <% end %>
     <% if @project.accounts.any? %>
       <table class="table">
@@ -41,6 +41,6 @@
   </div>
 
   <% if policy(@project).edit? %>
-    <%= link_to 'Edit', edit_project_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Edit', edit_project_path, class: 'btn btn-outline-primary' %>
   <% end %>
 </div>

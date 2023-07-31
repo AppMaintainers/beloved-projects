@@ -13,7 +13,7 @@
             <div class="avatar-list avatar-list-stacked">
               <% project.maintainers.each do |maintainer| %>
                 <span class="avatar avatar-xs avatar-rounded">
-                  <%= maintainer.first_name.first%><%= maintainer.last_name.first%>
+                  <%= maintainer.first_name.first %><%= maintainer.last_name.first %>
                 </span>
               <% end %>
             </div>
@@ -22,13 +22,13 @@
         <div class="datagrid-item">
           <div class="datagrid-title">Accounts</div>
           <div class="datagrid-content">
-            <%= link_to project.accounts.count,  project, class: 'link-secondary' %>
+            <%= link_to project.accounts.count, project, class: 'link-secondary' %>
           </div>
         </div>
         <div class="datagrid-item">
           <div class="datagrid-title">Last updated</div>
           <div class="datagrid-content">
-            <%= (Date.today - project.updated_at.to_date).to_i %> days ago
+            <%= (Time.zone.today - project.updated_at.to_date).to_i %> days ago
           </div>
         </div>
       </div>

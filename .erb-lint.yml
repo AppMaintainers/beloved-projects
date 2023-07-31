@@ -7,6 +7,8 @@ linters:
   ErbSafety:
     enabled: true
     better_html_config: .better-html.yml
+  PartialInstanceVariable:
+    enabled: true
   Rubocop:
     enabled: true
     rubocop_config:

@@ -33,11 +33,6 @@ Layout/BlockEndNewline:
     - 'spec/models/user_spec.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
-Layout/ElseAlignment:
-  Exclude:
-    - 'app/controllers/home_controller.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
 Layout/EmptyLines:
   Exclude:
     - 'db/migrate/20211115111131_devise_create_users.rb'
@@ -52,23 +47,9 @@ Layout/EmptyLinesAroundBlockBody:
     - 'spec/features/logout_workflow_spec.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/controllers/projects_controller.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
 Layout/EmptyLinesAroundMethodBody:
   Exclude:
     - 'app/controllers/projects_controller.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleAlignWith, Severity.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-Layout/EndAlignment:
-  Exclude:
-    - 'app/controllers/home_controller.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
@@ -96,7 +77,6 @@ Layout/IndentationConsistency:
 # Configuration parameters: Width, AllowedPatterns.
 Layout/IndentationWidth:
   Exclude:
-    - 'app/controllers/home_controller.rb'
     - 'app/controllers/projects_controller.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
@@ -157,8 +137,6 @@ Layout/SpaceInsideParens:
 Layout/TrailingEmptyLines:
   Exclude:
     - 'config/initializers/sentry.rb'
-    - 'spec/features/login_workflow_spec.rb'
-    - 'spec/features/logout_workflow_spec.rb'
     - 'spec/features/registration_workflow_spec.rb'
     - 'spec/requests/sessions_spec.rb'
 
@@ -167,7 +145,6 @@ Layout/TrailingEmptyLines:
 Layout/TrailingWhitespace:
   Exclude:
     - 'app/controllers/accounts_controller.rb'
-    - 'app/controllers/home_controller.rb'
 
 # Configuration parameters: AllowedMethods, AllowedPatterns.
 Lint/AmbiguousBlockAssociation:
@@ -196,19 +173,18 @@ RSpec/EmptyLineAfterFinalLet:
     - 'spec/features/login_workflow_spec.rb'
     - 'spec/requests/sessions_spec.rb'
 
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: always_allow, single_line_only, disallow
+RSpec/ExampleWithoutDescription:
+  Exclude:
+    - 'spec/models/user_spec.rb'
+
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: CustomTransform, IgnoredWords, DisallowedExamples.
 # DisallowedExamples: works
 RSpec/ExampleWording:
   Exclude:
     - 'spec/models/user_spec.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: method_call, block
-RSpec/ExpectChange:
-  Exclude:
-    - 'spec/features/registration_workflow_spec.rb'
 
 # This cop supports unsafe autocorrection (--autocorrect-all).
 RSpec/FactoryBot/SyntaxMethods:
@@ -218,13 +194,6 @@ RSpec/FactoryBot/SyntaxMethods:
     - 'spec/features/registration_workflow_spec.rb'
     - 'spec/models/user_spec.rb'
     - 'spec/requests/sessions_spec.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: single_line_only, single_statement_only, disallow, require_implicit
-RSpec/ImplicitSubject:
-  Exclude:
-    - 'spec/models/user_spec.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
@@ -271,11 +240,6 @@ Rails/HasManyOrHasOneDependent:
   Exclude:
     - 'app/models/status.rb'
 
-Rails/I18nLocaleTexts:
-  Exclude:
-    - 'app/controllers/accounts_controller.rb'
-    - 'app/controllers/projects_controller.rb'
-
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: strict, flexible
@@ -287,33 +251,6 @@ Rails/TimeZone:
 Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
-
-# Configuration parameters: AllowedConstants.
-Style/Documentation:
-  Exclude:
-    - 'app/controllers/accounts_controller.rb'
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/home_controller.rb'
-    - 'app/controllers/projects_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/application_mailer.rb'
-    - 'app/models/account.rb'
-    - 'app/models/application_record.rb'
-    - 'app/models/project.rb'
-    - 'app/models/status.rb'
-    - 'app/models/user.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20211115111131_devise_create_users.rb'
-    - 'db/migrate/20211117110313_add_first_name_to_users.rb'
-    - 'db/migrate/20211117110323_add_last_name_to_users.rb'
-    - 'db/migrate/20211203102358_create_projects.rb'
-    - 'db/migrate/20211206142516_create_join_table_users_projects.rb'
-    - 'db/migrate/20211207124652_create_statuses.rb'
-    - 'db/migrate/20211207125124_add_status_to_project.rb'
-    - 'db/migrate/20220318093327_add_date_to_projects.rb'
-    - 'db/migrate/20230215134146_change_project_context_to_description.rb'
-    - 'db/migrate/20230216112945_create_accounts.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowedVars.
@@ -420,13 +357,6 @@ Style/RedundantInterpolation:
   Exclude:
     - 'app/controllers/accounts_controller.rb'
     - 'app/controllers/projects_controller.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: ConvertCodeThatCanStartToReturnNil, AllowedMethods, MaxChainLength.
-# AllowedMethods: present?, blank?, presence, try, try!
-Style/SafeNavigation:
-  Exclude:
-    - 'app/controllers/home_controller.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.

@@ -13,6 +13,15 @@ AllCops:
 Rails/I18nLocaleTexts:
   Enabled: false
 
+RSpec/ExampleWithoutDescription:
+  EnforcedStyle: single_line_only
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/ImplicitSubject:
+  EnforcedStyle: single_statement_only
+
 Style/AccessorGrouping:
   EnforcedStyle: separated
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_25_091259) do
+ActiveRecord::Schema.define(version: 2023_07_31_090232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2023_07_25_091259) do
     t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "domain"
+    t.string "organization"
+    t.jsonb "services", default: []
+    t.bigint "account_manager_id"
+    t.boolean "owner_request", default: false, null: false
+    t.text "owner_request_notes"
+    t.boolean "mfa_supported", default: false, null: false
+    t.index ["account_manager_id"], name: "index_accounts_on_account_manager_id"
     t.index ["project_id"], name: "index_accounts_on_project_id"
   end
 
@@ -49,4 +57,5 @@ ActiveRecord::Schema.define(version: 2023_07_25_091259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "users", column: "account_manager_id"
 end

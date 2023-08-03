@@ -1,3 +1,5 @@
 const TomSelect = require('tom-select');
 
-new TomSelect('[data-tomselect]', { create: true });
+if (document.querySelector('[data-tomselect]')) {
+    new TomSelect('[data-tomselect]', { create: true });
+}

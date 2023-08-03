@@ -12,7 +12,8 @@
     "@rails/ujs": "^6.0.0",
     "@tabler/icons": "^2.26.0",
     "bootstrap": "^5.2.1",
-    "checkcss": "^2.0.5"
+    "checkcss": "^2.0.5",
+    "tom-select": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "7",

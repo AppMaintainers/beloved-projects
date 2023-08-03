@@ -21,7 +21,7 @@
               </div>
                 <div class="input-group-sm mb-3">
                   <%= f.label :services, class: "form-check-label required" %>
-                  <%= f.text_field :services, class: "form-control" %>
+                  <%= f.text_field :services, class: "form-control", data: {tomselect: true} %>
                 </div>
               <div class="mb-3">
                 <%= f.label :account_manager_id,  class: "form-check-label required" do %>Who manages?<% end %>

@@ -2,7 +2,11 @@
 
 class AccountsController < ApplicationController
   before_action :load_project
-  
+
+  def index
+    @accounts = policy_scope @project.accounts
+  end
+
   def new
     @account = authorize Account.new
   end
@@ -16,10 +20,6 @@ class AccountsController < ApplicationController
       flash[:alert] = "#{@account.errors.full_messages.join('. ')}"
       redirect_to new_project_account_path
     end
-  end
-
-  def index
-    @accounts = policy_scope @project.accounts
   end
 
 private

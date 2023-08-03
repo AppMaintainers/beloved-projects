@@ -18,6 +18,10 @@ class AccountsController < ApplicationController
     end
   end
 
+  def index
+    @accounts = policy_scope @project.accounts
+  end
+
 private
 
   def load_project
@@ -25,6 +29,8 @@ private
   end
 
   def account_params
-    params.require(:account).permit(:name, :description)
+    params.require(:account).permit(:name, :domain, :organization, :services,
+                                    :account_manager_id, :owner_request, :owner_request_notes,
+                                    :mfa_supported, :description)
   end
 end

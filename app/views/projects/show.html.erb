@@ -21,20 +21,7 @@
       <%= button_to 'Add new Account', new_project_account_path(@project), method: :get, class: 'btn btn-primary' %>
     <% end %>
     <% if @project.accounts.any? %>
-      <table class="table">
-        <thead>
-          <th>Name</th>
-          <th>Description</th>
-        </thead>
-        <tbody>
-          <% @project.accounts.each do |account| %>
-            <tr>
-              <td><%= account.name %></td>
-              <td><%= account.description %></td>
-            <tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= button_to "Accounts", project_accounts_path(@project), method: :get, class: "btn btn-primary" %>
     <% else %>
       <p>No accounts could be found for this project.</p>
     <% end %>

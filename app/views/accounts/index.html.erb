@@ -1,0 +1,61 @@
+<%= render 'projects/header', project: @project %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Accounts</h3>
+          </div>
+          <% if @accounts.any? %>
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap datatable">
+                <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Domain</th>
+                  <th>Organization</th>
+                  <th>Services</th>
+                  <th>Who manages</th>
+                  <th>Own account</th>
+                  <th>MFA supported</th>
+                  <th>Notes</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @accounts.each do |account| %>
+                  <tr>
+                    <td><%= account.name %></td>
+                    <td><%= account.domain %></td>
+                    <td><%= account.organization %></td>
+                    <td><%= account.services %></td>
+                    <td>
+                <span class="avatar avatar-xs avatar-rounded">
+                  <%= account.account_manager.first_name.first%><%= account.account_manager.last_name.first%>
+                </span>
+                    </td>
+                    <td><%= account.owner_request ? "Needed" : "Not needed" %></td>
+                    <td><%= account.mfa_supported ? "Yes" : "No" %></td>
+                    <td><%= account.description %></td>
+                    <td class="text-end">
+                      <a href="#" class="btn btn-default">Edit</a>
+                    </td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer d-flex align-items-center">
+              <p class="m-0 text-muted">
+                <%= @accounts.count %> <%='item'.pluralize(@accounts.count) %>
+              </p>
+            </div>
+          <% else %>
+            <p>No accounts could be found for this project.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="page-header d-print-none text-white">
+  <div class="container-xl">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <div class="page-pretitle">
+          Project overview
+        </div>
+        <h2 class="page-title">
+          <%= link_to project.title, project %>
+        </h2>
+      </div>
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+          <span class="dropdown">
+            <a href="#" class="btn btn-primary dropdown-toggle align-text-top show"
+               data-bs-boundary="viewport" data-bs-toggle="dropdown">
+                <%= inline_svg_pack_tag('static/@tabler/icons/icons/plus.svg') %>
+              New
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end"
+                 style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 29.5px, 0px);">
+              <%= link_to 'Account', new_project_account_path(project), class: "dropdown-item" %>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

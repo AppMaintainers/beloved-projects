@@ -9,6 +9,7 @@ import "channels"
 import '@tabler/core'
 
 import "../util/checkcss.js"
+import "../util/tomselect.js"
 import "../stylesheets/application.scss"
 
 Rails.start()

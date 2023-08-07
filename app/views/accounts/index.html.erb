@@ -36,11 +36,11 @@
                     </td>
                     <td>
                 <span class="avatar avatar-xs avatar-rounded">
-                  <%= account.account_manager.first_name.first%><%= account.account_manager.last_name.first%>
+                  <%= account.account_manager.first_name.first %><%= account.account_manager.last_name.first %>
                 </span>
                     </td>
-                    <td><%= account.owner_request ? "Needed" : "Not needed" %></td>
-                    <td><%= account.mfa_supported ? "Yes" : "No" %></td>
+                    <td><%= account.owner_request ? 'Needed' : 'Not needed' %></td>
+                    <td><%= account.mfa_supported ? 'Yes' : 'No' %></td>
                     <td><%= account.description %></td>
                     <td class="text-end">
                       <a href="#" class="btn btn-default">Edit</a>
@@ -52,7 +52,7 @@
             </div>
             <div class="card-footer d-flex align-items-center">
               <p class="m-0 text-muted">
-                <%= @accounts.count %> <%='item'.pluralize(@accounts.count) %>
+                <%= @accounts.count %> <%= 'item'.pluralize(@accounts.count) %>
               </p>
             </div>
           <% else %>

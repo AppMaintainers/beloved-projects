@@ -6,49 +6,49 @@
           <div class="card-body">
             <h1>Creating a new account</h1>
             <br />
-            <%= form_with(model: @account, url: project_accounts_path(@project)) do |f| %>
+            <%= form_with(model: account, url: project_accounts_path(project)) do |f| %>
               <div class="mb-3">
-                <%= f.label :name, class: "form-check-label required" do %>Service name<% end %>
-                <%= f.text_field :name, class: "form-control" %>
+                <%= f.label :name, class: 'form-check-label required' do %>Service name<% end %>
+                <%= f.text_field :name, class: 'form-control' %>
               </div>
               <div class="mb-3">
-                <%= f.label :domain, class: "form-check-label" %>
-                <%= f.text_field :domain, class: "form-control" %>
+                <%= f.label :domain, class: 'form-check-label' %>
+                <%= f.text_field :domain, class: 'form-control' %>
               </div>
               <div class="input-group-sm mb-3">
-                <%= f.label :organization, class: "form-check-label" %>
-                <%= f.text_field :organization, class: "form-control" %>
+                <%= f.label :organization, class: 'form-check-label' %>
+                <%= f.text_field :organization, class: 'form-control' %>
               </div>
               <div class="input-group-sm mb-3">
-                <%= f.label :services, class: "form-check-label required" %>
-                <%= f.text_field :services, class: "form-control", data: {tomselect: true} %>
+                <%= f.label :services, class: 'form-check-label required' %>
+                <%= f.text_field :services, class: 'form-control', data: { tomselect: true } %>
               </div>
               <div class="mb-3">
-                <%= f.label :account_manager_id,  class: "form-check-label required" do %>Who manages?<% end %>
+                <%= f.label :account_manager_id, class: 'form-check-label required' do %>Who manages?<% end %>
                 <%= f.select :account_manager_id do %>
-                  <%= options_for_select(["Select people who manages this service",
-                      options_from_collection_for_select(User.all, :id, :first_name)],
-                      "Select people who manages this service") %>
+                  <%= options_for_select(['Select people who manages this service',
+                                          options_from_collection_for_select(User.all, :id, :first_name)],
+                                         'Select people who manages this service') %>
                 <% end %>
               </div>
               <div class="mb-3 form-check">
-                <%= f.check_box :owner_request, class: "form-check-input" %>
-                <%= f.label :owner_request,  class: "form-check-label required" do %>Own account needed?<% end %>
-                <%= f.text_area :owner_request_notes, class: "form-control"%>
+                <%= f.check_box :owner_request, class: 'form-check-input' %>
+                <%= f.label :owner_request, class: 'form-check-label required' do %>Own account needed?<% end %>
+                <%= f.text_area :owner_request_notes, class: 'form-control' %>
               </div>
               <div class="mb-3 form-check">
-                <%= f.check_box :mfa_supported, class: "form-check-input" %>
-                <%= f.label :mfa_supported, class: "form-check-label required" do %>MFA needed?<% end %>
+                <%= f.check_box :mfa_supported, class: 'form-check-input' %>
+                <%= f.label :mfa_supported, class: 'form-check-label required' do %>MFA needed?<% end %>
               </div>
               <div class="mb-3">
-                <%= f.label :description, class: "form-check-label" %>
-                <%= f.text_area :description, class: "form-control" %>
+                <%= f.label :description, class: 'form-check-label' %>
+                <%= f.text_area :description, class: 'form-control' %>
                 <div id="descHelp" class="form-text">
                   What would be useful to know about this link?
                 </div>
               </div>
-              <%= f.submit "Save", class: "btn btn-primary" %>
-              <%= link_to "Cancel", project_path(@project), class: "btn btn-warning" %>
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', project_path(@project), class: 'btn btn-warning' %>
             <% end %>
           </div>
         </div>

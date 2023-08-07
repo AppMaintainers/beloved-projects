@@ -29,7 +29,11 @@
                     <td><%= account.name %></td>
                     <td><%= account.domain %></td>
                     <td><%= account.organization %></td>
-                    <td><%= account.services %></td>
+                    <td>
+                      <% account.services.each_with_index do |service, index| %>
+                        <%= ',' unless index.zero? %> <%= service %>
+                      <% end %>
+                    </td>
                     <td>
                 <span class="avatar avatar-xs avatar-rounded">
                   <%= account.account_manager.first_name.first%><%= account.account_manager.last_name.first%>

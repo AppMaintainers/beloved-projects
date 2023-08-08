@@ -18,10 +18,10 @@
   <div>
     <h4>Accounts</h4>
     <% if policy(@project).edit? %>
-      <%= button_to 'Add new Account', new_project_account_path(@project), method: :get, class: 'btn btn-primary' %>
+      <%= link_to 'Add new Account', new_project_account_path(@project), class: 'btn btn-primary' %>
     <% end %>
     <% if @project.accounts.any? %>
-      <%= button_to 'Accounts', project_accounts_path(@project), method: :get, class: 'btn btn-primary' %>
+      <%= link_to 'Accounts', project_accounts_path(@project), class: 'btn btn-primary' %>
     <% else %>
       <p>No accounts could be found for this project.</p>
     <% end %>

@@ -30,9 +30,7 @@
                     <td><%= account.domain %></td>
                     <td><%= account.organization %></td>
                     <td>
-                      <% account.services.each_with_index do |service, index| %>
-                        <%= ',' unless index.zero? %> <%= service %>
-                      <% end %>
+                      <%= account.services.join(', ') %>
                     </td>
                     <td>
                 <span class="avatar avatar-xs avatar-rounded">

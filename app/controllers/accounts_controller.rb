@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
 
   def new
     @account = authorize Account.new
+    @users = policy_scope(User)
   end
 
   def create

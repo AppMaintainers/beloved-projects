@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2023_07_31_090232) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "domain"
     t.string "organization"
-    t.jsonb "services", default: []
+    t.jsonb "services", default: [], null: false
     t.bigint "account_manager_id"
     t.boolean "owner_request", default: false, null: false
     t.text "owner_request_notes"

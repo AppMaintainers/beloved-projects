@@ -15,22 +15,27 @@
                 <%= f.label :domain, class: 'form-check-label' %>
                 <%= f.text_field :domain, class: 'form-control' %>
               </div>
-              <div class="input-group-sm mb-3">
+              <div class="mb-3">
                 <%= f.label :organization, class: 'form-check-label' %>
                 <%= f.text_field :organization, class: 'form-control' %>
               </div>
-              <div class="input-group-sm mb-3">
+              <div class="mb-3">
                 <%= f.label :services, class: 'form-check-label required' %>
                 <%= f.text_field :services, class: 'form-control', data: { tomselect: true } %>
               </div>
               <div class="mb-3">
                 <%= f.label :account_manager_id, class: 'form-check-label required' do %>Who manages?<% end %>
                 <%= f.select :account_manager_id, users.map { |user| [user.first_name, user.id] },
-                             prompt: 'Select people who manages this service' %>
+                             { prompt: 'Select people who manages this service' }, { class: 'form-select' } %>
               </div>
               <div class="mb-3 form-check">
                 <%= f.check_box :owner_request, class: 'form-check-input' %>
                 <%= f.label :owner_request, class: 'form-check-label required' do %>Own account needed?<% end %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :owner_request_notes, class: 'form-check-label' do %>
+                  If a personal account is not required, please state a reason why!
+                <% end %>
                 <%= f.text_area :owner_request_notes, class: 'form-control' %>
               </div>
               <div class="mb-3 form-check">

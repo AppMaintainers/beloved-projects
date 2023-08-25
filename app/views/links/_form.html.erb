@@ -1,0 +1,34 @@
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-deck row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h1>Creating a new link</h1>
+            <br />
+            <%= form_with(model: link, url: project_links_path(project)) do |f| %>
+              <div class="mb-3">
+                <%= f.label :title, class: 'form-label required' %>
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :url, class: 'form-label required' do %>URL<% end %>
+                <%= f.text_field :url, class: 'form-control' %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :decription, class: 'form-label required' %>
+                <%= f.text_field :description, class: 'form-control' %>
+                <div id="descHelp" class="form-text">
+                  What would be useful to know about this link?
+                </div>
+              </div>
+              <br />
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', project_path(@project), class: 'btn btn-warning' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

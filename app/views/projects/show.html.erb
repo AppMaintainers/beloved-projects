@@ -26,6 +26,17 @@
       <p>No accounts could be found for this project.</p>
     <% end %>
   </div>
+  <div>
+    <h4>Links</h4>
+    <% if policy(@project).edit? %>
+      <%= link_to 'Add new Link', new_project_link_path(@project), class: 'btn btn-primary' %>
+    <% end %>
+    <% if @project.accounts.any? %>
+      <%= link_to 'Links', project_links_path(@project), class: 'btn btn-primary' %>
+    <% else %>
+      <p>No links could be found for this project.</p>
+    <% end %>
+  </div>
 
   <% if policy(@project).edit? %>
     <%= link_to 'Edit', edit_project_path, class: 'btn btn-outline-primary' %>

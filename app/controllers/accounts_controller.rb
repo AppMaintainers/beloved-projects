@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
       flash[:notice] = "Account created successfully!"
       redirect_to project_path(@project)
     else
-      flash[:alert] = "#{@account.errors.full_messages.join('. ')}"
+      flash[:alert] = @account.errors.full_messages.join('. ')
       redirect_to new_project_account_path
     end
   end

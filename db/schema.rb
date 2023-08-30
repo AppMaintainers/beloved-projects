@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2023_08_22_114552) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "domain"
     t.string "organization"
-    t.jsonb "services", default: []
+    t.jsonb "services", default: [], null: false
     t.bigint "account_manager_id"
     t.boolean "owner_request", default: false, null: false
     t.text "owner_request_notes"
@@ -33,10 +33,12 @@ ActiveRecord::Schema.define(version: 2023_08_22_114552) do
   end
 
   create_table "links", force: :cascade do |t|
-    t.string "title"
-    t.string "url"
+    t.string "title", null: false
+    t.string "url", null: false
     t.text "description"
     t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_links_on_project_id"
   end
 

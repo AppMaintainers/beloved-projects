@@ -25,7 +25,7 @@ class LinksController < ApplicationController
   private
 
   def load_project
-    @project = authorize Project.find_by( :project_id), :show?
+    @project = authorize Project.find_by(:project_id), :show?
   end
 
   def link_params

@@ -12,6 +12,11 @@ class AccountsController < ApplicationController
     @users = policy_scope(User)
   end
 
+  def edit
+    @users = policy_scope(User)
+    @account = authorize @project.accounts.find_by(id: params[:id])
+  end
+
   def create
     @account = authorize @project.accounts.build(account_params)
     if @account.save
@@ -20,6 +25,17 @@ class AccountsController < ApplicationController
     else
       flash[:alert] = @account.errors.full_messages.join('. ')
       redirect_to new_project_account_path
+    end
+  end
+
+  def update
+    @account = authorize @project.accounts.find_by(id: params[:id])
+    if @account.update(account_params)
+      flash[:notice] = "Account edited successfully!"
+      redirect_to project_accounts_path(@project)
+    else
+      flash[:alert] = @account.errors.full_messages.join('. ')
+      redirect_to edit_project_account_path(@project, @account)
     end
   end
 

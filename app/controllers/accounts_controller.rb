@@ -39,6 +39,16 @@ class AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    account = authorize @project.accounts.find_by(id: params[:id])
+    if @project.accounts.destroy(account)
+      flash[:info] = 'Account removed successfully!'
+    else
+      flash[:danger] = 'Something went wrong!'
+    end
+    redirect_to project_accounts_path
+  end
+
 private
 
   def load_project

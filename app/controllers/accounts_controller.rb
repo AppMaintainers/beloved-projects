@@ -2,6 +2,7 @@
 
 class AccountsController < ApplicationController
   before_action :load_project
+  before_action :load_account, only: [:edit, :update, :destroy]
 
   def index
     @accounts = policy_scope @project.accounts
@@ -14,7 +15,6 @@ class AccountsController < ApplicationController
 
   def edit
     @users = policy_scope(User)
-    @account = authorize @project.accounts.find_by(id: params[:id])
   end
 
   def create
@@ -29,7 +29,6 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = authorize @project.accounts.find_by(id: params[:id])
     if @account.update(account_params)
       flash[:notice] = "Account edited successfully!"
       redirect_to project_accounts_path(@project)
@@ -40,8 +39,7 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    account = authorize @project.accounts.find_by(id: params[:id])
-    if @project.accounts.destroy(account)
+    if @project.accounts.destroy(@account)
       flash[:info] = 'Account removed successfully!'
     else
       flash[:danger] = 'Something went wrong!'
@@ -53,6 +51,10 @@ private
 
   def load_project
     @project = Project.find(params[:project_id])
+  end
+
+  def load_account
+    @account = authorize @project.accounts.find_by(id: params[:id])
   end
 
   def account_params

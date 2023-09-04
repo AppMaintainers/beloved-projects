@@ -44,7 +44,7 @@ class AccountsController < ApplicationController
     else
       flash[:danger] = 'Something went wrong!'
     end
-    redirect_to project_accounts_path
+    redirect_to project_accounts_path(@project)
   end
 
 private

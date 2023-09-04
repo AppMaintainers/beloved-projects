@@ -21,6 +21,7 @@
                   <th>MFA supported</th>
                   <th>Notes</th>
                   <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,14 @@
                     <td><%= account.description %></td>
                     <td class="text-end">
                       <%= link_to 'Edit', edit_project_account_path(@project, account), class: 'btn btn-default' %>
+                    </td>
+                    <td class="text-end">
+                      <%= link_to project_account_path(@project, account),
+                                  method: :delete, class: 'btn btn-outline-danger' do %>
+                        <span class="d-md-flex d-lg-inline-block align-middle">
+                          <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %>
+                        </span>
+                      <% end %>
                     </td>
                   </tr>
                 <% end %>

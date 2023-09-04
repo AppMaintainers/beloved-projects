@@ -18,22 +18,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                <% @links.each do |link| %>
-                  <tr>
-                    <td>
-                      <%= link.title %>
-                      <%= link_to link.url, target: :_blank, rel: 'noopener' do %>
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                          <%= inline_svg_pack_tag('static/@tabler/icons/icons/link.svg') %>
-                        </span>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link.description %>
-                    </td>
-                    <td></td>
-                  </tr>
-                <% end %>
+                  <% @links.each do |link| %>
+                    <tr>
+                      <td>
+                        <%= link.title %>
+                        <%= link_to link.url, target: :_blank, rel: 'noopener' do %>
+                          <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <%= inline_svg_pack_tag('static/@tabler/icons/icons/link.svg') %>
+                          </span>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= link.description %>
+                      </td>
+                      <td></td>
+                    </tr>
+                  <% end %>
                 </tbody>
               </table>
             </div>

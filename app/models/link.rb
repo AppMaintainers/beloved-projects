@@ -3,6 +3,6 @@
 class Link < ApplicationRecord
   belongs_to :project
 
-  validates :name, presence: true
-  validates :services, presence: true
+  validates :title, presence: true
+  validates :url, presence: true
 end

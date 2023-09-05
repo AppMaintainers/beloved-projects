@@ -1,86 +1,20 @@
-<div class="page-wrapper">
-  <div class="page-header d-print-none text-white">
-    <div class="container-xl">
-      <div class="row g-2 align-items-center">
-        <div class="col">
-          <div class="page-pretitle">
-            Project overview
-          </div>
-          <h2 class="page-title">
-            <%= link_to @project.title, project_path(@project) %>
-          </h2>
-        </div>
-        <div class="col-auto ms-auto d-print-none">
-          <div class="btn-list">
-            <span class="dropdown">
-              <a href="#" class="btn btn-primary dropdown-toggle align-text-top show" data-bs-boundary="viewport" data-bs-toggle="dropdown">
-                <%= inline_svg_pack_tag('static/@tabler/icons/icons/plus.svg') %>
-                New
-              </a>
-              <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 29.5px, 0px);">
-                <%= link_to 'Account', new_project_account_path(@project) %>
-              </div>
-            </span>
-            <% if policy(@project).edit? %>
-              <a class="btn btn-primary" href="#">
-                <%= inline_svg_pack_tag('static/@tabler/icons/icons/pencil.svg') %>
-                Edit
-              </a>
-            <% end %>
-          </div>
-        </div>
+<%= render 'projects/header', project: @project %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-cards">
+      <div class="col-sm-6 col-lg-3">
+        <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/key.svg' do %>
+          <%= link_to "#{@project.accounts.count} Accounts", project_accounts_path(@project) %>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/users.svg' do %>
+          <%= link_to "#{@project.maintainers.count} Maintainers", edit_project_maintainers_path(@project) %>
+        <% end %>
       </div>
     </div>
-  </div>
-  <div class="page-body">
-    <div class="container-xl">
-      <div class="row row-cards">
-        <div class="col-sm-6 col-lg-3">
-          <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/key.svg' do %>
-            <%= link_to "#{@project.accounts.count} Accounts", project_accounts_path(@project) %>
-          <% end %>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/users.svg' do %>
-            <%= link_to "#{@project.maintainers.count} Maintainers", edit_project_maintainers_path(@project) %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card mt-2">
-          <div class="card-header">
-            <h3 class="card-title">Links</h3>
-          </div>
-          <div class="card-table table-responsive">
-            <table class="table table-vcenter">
-              <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Visits</th>
-              </tr>
-              </thead>
-              <tbody>
-                <% @project.accounts.each do |account| %>
-                  <tr>
-                    <td>
-                      <%= account.name %>
-                    </td>
-                    <td class="text-muted">
-                      <%= account.description %>
-                    </td>
-                    <td class="text-muted text-end">
-                      <a href="#" class="btn btn-default">
-                        Edit
-                      </a>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <div class="row row-cards mt-2">
+      <%= render template: 'links/index', links: @project %>
     </div>
   </div>
 </div>

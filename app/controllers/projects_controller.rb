@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @links = policy_scope Link
   end
 
   def edit

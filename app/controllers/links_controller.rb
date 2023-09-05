@@ -18,7 +18,7 @@ class LinksController < ApplicationController
       redirect_to project_path(@project)
     else
       flash[:alert] = @link.errors.full_messages.join('. ')
-      redirect_to new_projects_links_path
+      redirect_to new_project_link_path
     end
   end
 

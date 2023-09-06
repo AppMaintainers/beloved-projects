@@ -25,10 +25,8 @@
       </div>
       <% if policy(@project).edit? %>
         <div class="col-auto ms-auto d-print-none">
-          <%= link_to edit_project_path(@project), target: :_blank, rel: 'noopener' do %>
-            <a class="btn btn-primary" href="#">
+          <%= link_to edit_project_path(@project), class: 'btn btn-primary' do %>
               <%= inline_svg_pack_tag('static/@tabler/icons/icons/pencil.svg') %> Edit
-            </a>
           <% end %>
         </div>
       <% end %>

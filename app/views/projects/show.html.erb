@@ -4,12 +4,14 @@
     <div class="row row-cards">
       <div class="col-sm-6 col-lg-3">
         <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/key.svg' do %>
-          <%= link_to "#{@project.accounts.count} Accounts", project_accounts_path(@project) %>
+          <%= link_to "#{@project.accounts.count} #{'Account'.pluralize(@project.accounts.count)}",
+                      project_accounts_path(@project) %>
         <% end %>
       </div>
       <div class="col-sm-6 col-lg-3">
         <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/users.svg' do %>
-          <%= link_to "#{@project.maintainers.count} Maintainers", edit_project_maintainers_path(@project) %>
+          <%= link_to "#{@project.maintainers.count} #{'Maintainer'.pluralize(@project.maintainers.count)}",
+                      edit_project_maintainers_path(@project) %>
         <% end %>
       </div>
     </div>

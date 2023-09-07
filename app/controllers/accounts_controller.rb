@@ -40,7 +40,7 @@ class AccountsController < ApplicationController
 
   def destroy
     if @project.accounts.destroy(@account)
-      flash[:info] = 'Account removed successfully!'
+      flash[:notice] = 'Account removed successfully!'
     else
       flash[:danger] = 'Something went wrong!'
     end

@@ -14,6 +14,12 @@
                       edit_project_maintainers_path(@project) %>
         <% end %>
       </div>
+      <div class="col-sm-6 col-lg-3">
+        <%= render 'projects/counter_overview', icon_path: 'static/@tabler/icons/icons/link.svg' do %>
+          <%= link_to "#{@project.links.count} #{'Link'.pluralize(@project.links.count)}",
+                      project_links_path(@project) %>
+        <% end %>
+      </div>
     </div>
     <div class="row row-cards mt-2">
       <%= render 'links/table', links: @links %>

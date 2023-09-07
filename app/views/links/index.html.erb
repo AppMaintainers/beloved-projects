@@ -1,45 +1,10 @@
-<div class="col-12">
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Links</h3>
+<%= render 'projects/header', project: @project %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-cards">
+      <div class="col-12">
+        <%= render 'links/link_table', links: @links %>
+      </div>
     </div>
-    <% if @links.any? %>
-      <div class="table-responsive">
-        <table class="table card-table table-vcenter text-nowrap datatable">
-          <thead>
-            <tr>
-              <th>Page name</th>
-              <th>Description</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @links.each do |link| %>
-              <tr>
-                <td>
-                  <%= link.title %>
-                  <%= link_to link.url, target: :_blank, rel: 'noopener' do %>
-                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                      <%= inline_svg_pack_tag('static/@tabler/icons/icons/link.svg') %>
-                    </span>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link.description %>
-                </td>
-                <td></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="card-footer d-flex align-items-center">
-        <p class="m-0 text-muted">
-          <%= @links.count %> <%= 'item'.pluralize(@links.count) %>
-        </p>
-      </div>
-    <% else %>
-      <p>No links could be found for this project.</p>
-    <% end %>
   </div>
 </div>

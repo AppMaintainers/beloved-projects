@@ -4,9 +4,8 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h1>Creating a new link</h1>
             <br />
-            <%= form_with(model: link, url: project_links_path(project)) do |f| %>
+            <%= form_with(model: link, url: url) do |f| %>
               <div class="mb-3">
                 <%= f.label :title, class: 'form-label required' %>
                 <%= f.text_field :title, class: 'form-control' %>
@@ -24,7 +23,7 @@
               </div>
               <br />
               <%= f.submit 'Save', class: 'btn btn-primary' %>
-              <%= link_to 'Cancel', project_path(@project), class: 'btn btn-warning' %>
+              <%= link_to 'Cancel', project_path(project), class: 'btn btn-warning' %>
             <% end %>
           </div>
         </div>

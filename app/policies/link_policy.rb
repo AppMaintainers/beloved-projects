@@ -9,6 +9,10 @@ class LinkPolicy < ApplicationPolicy
     record.project.maintainers.include?(user)
   end
 
+  def update?
+    record.project.maintainers.include?(user)
+  end
+
   class Scope < Scope
     def resolve
       scope.all

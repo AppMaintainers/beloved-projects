@@ -31,7 +31,9 @@
               <td>
                 <%= link.description %>
               </td>
-              <td></td>
+              <td class="text-end">
+                <%= link_to 'Edit', edit_project_link_path(@project, link), class: 'btn btn-primary' %>
+              </td>
             </tr>
           <% end %>
           </tbody>

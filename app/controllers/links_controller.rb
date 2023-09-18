@@ -2,7 +2,7 @@
 
 class LinksController < ApplicationController
   before_action :load_project
-  before_action :load_link, only: [:edit, :update]
+  before_action :load_link, only: [:edit, :update, :destroy]
 
   def index
     @links = policy_scope @project.links
@@ -34,6 +34,15 @@ class LinksController < ApplicationController
       flash[:alert] = @link.errors.full_messages.join('. ')
       redirect_to edit_project_link_path(@project, @link)
     end
+  end
+
+  def destroy
+    if @project.links.destroy(@link)
+      flash[:notice] = 'Link removed successfully!'
+    else
+      flash[:danger] = 'Something went wrong!'
+    end
+    redirect_to project_links_path(@project)
   end
 
   private

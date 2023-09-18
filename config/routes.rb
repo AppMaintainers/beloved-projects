@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :maintainers, only: [] do
       resource :connection, only: [:create, :destroy], controller: 'maintainers', path: ''
     end
-    resources :links, only: [:new, :create, :index, :edit, :update]
+    resources :links, only: [:new, :create, :index, :edit, :update, :destroy]
   end
   resources :users, :only =>[:show]
 end

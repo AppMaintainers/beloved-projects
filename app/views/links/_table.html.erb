@@ -32,17 +32,22 @@
               <td>
                 <%= link.description %>
               </td>
-              <td class="text-end">
-                <%= link_to 'Edit', edit_project_link_path(@project, link), class: 'btn btn-primary' %>
-              </td>
-              <td class="text-end">
-                <%= link_to project_link_path(@project, link),
-                            method: :delete, class: 'btn btn-outline-danger' do %>
-                  <span class="d-md-flex d-lg-inline-block align-middle">
-                    <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %>
-                  </span>
-                <% end %>
-              </td>
+              <% if action_buttons %>
+                <td class="text-end col-sm-1">
+                  <%= link_to 'Edit', edit_project_link_path(@project, link), class: 'btn btn-primary' %>
+                </td>
+                <td class="text-end col-sm-1">
+                  <%= link_to project_link_path(@project, link),
+                              method: :delete, class: 'btn btn-outline-danger' do %>
+                    <span class="d-md-flex d-lg-inline-block align-middle">
+                      <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %>
+                    </span>
+                  <% end %>
+                </td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
             </tr>
           <% end %>
           </tbody>

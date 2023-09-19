@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @links = policy_scope @project.links
+    @links = (policy_scope @project.links.order('updated_at DESC')).first(10)
   end
 
   def edit

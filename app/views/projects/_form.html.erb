@@ -1,20 +1,22 @@
-<%= form_with model: project do |f| %>
-  <div>
-    <div class="my-3">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-      <% if project.errors.include?(:title) %>
-        <% project.errors.full_messages_for(:title).each do |msg| %>
-          <p><%= msg %></p>
-        <% end %>
-      <% end %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-deck row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <br />
+            <%= form_with(model: project) do |f| %>
+              <div class="mb-3">
+                <%= f.label :title, class: 'form-label required' %>
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
+              <br />
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', root_path, class: 'btn btn-warning' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div>
-    <%= link_to 'Cancel', root_path %>
-
-    <%= f.submit 'Submit' %>
-  </div>
-
-<% end %>
+</div>

@@ -34,9 +34,11 @@
                       <%= account.services.join(', ') %>
                     </td>
                     <td>
-                      <span class="avatar avatar-xs avatar-rounded">
-                        <%= account.account_manager.first_name.first %><%= account.account_manager.last_name.first %>
-                      </span>
+                      <% account.account_managers.each do |account_manager| %>
+                        <span class="avatar avatar-xs avatar-rounded">
+                          <%= account_manager.first_name.first %><%= account_manager.last_name.first %>
+                        </span>
+                      <% end %>
                     </td>
                     <% if account.owner_request %>
                       <td><span class="badge bg-success me-1"></span> Needed</td>

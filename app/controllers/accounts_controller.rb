@@ -59,8 +59,8 @@ private
 
   def account_params
     params.require(:account).permit(:name, :domain, :organization, :services,
-                                    :account_manager_id, :owner_request, :owner_request_notes,
-                                    :mfa_supported, :description)
+                                    { account_manager_ids: [] }, :owner_request,
+                                    :owner_request_notes, :mfa_supported, :description)
           .tap do |permitted_params|
       permitted_params[:services] = permitted_params[:services].split(',') if permitted_params[:services]
     end

@@ -2,7 +2,8 @@
 
 class CreateJoinTableUsersAccounts < ActiveRecord::Migration[6.1]
   class Account < ApplicationRecord
-    has_and_belongs_to_many :account_managers, class_name: 'CreateJoinTableUsersAccounts::User', join_table: 'accounts_users'
+    has_and_belongs_to_many :account_managers,
+                            class_name: 'CreateJoinTableUsersAccounts::User', join_table: 'accounts_users'
     belongs_to :account_manager, class_name: 'CreateJoinTableUsersAccounts::User'
   end
 

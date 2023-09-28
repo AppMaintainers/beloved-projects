@@ -15,8 +15,8 @@
   <div class="mb-3">
     <%= f.label :services, class: 'form-check-label required' %>
     <%= f.text_field :services, class: 'form-control',
-                     data: { tomselect: true, tomselect_options: { create: true } },
-                     value: account.services.join(',') %>
+                                data: { tomselect: true, tomselect_options: { create: true } },
+                                value: account.services.join(',') %>
   </div>
   <div class="mb-3">
     <%= f.label :account_manager_ids, class: 'form-check-label required' do %>Who manages?<% end %>

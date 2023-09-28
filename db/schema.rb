@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_22_114552) do
+ActiveRecord::Schema.define(version: 2023_09_26_124750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,15 @@ ActiveRecord::Schema.define(version: 2023_08_22_114552) do
     t.string "domain"
     t.string "organization"
     t.jsonb "services", default: [], null: false
-    t.bigint "account_manager_id"
     t.boolean "owner_request", default: false, null: false
     t.text "owner_request_notes"
     t.boolean "mfa_supported", default: false, null: false
-    t.index ["account_manager_id"], name: "index_accounts_on_account_manager_id"
     t.index ["project_id"], name: "index_accounts_on_project_id"
+  end
+
+  create_table "accounts_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "account_id", null: false
   end
 
   create_table "links", force: :cascade do |t|
@@ -67,5 +70,4 @@ ActiveRecord::Schema.define(version: 2023_08_22_114552) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accounts", "users", column: "account_manager_id"
 end

@@ -5,4 +5,5 @@ class Account < ApplicationRecord
   validates :name, presence: true
   validates :services, presence: true
   validates :owner_request, inclusion: { in: [true, false] }
+  validates :account_managers, presence: true
 end

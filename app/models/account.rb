@@ -8,4 +8,5 @@ class Account < ApplicationRecord
   validates :services, presence: true
   validates :owner_request, inclusion: { in: [true, false] }
   validates :account_managers, presence: true
+  validates :domain, format: { with: %r{\A(http:|https:)//[^.]+\..*\z} }
 end

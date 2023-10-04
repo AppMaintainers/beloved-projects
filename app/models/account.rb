@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Account < ApplicationRecord
   belongs_to :project
   has_and_belongs_to_many :account_managers, class_name: 'User', join_table: 'accounts_users'

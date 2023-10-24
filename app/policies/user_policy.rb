@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    admin? || user == record
+  end
+
   class Scope < Scope
     def resolve
       scope.all

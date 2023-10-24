@@ -6,15 +6,15 @@ class LinkPolicy < ApplicationPolicy
   end
 
   def create?
-    record.project.maintainers.include?(user)
+    admin? || record.project.maintainers.include?(user)
   end
 
   def update?
-    record.project.maintainers.include?(user)
+    admin? || record.project.maintainers.include?(user)
   end
 
   def destroy?
-    record.project.maintainers.include?(user)
+    admin? || record.project.maintainers.include?(user)
   end
 
   class Scope < Scope

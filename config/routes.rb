@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
     resources :links, only: [:new, :create, :index, :edit, :update, :destroy]
   end
-  resources :users, :only =>[:show]
+  resources :users, only: [:show, :index] do
+    resource :admin, only: [:create, :destroy]
+  end
 end

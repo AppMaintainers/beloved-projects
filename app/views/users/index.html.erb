@@ -15,11 +15,11 @@
             <tbody>
             <% @users.each do |user| %>
               <tr><th scope="row"><%= user.id %></th>
-                <td><%= user.first_name%> <%= user.last_name %></td>
+                <td><%= user.first_name %> <%= user.last_name %></td>
                 <td>
                   <% if policy([:attributes, user]).valid_admin?(false) %>
                     <%= link_to 'Remove', user_admin_path(user), method: :delete, class: 'btn btn-danger' %>
-                  <% elsif policy([:attributes, user]).valid_admin?(true)%>
+                  <% elsif policy([:attributes, user]).valid_admin?(true) %>
                     <%= link_to 'Add', user_admin_path(user), method: :post, class: 'btn btn-success' %>
                   <% else %>
                     <%= user.admin? ? 'Admin' : 'User' %>

@@ -43,7 +43,6 @@ class ApplicationPolicy
     user.admin
   end
 
-
   class Scope
     attr_reader :user
     attr_reader :scope

@@ -13,5 +13,9 @@ module Attributes
     def method_missing(name, *args)
       name.start_with?('valid_') ? true : super
     end
+
+    def respond_to_missing?(name, *args)
+      name.start_with?('valid_') ? true : super
+    end
   end
 end

@@ -10,7 +10,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    record.maintainers.include?(user)
+    admin? || record.maintainers.include?(user)
   end
 
   def index?

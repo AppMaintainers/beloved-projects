@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
     admin? || user == record
   end
 
+  def index?
+    admin?
+  end
+
   class Scope < Scope
     def resolve
       scope.all

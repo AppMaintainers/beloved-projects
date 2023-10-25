@@ -7,14 +7,17 @@
             <h3 class="card-title">Add Maintainer for <strong><%= @project.title %></h3>
           </div>
           <table class="table table-striped">
-            <thead><tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Add or Remove</th>
-            </tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Add or Remove</th>
+              </tr>
+            </thead>
             <tbody>
               <% @users.each do |user| %>
-              <tr><th scope="row"><%= user.id %></th>
+                <tr>
+                  <th scope="row"><%= user.id %></th>
                   <td><%= user.first_name %></td>
                   <td>
                     <% if @project.maintainers.include?(user) %>
@@ -24,15 +27,14 @@
                       <%= link_to 'Add', project_maintainer_connection_path(@project, user),
                                   method: :post, class: 'btn btn-success' %>
                     <% end %>
-              </tr></td>
+                  </td>
+                </tr>
               <% end %>
             </tbody>
           </table>
-
-          </div>
           <%= link_to 'Back', project_path(@project), class: 'btn btn-warning' %>
-          </div>
-        </th>
+        </div>
+      </div>
     </div>
   </div>
 </div>

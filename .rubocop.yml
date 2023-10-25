@@ -28,6 +28,9 @@ RSpec/ExampleWithoutDescription:
 RSpec/ExpectChange:
   EnforcedStyle: block
 
+Style/GuardClause:
+  Enabled: false
+
 RSpec/ImplicitSubject:
   EnforcedStyle: single_statement_only
 

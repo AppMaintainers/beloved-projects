@@ -7,14 +7,17 @@
             <h3 class="card-title">Manage Admins</h3>
           </div>
           <table class="table table-striped">
-            <thead><tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Add or Remove</th>
-            </tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Add or Remove</th>
+              </tr>
+            </thead>
             <tbody>
             <% @users.each do |user| %>
-              <tr><th scope="row"><%= user.id %></th>
+              <tr>
+                <th scope="row"><%= user.id %></th>
                 <td><%= user.first_name %> <%= user.last_name %></td>
                 <td>
                   <% if policy([:attributes, user]).valid_admin?(false) %>
@@ -24,14 +27,14 @@
                   <% else %>
                     <%= user.admin? ? 'Admin' : 'User' %>
                   <% end %>
-              </tr></td>
+                </td>
+              </tr>
             <% end %>
             </tbody>
           </table>
-          </div>
-          <%= link_to 'Back', root_path, class: 'btn btn-warning' %>
-          </div>
-        </th>
+        </div>
+        <%= link_to 'Back', root_path, class: 'btn btn-warning' %>
+      </div>
     </div>
   </div>
 </div>

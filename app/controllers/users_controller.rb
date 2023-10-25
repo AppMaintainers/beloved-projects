@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   def index
+    authorize User
     @users = policy_scope User.all
   end
 

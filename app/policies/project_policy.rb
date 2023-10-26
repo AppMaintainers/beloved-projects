@@ -6,7 +6,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.maintainers.include?(user)
   end
 
   def update?
@@ -14,7 +14,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    record.maintainers.include?(user)
   end
 
   class Scope < Scope

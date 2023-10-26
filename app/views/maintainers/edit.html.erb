@@ -1,12 +1,13 @@
+<%= render 'projects/header', project: @project %>
 <div class="page-body">
   <div class="container-xl">
     <div class="row row-cards">
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Add Maintainer for <strong><%= @project.title %></h3>
+            <h3 class="card-title">Manage Maintainer for <strong><%= @project.title %></h3>
           </div>
-          <table class="table table-striped">
+          <table class="table table-striped mb-0">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -32,7 +33,11 @@
               <% end %>
             </tbody>
           </table>
-          <%= link_to 'Back', project_path(@project), class: 'btn btn-warning' %>
+          <div class="card-footer d-flex align-items-center">
+            <p class="m-0 text-muted">
+              <%= @users.count %> <%= 'item'.pluralize(@users.count) %>
+            </p>
+          </div>
         </div>
       </div>
     </div>

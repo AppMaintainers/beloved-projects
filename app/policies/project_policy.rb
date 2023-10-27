@@ -6,7 +6,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    record.maintainers.include?(user)
+    admin? || record.maintainers.include?(user)
   end
 
   def update?
@@ -14,12 +14,16 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def index?
-    record.maintainers.include?(user)
+    true
   end
 
   class Scope < Scope
     def resolve
-      scope.all
+      if admin?
+        scope.all
+      else
+        scope.joins(:maintainers).where(projects_users: { user_id: user.id })
+      end
     end
   end
 end

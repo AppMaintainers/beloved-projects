@@ -54,6 +54,15 @@ class ApplicationPolicy
       @scope = scope
     end
 
+    def method_missing(symbol, *args)
+      policy = ApplicationPolicy.new(user, nil)
+      policy.respond_to?(symbol, true) ? policy.send(symbol) : super
+    end
+
+    def respond_to_missing?(symbol)
+      super || ApplicationPolicy.new(user, nil).respond_to?(symbol, true)
+    end
+
     def resolve
       scope.none
     end

@@ -57,6 +57,7 @@ group :development, :test do
   gem "capybara"
   gem 'warden', '~> 1.2', '>= 1.2.9'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'pundit-matchers'
 end
 
 group :development do

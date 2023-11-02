@@ -29,8 +29,10 @@
                   <tr>
                     <td><%= account.name %></td>
                     <td>
-                      <%= link_to account.domain, target: :_blank, rel: 'noopener' do %>
-                        <%= URI(account.domain).host %>
+                      <% if !account.domain.blank? %>
+                        <%= link_to account.domain, rel: 'noopener' do %>
+                          <%= URI(account.domain).host %>
+                        <% end %>
                       <% end %>
                     </td>
                     <td><%= account.organization %></td>

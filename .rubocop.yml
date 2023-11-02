@@ -28,6 +28,13 @@ RSpec/ExampleWithoutDescription:
 RSpec/ExpectChange:
   EnforcedStyle: block
 
+RSpec/FilePath:
+  Exclude:
+    - spec/**/scope/*_spec.rb
+
+RSpec/PredicateMatcher:
+  Enabled: false
+
 Style/GuardClause:
   Enabled: false
 

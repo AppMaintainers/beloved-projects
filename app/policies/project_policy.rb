@@ -5,6 +5,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    admin? || record.maintainers.include?(user)
+  end
+
   def show?
     admin? || record.maintainers.include?(user)
   end

@@ -1,29 +1,45 @@
-<th class="container">
-  <h2>Add Maintainer for <strong><%= @project.title %></strong></h2>
-  <table class="table table-striped">
-    <thead><tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Add or Remove</th>
-    </tr></thead>
-    <tbody>
-      <% @users.each do |user| %>
-      <tr><th scope="row"><%= user.id %></th>
-          <td><%= user.first_name %></td>
-          <td>
-            <% if @project.maintainers.include?(user) %>
-              <%= link_to 'Remove', project_maintainer_connection_path(@project, user),
-                          method: :delete, class: 'btn btn-danger' %>
-            <% else %>
-              <%= link_to 'Add', project_maintainer_connection_path(@project, user),
-                          method: :post, class: 'btn btn-success' %>
-            <% end %>
-      </tr></td>
-      <% end %>
-    </tbody>
-  </table>
-
+<%= render 'projects/header', project: @project %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Manage Maintainer for <strong><%= @project.title %></h3>
+          </div>
+          <table class="table table-striped mb-0">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Add or Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <th scope="row"><%= user.id %></th>
+                  <td><%= user.first_name %></td>
+                  <td>
+                    <% if @project.maintainers.include?(user) %>
+                      <%= link_to 'Remove', project_maintainer_connection_path(@project, user),
+                                  method: :delete, class: 'btn btn-danger' %>
+                    <% else %>
+                      <%= link_to 'Add', project_maintainer_connection_path(@project, user),
+                                  method: :post, class: 'btn btn-success' %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="card-footer d-flex align-items-center">
+            <p class="m-0 text-muted">
+              <%= @users.count %> <%= 'item'.pluralize(@users.count) %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= link_to 'Back', project_path(@project), class: 'btn btn-warning' %>
-  </div>
-</th>
+</div>

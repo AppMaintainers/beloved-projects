@@ -18,6 +18,6 @@ module PolicyExampleGroup
   end
 
   RSpec.configure do |config|
-    config.include self, type: :serializer, file_path: %r{spec/policies}
+    config.include self, type: :policy, file_path: %r{spec/policies}
   end
 end

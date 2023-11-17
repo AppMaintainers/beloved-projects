@@ -15,7 +15,7 @@ RSpec.describe UserPolicy do
     let(:object_to_check) { User }
     let(:checked_user) { create(:user) }
 
-    it { is_expected.to permit_actions [:edit, :index] }
-    it { is_expected.to forbid_actions [:new, :create, :update, :destroy] }
+    it { is_expected.to permit_actions [:edit, :index, :new, :create] }
+    it { is_expected.to forbid_actions [:update, :destroy] }
   end
 end

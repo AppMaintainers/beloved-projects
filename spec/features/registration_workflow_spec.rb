@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe "Registration workflow", type: :feature do
   before do
-    visit "/users/sign_in/"
+    visit "/auth/sign_in/"
     click_on("Sign up")
     fill_in("user[first_name]", with: Faker::Name.first_name)
     fill_in("user[last_name]", with: Faker::Name.last_name)

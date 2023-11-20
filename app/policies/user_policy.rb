@@ -9,10 +9,6 @@ class UserPolicy < ApplicationPolicy
     admin?
   end
 
-  def create?
-    admin?
-  end
-
   def edit?
     admin? || user == record
   end

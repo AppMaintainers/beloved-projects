@@ -14,8 +14,8 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'shakapacker'
 gem 'inline_svg'
+gem 'shakapacker'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -36,13 +36,13 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'erb_lint', require: false
 gem 'rubocop', require: false
+gem 'rubocop-capybara', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
-gem 'rubocop-capybara', require: false
 gem 'rubocop-rspec', require: false
 
-gem "sentry-ruby"
 gem "sentry-rails"
+gem "sentry-ruby"
 
 gem 'i18n'
 
@@ -51,13 +51,13 @@ gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 5.0.0'
+  gem "capybara"
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.19'
-  gem "capybara"
-  gem 'warden', '~> 1.2', '>= 1.2.9'
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'pundit-matchers'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'warden', '~> 1.2', '>= 1.2.9'
 end
 
 group :development do

@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def index
     authorize User
-    @users = policy_scope User.all
+    @users = policy_scope User.order('LOWER(first_name)')
   end
 
   def show

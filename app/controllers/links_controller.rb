@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   before_action :load_link, only: [:edit, :update, :destroy]
 
   def index
-    @links = policy_scope @project.links
+    @links = policy_scope(@project.links).order('LOWER(title)')
   end
 
   def new

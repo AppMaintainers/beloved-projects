@@ -14,7 +14,7 @@ RSpec.describe UserPolicy do
   describe 'how to handle concrete objects' do
     let(:object_to_check) { user }
 
-    it { is_expected.to permit_actions [:edit] }
-    it { is_expected.to forbid_actions [:new, :create, :update, :destroy, :index] }
+    it { is_expected.to permit_actions [:edit, :update] }
+    it { is_expected.to forbid_actions [:new, :create, :destroy, :index] }
   end
 end

@@ -1,0 +1,28 @@
+<%= render 'users/header' %>
+<div class="page-body">
+  <div class="container-xl">
+    <div class="row row-deck row-cards">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+            <br />
+            <% form_with(model: @user) do |f| %>
+              <div class="mb-3">
+                <%= f.label :first_name, class: 'form-label required' %>
+                <%= f.text_field :first_name, class: 'form-control' %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :last_name, class: 'form-label required' %>
+                <%= f.text_field :last_name, class: 'form-control' %>
+              </div>
+              <br />
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', root_path, class: 'btn btn-warning' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

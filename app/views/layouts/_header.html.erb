@@ -18,7 +18,8 @@
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <%= link_to 'Profile', current_user, class: 'dropdown-item' %>
+            <%= link_to 'Profile', edit_user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to 'Security', edit_user_registration_path, class: 'dropdown-item' %>
             <% if current_user.admin %>
               <%= link_to 'Admin', users_path, class: 'dropdown-item' %>
             <% end %>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :load_user, only: [:edit, :update]
+
   def index
     authorize User
     @users = policy_scope(User).order('LOWER(first_name), LOWER(last_name)')
@@ -11,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = authorize User.find_by(id: params[:id])
   end
 
   def create
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = authorize User.find_by(id: params[:id])
     if @user.update(user_params)
       flash[:notice] = 'User edited successfully!'
       redirect_to root_path
@@ -44,5 +44,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :admin)
+  end
+
+  def load_user
+    @user = authorize User.find_by(id: params[:id])
   end
 end

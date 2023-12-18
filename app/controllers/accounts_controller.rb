@@ -47,7 +47,7 @@ class AccountsController < ApplicationController
     redirect_to project_accounts_path(@project)
   end
 
-private
+  private
 
   def load_project
     @project = Project.find(params[:project_id])

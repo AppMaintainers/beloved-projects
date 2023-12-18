@@ -26,12 +26,6 @@ Layout/BlockEndNewline:
     - 'spec/models/user_spec.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLines:
-  Exclude:
-    - 'db/migrate/20211115111131_devise_create_users.rb'
-    - 'db/seeds.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
 Layout/EmptyLinesAroundBlockBody:

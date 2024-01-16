@@ -2,6 +2,10 @@
 
 class HomeController < ApplicationController
   def index
-    @projects = policy_scope Project
+    @projects = if params[:all] == "true"
+                  policy_scope(Project)
+                else
+                  policy_scope(current_user.projects)
+                end
   end
 end

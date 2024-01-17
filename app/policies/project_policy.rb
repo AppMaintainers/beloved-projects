@@ -26,7 +26,7 @@ class ProjectPolicy < ApplicationPolicy
       if admin?
         scope.all
       else
-        scope.joins(:maintainers).where(projects_users: { user_id: user.id })
+        scope.joins(:projects_users).where(projects_users: { user_id: user.id })
       end
     end
   end

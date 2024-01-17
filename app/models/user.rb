@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_and_belongs_to_many :projects
+  has_many :projects_users, dependent: :destroy
+  has_many :projects, through: :projects_users
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

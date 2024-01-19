@@ -8,4 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :admin, inclusion: { in: [true, false] }
+
+  def active_for_authentication?
+    super && deactivated_at.blank?
+  end
 end

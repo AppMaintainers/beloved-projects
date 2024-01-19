@@ -14,13 +14,13 @@ RSpec.describe ProjectPolicy do
   describe 'how to handle concrete objects' do
     let(:object_to_check) { project }
 
-    context 'when the user is not a maintainaer in the project' do
+    context 'when the user is not a maintainer in the project' do
       let(:project) { create(:project) }
 
       it { is_expected.to forbid_actions [:create, :show, :edit, :update, :destroy] }
     end
 
-    context 'when the user is a maintainaer in the project' do
+    context 'when the user is a maintainer in the project' do
       let(:project) { create(:project, maintainers: [user]) }
 
       it { is_expected.to permit_actions [:create, :show, :edit, :update] }

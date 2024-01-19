@@ -2,5 +2,5 @@
 
 class ProjectsUser < ApplicationRecord
   belongs_to :project
-  belongs_to :maintainer, class_name: 'User', foreign_key: 'user_id', inverse_of: :maintainers
+  belongs_to :maintainer, class_name: 'User', foreign_key: 'user_id', inverse_of: :projects_users
 end

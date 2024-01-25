@@ -11,7 +11,8 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Add or Remove</th>
+                <th scope="col">Add or Remove as Admin</th>
+                <th scope="col">Deactivate</th>
               </tr>
             </thead>
             <tbody>
@@ -26,6 +27,18 @@
                       <%= link_to 'Add', user_admin_path(user), method: :post, class: 'btn btn-success' %>
                     <% else %>
                       <%= user.admin? ? 'Admin' : 'User' %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <% if user.admin? %>
+                      <%= 'Admins can deactivate themselves' %>
+                    <% else %>
+                      <% if user.deactivated? %>
+                        <%= 'Deactivated' %>
+                      <% else %>
+                        <%= link_to 'Deactivate', user_deactivate_path(user),
+                                    method: :delete, class: 'btn btn-warning' %>
+                      <% end %>
                     <% end %>
                   </td>
                 </tr>

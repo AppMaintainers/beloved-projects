@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && deactivated_at.blank?
   end
+
+  def deactivated?
+    deactivated_at.present?
+  end
 end

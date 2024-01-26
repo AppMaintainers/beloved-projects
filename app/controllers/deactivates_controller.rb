@@ -2,11 +2,11 @@
 
 class DeactivatesController < ApplicationController
   def destroy
-    @user = authorize User.find_by(id: params[:user_id]), :edit?
-    if @user.admin?
-      raise Pundit::NotAuthorizedError
+    @user = authorize User.find_by(id: params[:user_id]), :destroy?
+    if @user.update(deactivated_at: DateTime.now)
+      flash[:notice] = 'User deactivated successfully!'
     else
-      @user.update(deactivated_at: DateTime.now)
+      flash[:alert] = 'This user cannot be deactivated.'
     end
 
     redirect_to users_path

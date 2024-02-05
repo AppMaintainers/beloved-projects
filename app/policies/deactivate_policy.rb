@@ -2,6 +2,6 @@
 
 class DeactivatePolicy < ApplicationPolicy
   def destroy?
-    admin? || user == record
+    (admin? && !record.admin?) || user == record
   end
 end

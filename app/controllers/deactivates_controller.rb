@@ -2,7 +2,7 @@
 
 class DeactivatesController < ApplicationController
   def destroy
-    @user = authorize User.find_by(id: params[:user_id]), :destroy?
+    @user = authorize(User.find_by(id: params[:user_id]), policy_class: DeactivatePolicy)
     if @user.update(deactivated_at: DateTime.now)
       flash[:notice] = 'User deactivated successfully!'
     else

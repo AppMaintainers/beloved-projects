@@ -9,5 +9,13 @@ module Attributes
         user == record && record.admin?
       end
     end
+
+    def valid_deactivated_at?(next_value)
+      if next_value.present?
+        (admin? && !record.admin?) || user == record
+      else
+        false
+      end
+    end
   end
 end

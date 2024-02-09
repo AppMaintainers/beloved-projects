@@ -22,9 +22,9 @@
                   <td><%= user.first_name %> <%= user.last_name %></td>
                   <td class="py-1">
                     <% if policy([:attributes, user]).valid_admin?(false) %>
-                      <%= link_to 'Remove', user_admin_path(user), method: :delete, class: 'btn btn-danger' %>
+                      <%= link_to 'Remove As Admin', user_admin_path(user), method: :delete, class: 'btn btn-danger' %>
                     <% elsif policy([:attributes, user]).valid_admin?(true) %>
-                      <%= link_to 'Add', user_admin_path(user), method: :post, class: 'btn btn-success' %>
+                      <%= link_to 'Add As Admin', user_admin_path(user), method: :post, class: 'btn btn-success' %>
                     <% else %>
                       <%= user.admin? ? 'Admin' : 'User' %>
                     <% end %>

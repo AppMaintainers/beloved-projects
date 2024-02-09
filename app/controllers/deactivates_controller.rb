@@ -2,13 +2,20 @@
 
 class DeactivatesController < ApplicationController
   def destroy
-    @user = authorize(User.find_by(id: params[:user_id]), policy_class: DeactivatePolicy)
-    if @user.update(deactivated_at: DateTime.now)
-      flash[:notice] = 'User deactivated successfully!'
-    else
-      flash[:alert] = 'This user cannot be deactivated.'
-    end
+    @user = User.find_by(id: params[:user_id])
 
-    redirect_to users_path
+    if policy([:attributes, @user]).valid_deactivated_at?(DateTime.now)
+      skip_authorization
+
+      if @user.update(deactivated_at: DateTime.now)
+        flash[:notice] = 'User deactivated successfully!'
+      else
+        flash[:alert] = 'This user cannot be deactivated.'
+      end
+
+      redirect_to users_path
+    else
+      raise Pundit::NotAuthorizedError
+    end
   end
 end

@@ -30,14 +30,14 @@
                     <% end %>
                   </td>
                   <td>
-                    <% if user.admin? %>
-                      Admins can only be deactivate by themselves
+                    <% if user.deactivated? %>
+                      Deactivated
                     <% else %>
-                      <% if user.deactivated? %>
-                        Deactivated
-                      <% else %>
+                      <% if policy([:attributes, user]).valid_deactivated_at?(DateTime.now) %>
                         <%= link_to 'Deactivate', user_deactivate_path(user),
                                     method: :delete, class: 'btn btn-warning' %>
+                      <% else %>
+                        You can't deactivate this user!
                       <% end %>
                     <% end %>
                   </td>

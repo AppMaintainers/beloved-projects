@@ -6,7 +6,7 @@ module Auth
     def destroy
       resource.update!(deactivated_at: DateTime.now) if resource.deactivated_at.blank?
       sign_out
-      set_flash_message! :noticed, :destroyed
+      set_flash_message! :notice, :destroyed
       respond_with_navigational(resource) { redirect_to after_sign_out_path_for(resource_name) }
     rescue ActiveRecord::RecordInvalid
       flash[:alert] = 'Your account cannot be deactivated.'

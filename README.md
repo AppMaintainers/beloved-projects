@@ -76,6 +76,18 @@ And you can run the webpack dev server:
 bin/webpacker-dev-server
 ```
 
+To use SMTP server install:
+
+```bash
+gem install mailcatcher
+```
+
+And you can run the SMTP server:
+
+```bash
+mailcatcher -b
+```
+
 ## Testing
 
 For testing purposes we're using the followings:

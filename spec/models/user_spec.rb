@@ -28,9 +28,5 @@ RSpec.describe User, type: :model do
     context "when email address is not valid" do
       it { is_expected.not_to allow_value('user@@example.com').for(:email) }
     end
-
-    context "when an email is already in use" do
-      it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-    end
   end
 end

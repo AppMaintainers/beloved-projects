@@ -32,6 +32,7 @@ Devise.setup do |config|
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
+  # Configure a time period, where unconfirmed users may still login.
   config.allow_unconfirmed_access_for = 15.days
 
   # ==> ORM configuration

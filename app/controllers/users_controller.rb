@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 
     authorize @user
 
+    @user.skip_confirmation!
+
     if @user.save
       flash[:notice] = 'User created successfully!'
       redirect_to root_path

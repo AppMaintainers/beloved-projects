@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe "Login workflow", type: :feature do
-  let(:user){FactoryBot.create(:user)}
+  let(:user) {FactoryBot.create(:user)}
 
   before do
     visit "/"
@@ -13,7 +13,7 @@ RSpec.describe "Login workflow", type: :feature do
   end
 
   context "with valid password" do
-    let(:password){user.password}
+    let(:password) {user.password}
 
     it "can login" do
       expect(page).to have_text("Signed in successfully.")
@@ -21,7 +21,7 @@ RSpec.describe "Login workflow", type: :feature do
   end
 
   context "with invalid password" do
-    let(:password){"invalid password"}
+    let(:password) {"invalid password"}
 
     it "can't login" do
       expect(page).to have_text("Invalid Email or password.")

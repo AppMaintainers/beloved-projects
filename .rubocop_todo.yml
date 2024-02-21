@@ -16,11 +16,6 @@ Lint/UselessTimes:
   Exclude:
     - 'db/seeds.rb'
 
-# Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes, Max.
-Metrics/AbcSize:
-  Exclude:
-    - 'app/controllers/projects_controller.rb'
-
 # Configuration parameters: Prefixes, AllowedPatterns.
 # Prefixes: when, with, without
 RSpec/ContextWording:

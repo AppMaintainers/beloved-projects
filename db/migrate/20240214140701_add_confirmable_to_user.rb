@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class AddConfirmableToUser < ActiveRecord::Migration[6.1]
+  class User < ApplicationRecord
+  end
+
   def change
     change_table :users, bulk: true do |t|
       t.string :confirmation_token

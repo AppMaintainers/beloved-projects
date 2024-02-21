@@ -36,7 +36,7 @@ RSpec.describe "Registration workflow", type: :feature do
     end
 
     it "won't increase Users count" do
-      expect { click_button("Sign up") }.to_not(change { User.count })
+      expect { click_button("Sign up") }.not_to(change { User.count })
     end
   end
 end

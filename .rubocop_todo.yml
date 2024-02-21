@@ -6,11 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Configuration parameters: AllowedMethods, AllowedPatterns.
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/features/registration_workflow_spec.rb'
-
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Lint/UselessTimes:
   Exclude:

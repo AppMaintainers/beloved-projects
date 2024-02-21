@@ -27,7 +27,7 @@ RSpec.describe "Registration workflow", type: :feature do
   end
 
   context "with duplicated email" do
-    let!(:user) { FactoryBot.create(:user) }
+    let!(:user) { create(:user) }
     let(:email) { user.email }
 
     it "refuses to register" do

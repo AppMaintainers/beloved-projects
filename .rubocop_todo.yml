@@ -6,12 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Configuration parameters: Prefixes, AllowedPatterns.
-# Prefixes: when, with, without
-RSpec/ContextWording:
-  Exclude:
-    - 'spec/features/registration_workflow_spec.rb'
-
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: always_allow, single_line_only, disallow
 RSpec/ExampleWithoutDescription:

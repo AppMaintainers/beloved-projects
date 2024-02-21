@@ -13,7 +13,7 @@ RSpec.describe "Registration workflow", type: :feature do
     fill_in("user[password_confirmation]", with: 'password')
   end
 
-  context "users with valid credentials" do
+  context "with valid credentials" do
     let(:email) { "john@email.com" }
 
     it 'can register' do
@@ -26,7 +26,7 @@ RSpec.describe "Registration workflow", type: :feature do
     end
   end
 
-  context "users with duplicated email" do
+  context "with duplicated email" do
     let!(:user) { FactoryBot.create(:user) }
     let(:email) { user.email }
 

@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     let(:user) { FactoryBot.create(:user) }
 
     context "when user attributes are valid" do
-      it 'should pass' do
+      it 'passes' do
         expect(user).to be_valid
       end
     end

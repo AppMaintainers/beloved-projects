@@ -12,12 +12,6 @@ RSpec/ExampleWithoutDescription:
   Exclude:
     - 'spec/models/user_spec.rb'
 
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: CustomTransform, IgnoredWords, DisallowedExamples.
-# DisallowedExamples: works
-RSpec/ExampleWording:
-  Exclude:
-    - 'spec/models/user_spec.rb'
 
 # This cop supports unsafe autocorrection (--autocorrect-all).
 RSpec/FactoryBot/SyntaxMethods:

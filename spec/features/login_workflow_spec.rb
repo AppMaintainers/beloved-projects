@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe "Login workflow", type: :feature do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
     visit "/"

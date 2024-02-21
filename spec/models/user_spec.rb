@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "User model" do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { create(:user) }
 
     context "when user attributes are valid" do
       it 'passes' do

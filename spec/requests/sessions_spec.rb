@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
   describe "sign in" do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { create(:user) }
     let(:params) { { user: { email: user.email, password: password } } }
 
     context "when user credentials are valid" do

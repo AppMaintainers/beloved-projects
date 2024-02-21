@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Logout workflow", type: :feature do
+RSpec.describe "Logout workflow" do
   let(:user) { create(:user) }
 
   before do

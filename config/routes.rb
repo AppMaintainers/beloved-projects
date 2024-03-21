@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     resource :admin, only: [:create, :destroy]
     resource :deactivate, only: [:destroy]
   end
+  resource :magic_link, only: [:create, :show]
 end

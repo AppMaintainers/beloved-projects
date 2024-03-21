@@ -2,6 +2,15 @@
   <h2 class="text-center">Sign in</h2>
   <div class="flex-wrap">
     <div class="p-5">
+      <%= form_for(resource, as: resource_name, url: magic_link_path) do |f| %>
+        <div class="pb-3">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'E-mail', class: 'py-2 px-3' %>
+        </div>
+        <div class="text-center my-4">
+          <%= f.submit 'Magic link', class: 'bg-white border-2' %>
+        </div>
+      <% end %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="pb-3">
           <%= f.label :email %><br />

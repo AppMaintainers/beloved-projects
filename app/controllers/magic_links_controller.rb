@@ -25,14 +25,13 @@ class MagicLinksController < ApplicationController
 
     if user
       @login_token = verifier.generate({ user_id: user.id }, purpose: :login, expires_in: 15.minutes)
-
-      # mail(to: @user.mail, subject: 'Magic link login')
-
-      render plain: magic_link_url(token: @login_token)
+      MagicLinkMailer.login_instructions(@login_token, email).deliver
+      flash[:notice] = 'We\'ve sent the magic lint to your email address.'
     else
       flash[:alert] = 'There is no user with this email address.'
-      redirect_to new_user_session_path
     end
+
+    redirect_to new_user_session_path
   end
 
   private

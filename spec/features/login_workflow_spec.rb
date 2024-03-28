@@ -7,9 +7,11 @@ RSpec.describe "Login workflow" do
 
   before do
     visit "/"
-    fill_in("user[email]", with: user.email)
-    fill_in("user[password]", with: password)
-    click_button("Sign in")
+    within('form', text: 'Login with email and password') do
+      fill_in("user[email]", with: user.email)
+      fill_in("user[password]", with: password)
+      click_button("Sign in")
+    end
   end
 
   context "with valid password" do

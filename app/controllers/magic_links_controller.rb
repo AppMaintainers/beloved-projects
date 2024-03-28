@@ -13,7 +13,7 @@ class MagicLinksController < ApplicationController
 
       if user && user.last_sign_in_at == last_login
         sign_in(user)
-        redirect_to after_sign_out_path_for(user)
+        redirect_to after_sign_in_path_for(user)
       elsif user && user.last_sign_in_at != last_login
         flash[:alert] = 'Your token is invalid. Please get a new token.'
         redirect_to new_user_session_path

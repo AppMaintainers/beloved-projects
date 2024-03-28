@@ -10,6 +10,9 @@ AllCops:
   TargetRubyVersion: "3.0"
   TargetRailsVersion: "6.1"
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: 'indented_relative_to_receiver'
+
 Metrics/AbcSize:
   Enabled: false
 

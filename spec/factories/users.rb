@@ -7,6 +7,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     confirmed_at { DateTime.now }
+    last_sign_in_at { 1.day.ago.change(usec: 0) }
 
     trait :admin do
       admin { true }

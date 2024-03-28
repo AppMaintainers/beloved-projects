@@ -7,6 +7,14 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # This cop supports safe autocorrection (--autocorrect).
+# Configuration parameters: EnforcedStyle, IndentationWidth.
+# SupportedStyles: aligned, indented, indented_relative_to_receiver
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'app/controllers/accounts_controller.rb'
+    - 'spec/requests/deactivates_spec.rb'
+
+# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: ExpectedOrder, Include.
 # ExpectedOrder: index, show, new, edit, create, update, destroy
 # Include: app/controllers/**/*.rb
@@ -20,26 +28,6 @@ Rails/FilePath:
   Exclude:
     - 'config/environments/development.rb'
     - 'spec/rails_helper.rb'
-
-# Configuration parameters: Include.
-# Include: app/models/**/*.rb
-Rails/HasAndBelongsToMany:
-  Exclude:
-    - 'app/models/project.rb'
-    - 'app/models/user.rb'
-
-# Configuration parameters: Include.
-# Include: app/models/**/*.rb
-Rails/HasManyOrHasOneDependent:
-  Exclude:
-    - 'app/models/status.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: strict, flexible
-Rails/TimeZone:
-  Exclude:
-    - 'db/seeds.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 Style/BlockComments:
@@ -56,19 +44,6 @@ Style/FetchEnvVar:
 Style/GlobalStdStream:
   Exclude:
     - 'config/environments/production.rb'
-
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, EnforcedShorthandSyntax, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-# SupportedShorthandSyntax: always, never, either, consistent
-Style/HashSyntax:
-  Exclude:
-    - 'config/routes.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/IdenticalConditionalBranches:
-  Exclude:
-    - 'app/controllers/projects_controller.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowedMethods.
@@ -92,7 +67,6 @@ Style/RedundantFetchBlock:
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/RedundantInterpolation:
   Exclude:
-    - 'app/controllers/accounts_controller.rb'
     - 'app/controllers/projects_controller.rb'
 
 # This cop supports safe autocorrection (--autocorrect).
@@ -116,7 +90,6 @@ Style/StringLiterals:
     - 'config/puma.rb'
     - 'config/spring.rb'
     - 'db/migrate/20211115111131_devise_create_users.rb'
-    - 'db/seeds.rb'
     - 'spec/features/login_workflow_spec.rb'
     - 'spec/features/logout_workflow_spec.rb'
     - 'spec/features/registration_workflow_spec.rb'
@@ -136,4 +109,3 @@ Style/SymbolArray:
 Layout/LineLength:
   Exclude:
     - 'config/initializers/devise.rb'
-    - 'db/seeds.rb'

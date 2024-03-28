@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :projects, through: :projects_users
 
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable
 
   validates :admin, inclusion: { in: [true, false] }
 

@@ -18,11 +18,11 @@ class MagicLinksController < ApplicationController
         flash[:alert] = 'Your token is invalid. Please get a new token.'
         redirect_to new_user_session_path
       else
-        flash[:alert] = 'There were some problem. PLease try again.'
+        flash[:alert] = 'There were some problem. Please get a new token.'
         redirect_to new_user_session_path
       end
     else
-      flash[:alert] = 'Your token is invalid'
+      flash[:alert] = 'Your token is invalid. Please get a new token.'
       redirect_to new_user_session_path
     end
   end

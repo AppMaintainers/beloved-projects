@@ -4,7 +4,7 @@ class MagicLinksController < ApplicationController
   skip_before_action :authenticate_user!
 
   def show
-    skip_authorization
+    skip_authorization # For this action we do not need a specific user or role.
     message = verifier.verified(params[:token], purpose: :login)
 
     if message
@@ -28,7 +28,7 @@ class MagicLinksController < ApplicationController
   end
 
   def create
-    skip_authorization
+    skip_authorization # For this action we do not need a specific user or role.
     email = params[:user][:email]
     user = User.find_by(email: email)
 

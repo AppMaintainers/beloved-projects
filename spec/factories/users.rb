@@ -7,10 +7,15 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     confirmed_at { DateTime.now }
-    last_sign_in_at { 1.day.ago.change(usec: 0) }
 
     trait :admin do
       admin { true }
+    end
+
+    trait :signed_in do
+      # MagicLink manages this field.
+      # MagicLink doesn't register time shorter than a millionth of a second.
+      last_sign_in_at { 1.day.ago.change(usec: 0) }
     end
   end
 end

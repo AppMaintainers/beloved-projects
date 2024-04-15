@@ -8,7 +8,7 @@ RSpec.describe 'Magic Link' do
 
     let(:params) { { user: { email: email } } }
     let(:email) { user.email }
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :signed_in) }
 
     it 'sends an email' do
       expect { request }
@@ -34,7 +34,7 @@ RSpec.describe 'Magic Link' do
         .application.message_verifier('magic_link')
         .generate({ user_id: user_id, last_login: last_login }, purpose: :login, expires_in: 15.minutes)
     end
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :signed_in) }
     let(:user_id) { user.id }
     let(:last_login) { user.last_sign_in_at }
 
@@ -62,7 +62,7 @@ RSpec.describe 'Magic Link' do
       end
     end
 
-    context 'with successful login since the token was created' do
+    context 'with successful login the previous tokens are invalid' do
       let(:last_login) { user.last_sign_in_at - 2.minutes }
 
       it 'redirects back to the sign in page' do

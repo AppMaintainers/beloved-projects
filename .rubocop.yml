@@ -52,3 +52,6 @@ Style/Documentation:
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

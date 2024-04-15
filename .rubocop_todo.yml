@@ -43,11 +43,6 @@ Style/RedundantFetchBlock:
   Exclude:
     - 'config/puma.rb'
 
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/RedundantInterpolation:
-  Exclude:
-    - 'app/controllers/projects_controller.rb'
-
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: Max, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns.
 # URISchemes: http, https

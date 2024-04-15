@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project created successfully!'
       redirect_to root_path
     else
-      flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
+      flash.now[:alert] = @project.errors.full_messages.join('. ')
       render 'projects/new'
     end
   end
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
       flash.now[:notice] = 'Project updated successfully!'
       redirect_to project_path(@project)
     else
-      flash.now[:alert] = "#{@project.errors.full_messages.join('. ')}"
+      flash.now[:alert] = @project.errors.full_messages.join('. ')
       render 'projects/edit'
     end
   end

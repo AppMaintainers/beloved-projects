@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
   def create
     @account = authorize @project.accounts.build(account_params)
     if @account.save
-      flash[:notice] = "Account created successfully!"
+      flash[:notice] = 'Account created successfully!'
       redirect_to project_path(@project)
     else
       flash[:alert] = @account.errors.full_messages.join('. ')
@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
 
   def update
     if @account.update(account_params)
-      flash[:notice] = "Account edited successfully!"
+      flash[:notice] = 'Account edited successfully!'
       redirect_to project_accounts_path(@project)
     else
       flash[:alert] = @account.errors.full_messages.join('. ')

@@ -16,8 +16,8 @@ RSpec.describe 'Deactivates' do
     it 'deactivates the user' do
       expect { delete user_deactivate_path(user_to_be_deactivated) }
         .to change { user_to_be_deactivated.reload.deactivated_at }
-        .from(nil)
-        .to(be_present)
+              .from(nil)
+              .to(be_present)
     end
 
     context 'when the current user is not admin' do
@@ -26,7 +26,7 @@ RSpec.describe 'Deactivates' do
       it 'does not deactivate the user' do
         expect { delete user_deactivate_path(user_to_be_deactivated) }
           .not_to change { user_to_be_deactivated.reload.deactivated_at }
-          .from(nil)
+                    .from(nil)
       end
     end
   end

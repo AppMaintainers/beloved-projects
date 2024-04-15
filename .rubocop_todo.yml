@@ -6,7 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: aligned, indented, indented_relative_to_receiver
@@ -14,27 +13,6 @@ Layout/MultilineMethodCallIndentation:
   Exclude:
     - 'app/controllers/accounts_controller.rb'
     - 'spec/requests/deactivates_spec.rb'
-
-# Configuration parameters: Include.
-# Include: app/models/**/*.rb
-Rails/HasAndBelongsToMany:
-  Exclude:
-    - 'app/models/project.rb'
-    - 'app/models/user.rb'
-
-# Configuration parameters: Include.
-# Include: app/models/**/*.rb
-Rails/HasManyOrHasOneDependent:
-  Exclude:
-    - 'app/models/status.rb'
-
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: strict, flexible
-Rails/TimeZone:
-  Exclude:
-    - 'db/seeds.rb'
-
 
 # This cop supports safe autocorrection (--autocorrect).
 Style/BlockComments:
@@ -63,7 +41,6 @@ Style/NestedParenthesizedCalls:
 Style/RedundantConstantBase:
   Exclude:
     - 'config/environments/production.rb'
-    - 'spec/rails_helper.rb'
 
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: SafeForConstants.

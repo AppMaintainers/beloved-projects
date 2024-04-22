@@ -24,12 +24,14 @@
                                      autocomplete: 'new-password',
                                      placeholder: 'New password' %>
               </div>
-              <div class="pb-3">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password,
-                                     autocomplete: 'current-password',
-                                     placeholder: 'Current password' %>
-              </div>
+              <% if !@user.auto_gen_password? %>
+                <div class="pb-3">
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password,
+                                       autocomplete: 'current-password',
+                                       placeholder: 'Current password' %>
+                </div>
+              <% end %>
               <div>
                 <%= f.submit 'Update', class: 'btn btn-primary' %>
               </div>

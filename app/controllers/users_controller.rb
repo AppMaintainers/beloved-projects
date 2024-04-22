@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(password: SecureRandom.alphanumeric(32))
     policy([:attributes, @user]).filter(user_params).then { @user.assign_attributes(_1) }
+    @user.auto_gen_password = true
 
     authorize @user
 

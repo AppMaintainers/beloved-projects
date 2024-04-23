@@ -4,7 +4,7 @@ module Attributes
   class AttributePolicy < ApplicationPolicy
     def filter(hash)
       hash.each do |key, value|
-        hash.delete(key) unless public_send("valid_#{key}?", value)
+        hash.delete(key) unless public_send(:"valid_#{key}?", value)
       end
     end
 

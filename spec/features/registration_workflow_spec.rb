@@ -17,12 +17,12 @@ RSpec.describe 'Registration workflow' do
     let(:email) { 'john@email.com' }
 
     it 'can register' do
-      click_button('Sign up')
+      click_on('Sign up')
       expect(page).to have_text('Welcome! You have signed up successfully.')
     end
 
     it 'will increase Users count' do
-      expect { click_button('Sign up') }.to change { User.count }.by(1)
+      expect { click_on('Sign up') }.to change { User.count }.by(1)
     end
   end
 
@@ -31,12 +31,12 @@ RSpec.describe 'Registration workflow' do
     let(:email) { user.email }
 
     it 'refuses to register' do
-      click_button('Sign up')
+      click_on('Sign up')
       expect(page).to have_text('Email has already been taken')
     end
 
     it 'will not increase Users count' do
-      expect { click_button('Sign up') }.not_to(change { User.count })
+      expect { click_on('Sign up') }.not_to(change { User.count })
     end
   end
 end

@@ -21,7 +21,7 @@ RSpec.describe 'Registration workflow' do
       expect(page).to have_text('Welcome! You have signed up successfully.')
     end
 
-    it 'will increase Users count' do
+    it 'increases Users count' do
       expect { click_on('Sign up') }.to change { User.count }.by(1)
     end
   end
@@ -35,7 +35,7 @@ RSpec.describe 'Registration workflow' do
       expect(page).to have_text('Email has already been taken')
     end
 
-    it 'will not increase Users count' do
+    it 'does not increase Users count' do
       expect { click_on('Sign up') }.not_to(change { User.count })
     end
   end

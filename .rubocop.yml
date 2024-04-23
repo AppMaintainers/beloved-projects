@@ -40,6 +40,9 @@ RSpec/PredicateMatcher:
 Style/GuardClause:
   Enabled: false
 
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
 RSpec/ImplicitSubject:
   EnforcedStyle: single_statement_only
 

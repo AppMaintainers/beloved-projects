@@ -38,7 +38,6 @@ group :test do
   gem 'pundit-matchers'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'warden'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

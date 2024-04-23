@@ -289,7 +289,6 @@ DEPENDENCIES
   faker
   font-awesome-rails
   font-awesome-sass
-  i18n
   inline_svg
   pg
   puma

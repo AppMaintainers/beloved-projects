@@ -1,73 +1,45 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
+gem 'rails', '~> 6.1.4'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'inline_svg'
-gem 'shakapacker'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# devise
+gem 'bootsnap', require: false
 gem 'devise'
-
-# font-awesome
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'font-awesome-rails'
 gem 'font-awesome-sass'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
-
-gem 'erb_lint', require: false
-gem 'rubocop', require: false
-gem 'rubocop-capybara', require: false
-gem 'rubocop-performance', require: false
-gem 'rubocop-rails', require: false
-gem 'rubocop-rspec', require: false
-
+gem 'i18n'
+gem 'inline_svg'
+gem 'pg'
+gem 'puma'
+gem 'pundit'
+gem 'sass-rails'
 gem 'sentry-rails'
 gem 'sentry-ruby'
-
-gem 'i18n'
-
-gem 'pundit'
+gem 'shakapacker'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara'
-  gem 'factory_bot_rails'
-  gem 'faker', '~> 2.19'
-  gem 'pundit-matchers'
-  gem 'rspec-rails', '~> 5.0.0'
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'warden', '~> 1.2', '>= 1.2.9'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'erb_lint'
+  gem 'rubocop'
+  gem 'rubocop-capybara'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'pundit-matchers'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'warden'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

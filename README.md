@@ -36,9 +36,11 @@ Make sure you have installed all of the following prerequisites on your developm
     ```
 #### Windows
 
-1. Install Ruby with [RubyInstaller](https://rubyinstaller.org/downloads/archives/). (Note: you need a Ruby+Devkit installer) (3.0.2)
-2. Install [NodeJs](https://nodejs.org/en/download/releases/) (16.13.0)
-3. Install yarn with `npm install -g yarn` (1.22.17)
+Please refer to `.tool-versions` for the exact versions of the required dependencies.
+
+1. Install Ruby with [RubyInstaller](https://rubyinstaller.org/downloads/archives/). (Note: you need a Ruby+Devkit installer)
+2. Install [NodeJs](https://nodejs.org/en/download/releases/)
+3. Install yarn with `npm install -g yarn`
 
 ### Installing
 

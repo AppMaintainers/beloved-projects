@@ -71,7 +71,6 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.1.7)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -268,12 +267,6 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
-    sentry-rails (5.17.3)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.17.3)
-    sentry-ruby (5.17.3)
-      bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
     shakapacker (6.5.6)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -330,8 +323,6 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails
-  sentry-rails
-  sentry-ruby
   shakapacker
   shoulda-matchers
   tzinfo-data

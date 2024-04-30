@@ -16,8 +16,6 @@ gem 'pg'
 gem 'puma'
 gem 'pundit'
 gem 'sass-rails'
-gem 'sentry-rails'
-gem 'sentry-ruby'
 gem 'shakapacker'
 
 group :development, :test do

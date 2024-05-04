@@ -9,13 +9,10 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
-gem 'font-awesome-rails'
-gem 'font-awesome-sass'
 gem 'inline_svg'
 gem 'pg'
 gem 'puma'
 gem 'pundit'
-gem 'sass-rails'
 gem 'shakapacker'
 
 group :development, :test do

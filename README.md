@@ -55,40 +55,34 @@ After installing the [Prerequisites](#prerequisites), you need to
     ```bash
     postgres
     ```
-3. Create the database
+3. Create, migrate and seed the database
     ```bash
     rails db:setup
     ```
-4. Finally start your local development server
+4. Start your local development server
     ```bash
     rails s
     ```
+5. Install and run mailcatcher SMTP server
+   ```bash
+   gem install thin -v 1.5.1 -- --with-cflags="-Wno-error=implicit-function-declaration"
+   gem install mailcatcher
+   mailcatcher -bf
+   ```
 
 ## Development
 
-On your local machine, you can run the server by running:
+On your local machine, you'll need to run the following services:
+   ```bash
+   postgres
+   bin/webpacker-dev-server
+   rails s
+   ```
 
-```bash
-rails s
-```
-
-And you can run the webpack dev server:
-
-```bash
-bin/webpacker-dev-server
-```
-
-To use SMTP server install:
-
-```bash
-gem install mailcatcher
-```
-
-And you can run the SMTP server:
-
-```bash
-mailcatcher -b
-```
+You can also run the SMTP server with:
+   ```bash
+   mailcatcher -b
+   ```
 
 ## Testing
 

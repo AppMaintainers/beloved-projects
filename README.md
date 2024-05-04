@@ -86,8 +86,41 @@ You can also run the SMTP server with:
 
 ## Testing
 
-For testing purposes we're using the followings:
+The test suite is setup with the following technologies:
 * [RSpec](https://github.com/rspec/rspec-rails)
 * [FactoryBot](https://github.com/thoughtbot/factory_bot_rails)
 * [Faker](https://github.com/faker-ruby/faker)
-* [RuboCop](https://github.com/rubocop/rubocop-rails)
+
+Current linters in the application are:
+* [Rubocop](https://github.com/rubocop/rubocop-rails)
+* [ERB Lint](https://github.com/Shopify/erb-lint)
+
+You can run all quality assurance features like so:
+```
+rubocop
+erblint .
+rspec
+```
+
+## Deployment
+
+You can find [Beloved Projects](https://beloved-projects.herokuapp.com/) on the web. It is deployed to [Heroku](https://dashboard.heroku.com/apps). Below you will find a set of instructions on how to setup the deployment process.
+
+1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+2. Create an account for Heroku.
+3. Inside the project directory:
+    ```
+    heroku login
+    heroku apps:create beloved-projects
+    heroku git:remote -a beloved-projects
+    heroku buildpacks:add --index 1 heroku/nodejs
+    heroku buildpacks:add --index 2 heroku/ruby
+    git push heroku master
+    ```
+4. You will have to create a PostgreSQL database on Heroku manually.
+5. Load your schema and migrate your database with the following commands:
+    ```
+    heroku run rake db:schema:load
+    heroku run rake db:migrate
+    ```
+6. Done. You should check your deployed app's URL under Settings/Domains.

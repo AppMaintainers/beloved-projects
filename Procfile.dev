@@ -1,0 +1,4 @@
+postgres: postgres
+puma: rails server
+webpacker: bin/webpacker-dev-server
+mailcatcher: mailcatcher -fb

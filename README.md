@@ -84,6 +84,11 @@ You can also run the SMTP server with:
    mailcatcher -b
    ```
 
+If you would like to run all required services within a single terminal window, you should install [Overmind](https://github.com/DarthSim/overmind). The project contains a `Procfile.dev` which you will be able to run with:
+```
+overmind start
+```
+
 ## Testing
 
 The test suite is setup with the following technologies:

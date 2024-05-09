@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = @user.errors.full_messages.join('. ')
-      redirect_to edit_users_path(@user)
+      redirect_to edit_user_path(@user)
     end
   end
 

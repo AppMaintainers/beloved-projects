@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = authorize User.new
+    @user = authorize User.new(user_params)
   end
 
   def edit
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = @user.errors.full_messages.join('. ')
-      redirect_to new_user_path
+      redirect_to new_user_path(user: user_params)
     end
   end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    unfiltered_user_params = params.require(:user).permit(:first_name, :last_name, :email, :admin)
+    unfiltered_user_params = params.fetch(:user, {}).permit(:first_name, :last_name, :email, :admin)
     policy([:attributes, @user]).filter(unfiltered_user_params)
   end
 

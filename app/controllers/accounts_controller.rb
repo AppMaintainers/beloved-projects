@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = authorize Account.new
+    @account = authorize Account.new(account_params)
     @users = policy_scope(User)
   end
 
@@ -24,7 +24,7 @@ class AccountsController < ApplicationController
       redirect_to project_path(@project)
     else
       flash[:alert] = @account.errors.full_messages.join('. ')
-      redirect_to new_project_account_path
+      redirect_to new_project_account_path(account: account_params)
     end
   end
 
@@ -59,7 +59,7 @@ class AccountsController < ApplicationController
 
   def account_params
     params
-      .require(:account)
+      .fetch(:account, {})
       .permit(:name, :domain, :organization, :services,
               { account_manager_ids: [] }, :owner_request,
               :owner_request_notes, :mfa_supported, :description)

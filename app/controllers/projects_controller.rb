@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = authorize Project.new
+    @project = authorize Project.new(project_params)
   end
 
   def edit
@@ -22,25 +22,25 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project created successfully!'
       redirect_to root_path
     else
-      flash.now[:alert] = @project.errors.full_messages.join('. ')
-      render 'projects/new'
+      flash[:alert] = @project.errors.full_messages.join('. ')
+      redirect_to new_project_path(project: project_params)
     end
   end
 
   def update
     if @project.update(project_params)
-      flash.now[:notice] = 'Project updated successfully!'
+      flash[:notice] = 'Project updated successfully!'
       redirect_to project_path(@project)
     else
-      flash.now[:alert] = @project.errors.full_messages.join('. ')
-      render 'projects/edit'
+      flash[:alert] = @project.errors.full_messages.join('. ')
+      redirect_to edit_project_path
     end
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    params.fetch(:project, {}).permit(:title)
   end
 
   def load_project

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :link do
     title { Faker::Hipster.word }
-    url { Faker::Internet.url(domain: 'example.com') }
+    url { Faker::Internet.url(host: 'example.com') }
     description { Faker::Lorem.sentence }
 
     project

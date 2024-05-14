@@ -6,7 +6,7 @@ FactoryBot.define do
     description { Faker::Lorem.sentence }
     domain { Faker::Internet.url }
     organization { Faker::Company.name }
-    services { Faker::Company.buzzword }
+    services { [Faker::Company.buzzword] }
 
     account_managers { create_list(:user, 1) }
     project

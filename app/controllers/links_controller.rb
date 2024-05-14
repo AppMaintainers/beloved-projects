@@ -9,7 +9,7 @@ class LinksController < ApplicationController
   end
 
   def new
-    @link = authorize Link.new
+    @link = authorize Link.new(link_params)
   end
 
   def edit
@@ -22,7 +22,7 @@ class LinksController < ApplicationController
       redirect_to project_path(@project)
     else
       flash[:alert] = @link.errors.full_messages.join('. ')
-      redirect_to new_project_link_path
+      redirect_to new_project_link_path(link: link_params)
     end
   end
 
@@ -56,6 +56,6 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:title, :url, :description)
+    params.fetch(:link, {}).permit(:title, :url, :description)
   end
 end

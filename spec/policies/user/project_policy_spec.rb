@@ -23,8 +23,7 @@ RSpec.describe ProjectPolicy do
     context 'when the user is a maintainer in the project' do
       let(:project) { create(:project, maintainers: [user]) }
 
-      it { is_expected.to permit_actions [:create, :show, :edit, :update] }
-      it { is_expected.to forbid_actions [:destroy] }
+      it { is_expected.to permit_actions [:create, :show, :edit, :update, :destroy] }
     end
   end
 end

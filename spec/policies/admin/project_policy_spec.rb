@@ -15,7 +15,7 @@ RSpec.describe ProjectPolicy do
     let(:object_to_check) { project }
     let(:project) { create(:project) }
 
-    it { is_expected.to permit_actions [:create, :show, :edit, :update] }
-    it { is_expected.to forbid_actions [:destroy] }
+    it { is_expected.to permit_actions [:create, :show, :edit, :update, :destroy] }
+    it { is_expected.to forbid_actions [] }
   end
 end

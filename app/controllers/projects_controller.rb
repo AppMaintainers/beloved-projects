@@ -37,6 +37,24 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find_by(id: params[:id])
+
+    if policy(@project).valid_deactivated_at?(DateTime.now)
+      skip_authorization
+
+      if @project.update(deactivated_at: DateTime.now)
+        flash[:notice] = 'Project deactivated successfully!'
+      else
+        flash[:alert] = 'This project cannot be deactivated.'
+      end
+
+      redirect_to root_path
+    else
+      raise Pundit::NotAuthorizedError
+    end
+  end
+
   private
 
   def project_params

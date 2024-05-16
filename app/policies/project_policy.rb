@@ -21,13 +21,26 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    admin? || record.maintainers.include?(user)
+  end
+
   class Scope < Scope
     def resolve
       if admin?
-        scope.all
+        scope.where(projects: { deactivated_at: nil })
       else
-        scope.joins(:projects_users).where(projects_users: { user_id: user.id })
+        scope.where(projects: { deactivated_at: nil })
+          .joins(:projects_users).where(projects_users: { user_id: user.id })
       end
+    end
+  end
+
+  def valid_deactivated_at?(next_value)
+    if next_value.present?
+      admin? || record.maintainers.include?(user)
+    else
+      false
     end
   end
 end

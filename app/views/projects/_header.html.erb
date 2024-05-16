@@ -30,6 +30,16 @@
           <% end %>
         </div>
       <% end %>
+      <% if policy(@project).destroy? %>
+        <div class="col-auto ms-auto d-print-none">
+          <%= link_to project_path(@project),
+                      method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+            <span class="d-md-flex d-lg-inline-block align-middle">
+              <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
+            </span>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

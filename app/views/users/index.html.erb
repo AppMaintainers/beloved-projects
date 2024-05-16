@@ -22,7 +22,8 @@
                   <td><%= user.first_name %> <%= user.last_name %></td>
                   <td class="py-1">
                     <% if policy([:attributes, user]).valid_admin?(false) %>
-                      <%= link_to 'Remove As Admin', user_admin_path(user), method: :delete, class: 'btn btn-danger' %>
+                      <%= link_to 'Remove As Admin', user_admin_path(user),
+                                  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
                     <% elsif policy([:attributes, user]).valid_admin?(true) %>
                       <%= link_to 'Add As Admin', user_admin_path(user), method: :post, class: 'btn btn-success' %>
                     <% else %>
@@ -35,7 +36,7 @@
                     <% else %>
                       <% if policy([:attributes, user]).valid_deactivated_at?(DateTime.now) %>
                         <%= link_to 'Deactivate', user_deactivate_path(user),
-                                    method: :delete, class: 'btn btn-warning' %>
+                                    method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
                       <% else %>
                         You can't deactivate this user!
                       <% end %>

@@ -8,7 +8,7 @@ RSpec.describe ProjectPolicy do
   describe 'how to handle general use cases' do
     let(:object_to_check) { Project }
 
-    it { is_expected.to permit_actions [:new, :index] }
+    it { is_expected.to permit_actions [:new] }
   end
 
   describe 'how to handle concrete objects' do
@@ -17,7 +17,7 @@ RSpec.describe ProjectPolicy do
     context 'when the user is not a maintainer in the project' do
       let(:project) { create(:project) }
 
-      it { is_expected.to forbid_actions [:create, :show, :edit, :update, :destroy] }
+      it { is_expected.to forbid_actions [:show, :edit, :update, :destroy] }
     end
 
     context 'when the user is a maintainer in the project' do

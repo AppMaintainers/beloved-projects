@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProjectsController < ApplicationController
-  before_action :load_project, only: [:show, :edit, :update]
+  before_action :load_project, only: [:show, :edit, :update, :destroy]
 
   def show
     @links = policy_scope(@project.links).order(updated_at: :desc).first(10)
@@ -38,11 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find_by(id: params[:id])
-
-    if policy(@project).valid_deactivated_at?(DateTime.now)
-      skip_authorization
-
+    if policy(@project).destroy?
       if @project.update(deactivated_at: DateTime.now)
         flash[:notice] = 'Project deactivated successfully!'
       else

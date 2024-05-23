@@ -5,42 +5,27 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
-  def create?
-    admin? || record.maintainers.include?(user)
-  end
-
   def show?
-    admin? || record.maintainers.include?(user)
+    (admin? || record.maintainers.include?(user)) && record.deactivated_at.nil?
   end
 
   def update?
-    admin? || record.maintainers.include?(user)
-  end
-
-  def index?
-    true
+    (admin? || record.maintainers.include?(user)) && record.deactivated_at.nil?
   end
 
   def destroy?
-    admin? || record.maintainers.include?(user)
+    (admin? || record.maintainers.include?(user)) && record.deactivated_at.nil?
   end
 
   class Scope < Scope
     def resolve
       if admin?
-        scope.where(projects: { deactivated_at: nil })
+        scope.where(deactivated_at: nil)
       else
-        scope.where(projects: { deactivated_at: nil })
-          .joins(:projects_users).where(projects_users: { user_id: user.id })
+        scope.joins(:projects_users)
+          .where(projects_users: { user_id: user.id })
+          .where(projects: { deactivated_at: nil })
       end
-    end
-  end
-
-  def valid_deactivated_at?(next_value)
-    if next_value.present?
-      admin? || record.maintainers.include?(user)
-    else
-      false
     end
   end
 end

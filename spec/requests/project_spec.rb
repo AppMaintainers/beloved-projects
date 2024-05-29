@@ -31,4 +31,18 @@ RSpec.describe 'Project' do
       end
     end
   end
+
+  describe 'Deactivate project' do
+    let(:user) { create(:user, admin: true) }
+    let(:project) { create(:project) }
+
+    before { login_as user }
+
+    it 'deactivates the project' do
+      expect { delete project_path(project) }
+        .to change { project.reload.deactivated_at }
+              .from(nil)
+              .to(be_present)
+    end
+  end
 end

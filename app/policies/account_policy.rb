@@ -2,19 +2,19 @@
 
 class AccountPolicy < ApplicationPolicy
   def new?
-    true
+    record.project.deactivated_at.nil?
   end
 
   def create?
-    admin? || record.project.maintainers.include?(user)
+    (admin? || record.project.maintainers.include?(user)) && record.project.deactivated_at.nil?
   end
 
   def update?
-    admin? || record.project.maintainers.include?(user)
+    (admin? || record.project.maintainers.include?(user)) && record.project.deactivated_at.nil?
   end
 
   def destroy?
-    admin? || record.project.maintainers.include?(user)
+    (admin? || record.project.maintainers.include?(user)) && record.project.deactivated_at.nil?
   end
 
   class Scope < Scope

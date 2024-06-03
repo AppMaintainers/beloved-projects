@@ -43,6 +43,7 @@ RSpec.describe 'Project' do
         .to change { project.reload.deactivated_at }
               .from(nil)
               .to(be_present)
+              .and(not_change { Project.find_by(id: project.id).id })
     end
   end
 end

@@ -41,11 +41,11 @@ class ProjectsController < ApplicationController
     if policy(@project).destroy?
       if @project.update(deactivated_at: DateTime.now)
         flash[:notice] = 'Project deactivated successfully!'
+        redirect_to root_path
       else
         flash[:alert] = 'This project cannot be deactivated.'
+        redirect_to project_path(@project)
       end
-
-      redirect_to root_path
     else
       raise Pundit::NotAuthorizedError
     end

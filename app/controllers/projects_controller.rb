@@ -38,16 +38,12 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if policy(@project).destroy?
-      if @project.update(deactivated_at: DateTime.now)
-        flash[:notice] = 'Project deactivated successfully!'
-        redirect_to root_path
-      else
-        flash[:alert] = 'This project cannot be deactivated.'
-        redirect_to project_path(@project)
-      end
+    if @project.update(deactivated_at: DateTime.now)
+      flash[:notice] = 'Project deactivated successfully!'
+      redirect_to root_path
     else
-      raise Pundit::NotAuthorizedError
+      flash[:alert] = 'This project cannot be deactivated.'
+      redirect_to project_path(@project)
     end
   end
 

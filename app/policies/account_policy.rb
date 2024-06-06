@@ -2,10 +2,6 @@
 
 class AccountPolicy < ApplicationPolicy
   def new?
-    record.project.deactivated_at.nil?
-  end
-
-  def create?
     (admin? || record.project.maintainers.include?(user)) && record.project.deactivated_at.nil?
   end
 

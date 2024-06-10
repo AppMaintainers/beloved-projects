@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-body">
-    <div class="container-xl">
+    <div class="container container-tight py-4">
       <div class="row row-deck row-cards">
         <div class="col-12">
           <div class="card">
@@ -35,14 +35,13 @@
                                        placeholder: 'Password confirmation' %>
                 </div>
 
-                <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+                <%= f.submit 'Sign up', class: 'btn btn-primary w-100' %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
-      <br />
-      <%= render 'devise/shared/links' %>
     </div>
+    <%= render 'devise/shared/links' %>
   </div>
 </div>

@@ -7,11 +7,11 @@
             <div class="card-body">
               <h1>Forgot your password?</h1>
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                <div>
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: 'email' %>
+                <div class="mb-3">
+                  <%= f.label :email, class: 'form-label' %>
+                  <%= f.text_field :email, class: 'form-control', autofocus: true, autocomplete: 'email' %>
                 </div>
-                <br />
+
                 <%= f.submit 'Send me reset password instructions', class: 'btn btn-primary' %>
               <% end %>
             </div>

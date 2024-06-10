@@ -7,11 +7,13 @@
             <div class="card-body">
               <h1>Resend confirmation instructions</h1>
               <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-                <div>
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                <div class="mb-3">
+                  <%= f.label :email, class: 'form-label' %>
+                  <%= f.text_field :email,
+                                   class: 'form-control', autofocus: true, autocomplete: 'email',
+                                   value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
                 </div>
-                <br />
+
                 <%= f.submit 'Resend confirmation instructions', class: 'btn btn-primary' %>
               <% end %>
             </div>

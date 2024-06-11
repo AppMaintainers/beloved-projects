@@ -9,7 +9,7 @@ class LinksController < ApplicationController
   end
 
   def new
-    @link = authorize Link.new(link_params)
+    @link = authorize @project.links.new(link_params)
   end
 
   def edit

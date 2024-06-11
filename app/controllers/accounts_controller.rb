@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = authorize Account.new(account_params)
+    @account = authorize @project.accounts.new(account_params)
     @users = policy_scope(User)
   end
 

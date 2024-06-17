@@ -37,10 +37,10 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    if @project.links.destroy(@link)
+    if @link.destroy
       flash[:notice] = 'Link removed successfully!'
     else
-      flash[:danger] = 'Something went wrong!'
+      flash[:danger] = @link.errors.full_messages.join('. ')
     end
     redirect_to project_links_path(@project)
   end

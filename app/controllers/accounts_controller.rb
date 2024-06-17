@@ -39,10 +39,10 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    if @project.accounts.destroy(@account)
+    if @account.destroy
       flash[:notice] = 'Account removed successfully!'
     else
-      flash[:danger] = 'Something went wrong!'
+      flash[:danger] = @account.errors.full_messages.join('. ')
     end
     redirect_to project_accounts_path(@project)
   end
@@ -50,7 +50,7 @@ class AccountsController < ApplicationController
   private
 
   def load_project
-    @project = Project.find(params[:project_id])
+    @project = authorize Project.find_by(id: params[:project_id]), :show?
   end
 
   def load_account

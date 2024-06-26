@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = authorize User.new(user_params)
+    @user = authorize User.new(params[:user])
   end
 
   def edit

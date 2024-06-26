@@ -15,6 +15,9 @@ Layout/MultilineMethodCallIndentation:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/MethodLength:
   Enabled: false
 

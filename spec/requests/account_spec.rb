@@ -3,85 +3,83 @@
 require 'rails_helper'
 
 RSpec.describe 'Account' do
-  describe 'Navigate' do
-    let(:project) { create(:project, maintainers: [user]) }
-    let(:user) { create(:user, :admin) }
+  let(:project) { create(:project, maintainers: [user]) }
+  let(:user) { create(:user, :admin) }
 
-    before { login_as user }
+  before { login_as user }
 
-    context 'when index accounts' do
-      it 'display is successful' do
-        get project_accounts_path(project)
+  describe 'Index' do
+    it 'displays successfully' do
+      get project_accounts_path(project)
 
-        expect(response).to have_http_status :ok
-      end
+      expect(response).to have_http_status :ok
+    end
+  end
+
+  describe 'New' do
+    it 'form display is successful' do
+      get new_project_account_path(project)
+
+      expect(response).to have_http_status :ok
+    end
+  end
+
+  describe 'Create' do
+    let(:account) { build(:account) }
+    let(:params) do
+      { account: account.attributes.merge(services: account.services.join(','), account_manager_ids: [user.id]) }
     end
 
-    context 'when new account' do
-      it 'form display is successful' do
-        get new_project_account_path(project)
-
-        expect(response).to have_http_status :ok
-      end
+    it 'successfully creates new account' do
+      expect { post project_accounts_path(project), params: params }.to change { Account.count }.by(1)
     end
 
-    context 'when create account' do
-      let(:account) { build(:account) }
-      let(:params) do
-        { account: account.attributes.merge(services: account.services.join(','), account_manager_ids: [user.id]) }
-      end
+    it 'redirects tcorrectly' do
+      post project_accounts_path(project), params: params
 
-      it 'successfully creates new account' do
-        expect { post project_accounts_path(project), params: params }.to change { Account.count }.by(1)
-      end
+      expect(response).to redirect_to(project_path(project))
+    end
+  end
 
-      it 'successfully redirects to' do
-        post project_accounts_path(project), params: params
+  describe 'Edit' do
+    let(:account) { create(:account, project: project) }
 
-        expect(response).to redirect_to(project_path(project))
-      end
+    it 'form display is successful' do
+      get edit_project_account_path(project, account)
+
+      expect(response).to have_http_status :ok
+    end
+  end
+
+  describe 'Update account' do
+    let(:account) { create(:account, project: project) }
+    let(:params) { { account: account.attributes.merge(services: account.services.join(','), mfa_supported: true) } }
+
+    it 'successfully updates account' do
+      expect { patch project_account_path(project, account), params: params }
+        .to change { account.reload.mfa_supported }.to(true)
     end
 
-    context 'when edit account' do
-      let(:account) { create(:account, project: project) }
+    it 'redirects correctly' do
+      patch project_account_path(project, account), params: params
 
-      it 'form display is successful' do
-        get edit_project_account_path(project, account)
+      expect(response).to redirect_to project_accounts_path(project)
+    end
+  end
 
-        expect(response).to have_http_status :ok
-      end
+  describe 'Destroy account' do
+    let(:account) { create(:account, project: project) }
+
+    it 'successfully destroys account' do
+      account
+      expect { delete project_account_path(project, account) }
+        .to change { project.accounts.count }.by(-1)
     end
 
-    context 'when update account' do
-      let(:account) { create(:account, project: project) }
-      let(:params) { { account: account.attributes.merge(services: account.services.join(','), mfa_supported: true) } }
+    it 'redirects correctly' do
+      delete project_account_path(project, account)
 
-      it 'successfully updates account' do
-        expect { patch project_account_path(project, account), params: params }
-          .to change { account.reload.mfa_supported }.to(true)
-      end
-
-      it 'successfully redirects to' do
-        patch project_account_path(project, account), params: params
-
-        expect(response).to redirect_to project_accounts_path(project)
-      end
-    end
-
-    context 'when destroy account' do
-      let(:account) { create(:account, project: project) }
-
-      it 'successfully destroys new account' do
-        account
-        expect { delete project_account_path(project, account) }
-          .to change { project.accounts.count }.by(-1)
-      end
-
-      it 'successfully redirects to' do
-        delete project_account_path(project, account)
-
-        expect(response).to redirect_to(project_accounts_path(project))
-      end
+      expect(response).to redirect_to(project_accounts_path(project))
     end
   end
 end

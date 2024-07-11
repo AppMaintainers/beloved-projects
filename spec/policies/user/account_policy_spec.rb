@@ -14,13 +14,13 @@ RSpec.describe AccountPolicy do
       let(:deactivated_at) { nil }
 
       context 'when the project is active' do
-        it { is_expected.to forbid_actions [:new, :create, :edit, :update, :destroy] }
+        it { is_expected.to forbid_actions [:show, :new, :create, :edit, :update, :destroy] }
       end
 
       context 'when the project is deactivated' do
         let(:deactivated_at) { 1.day.ago }
 
-        it { is_expected.to forbid_actions [:create, :new, :edit, :update, :destroy] }
+        it { is_expected.to forbid_actions [:show, :new, :edit, :create, :update, :destroy] }
       end
     end
 
@@ -29,13 +29,14 @@ RSpec.describe AccountPolicy do
       let(:deactivated_at) { nil }
 
       context 'when the project is active' do
-        it { is_expected.to permit_actions [:create, :new, :edit, :update, :destroy] }
+        it { is_expected.to permit_actions [:new, :edit, :create, :update, :destroy] }
+        it { is_expected.to forbid_actions [:show] }
       end
 
       context 'when the project is deactivated' do
         let(:deactivated_at) { 1.day.ago }
 
-        it { is_expected.to forbid_actions [:create, :new, :edit, :update, :destroy] }
+        it { is_expected.to forbid_actions [:show, :new, :edit, :create, :update, :destroy] }
       end
     end
   end

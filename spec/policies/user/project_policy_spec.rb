@@ -19,14 +19,14 @@ RSpec.describe ProjectPolicy do
       let(:deactivated_at) { nil }
 
       context 'when the project is active' do
-        it { is_expected.to permit_actions [:create] }
+        it { is_expected.to permit_actions [:create, :new] }
         it { is_expected.to forbid_actions [:show, :edit, :update, :destroy] }
       end
 
       context 'when the project is deactivated' do
         let(:deactivated_at) { 1.day.ago }
 
-        it { is_expected.to permit_actions [:create] }
+        it { is_expected.to permit_actions [:create, :new] }
         it { is_expected.to forbid_actions [:show, :edit, :update, :destroy] }
       end
     end
@@ -36,13 +36,13 @@ RSpec.describe ProjectPolicy do
       let(:deactivated_at) { nil }
 
       context 'when the project is active' do
-        it { is_expected.to permit_actions [:create, :show, :edit, :update, :destroy] }
+        it { is_expected.to permit_actions [:create, :new, :show, :edit, :update, :destroy] }
       end
 
       context 'when the project is deactivated' do
         let(:deactivated_at) { 1.day.ago }
 
-        it { is_expected.to permit_actions [:create] }
+        it { is_expected.to permit_actions [:create, :new] }
         it { is_expected.to forbid_actions [:show, :edit, :update, :destroy] }
       end
     end

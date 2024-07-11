@@ -33,6 +33,12 @@ RSpec.describe ProjectPolicy::Scope do
 
         it { expect(resolved_scope).to be_empty }
       end
+
+      context 'when there are more projects' do
+        let(:deac_project) { create(:project, maintainers: maintainers) }
+
+        it { expect(resolved_scope).to contain_exactly(project) }
+      end
     end
   end
 end

@@ -3,7 +3,7 @@
 # rubocop:disable RSpec/ExampleLength, RSpec/MultipleExpectations
 
 RSpec.describe 'Create project' do
-  let(:user) { create(:user, :admin) }
+  let(:user) { create(:user) }
 
   before { login_as user }
 

@@ -8,14 +8,14 @@ RSpec.describe 'Admin' do
   before { login_as admin }
 
   context 'when user added as admin' do
-    let(:user) { create(:user) }
+    let(:target_user) { create(:user) }
 
     it 'user becomes admin' do
-      expect { post user_admin_path(user) }.to change { user.reload.admin }.from(false).to(true)
+      expect { post user_admin_path(target_user) }.to change { target_user.reload.admin }.from(false).to(true)
     end
 
     it 'redirects correctly' do
-      post user_admin_path(user)
+      post user_admin_path(target_user)
 
       expect(response).to redirect_to(users_path)
     end

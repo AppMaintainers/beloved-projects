@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'Maintainer' do
   let(:admin) { create(:user, :admin) }
-  let(:project) { create(:project, maintainers: maintainer) }
-  let(:maintainer) { [] }
+  let(:project) { create(:project, maintainers: maintainers) }
+  let(:maintainers) { [] }
 
   before { login_as admin }
 
@@ -33,7 +33,7 @@ RSpec.describe 'Maintainer' do
 
   describe 'Remove maintainer' do
     let(:user) { create(:user) }
-    let(:maintainer) { [user] }
+    let(:maintainers) { [user] }
 
     it 'adds user successfully' do
       expect { delete project_maintainer_connection_path(project, user) }.to change { project.maintainers.count }.by(-1)

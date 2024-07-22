@@ -86,7 +86,7 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.3)
     crass (1.0.6)
-    database_cleaner-active_record (2.1.0)
+    database_cleaner-active_record (2.2.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
@@ -287,7 +287,7 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara
-  database_cleaner-active_record
+  database_cleaner-active_record (= 2.2.0)
   devise
   erb_lint
   factory_bot_rails
@@ -299,7 +299,7 @@ DEPENDENCIES
   pundit-matchers
   rails (~> 6.1.4)
   rspec-rails
-  rubocop (= 1.65.0)
+  rubocop
   rubocop-capybara
   rubocop-performance
   rubocop-rails

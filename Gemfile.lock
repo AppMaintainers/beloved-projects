@@ -235,7 +235,7 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.31.2)
       parser (>= 3.3.0.4)
-    rubocop-capybara (2.20.0)
+    rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
     rubocop-performance (1.21.1)
       rubocop (>= 1.48.1, < 2.0)
@@ -298,8 +298,8 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rspec-rails
   rubocop
-  rubocop-capybara
-  rubocop-performance (= 1.21.1)
+  rubocop-capybara (= 2.21.0)
+  rubocop-performance
   rubocop-rails
   rubocop-rspec
   shakapacker

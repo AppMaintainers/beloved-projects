@@ -20,7 +20,7 @@ RSpec.describe ProjectPolicy::Scope do
       let(:deactivated_at) { 1.day.ago }
 
       it { expect(resolved_scope).to be_empty }
-      it { expect(Project.count).equal? 1 }
+      it { expect(Project.count).to equal 1 }
     end
   end
 end

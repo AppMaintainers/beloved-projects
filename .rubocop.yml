@@ -30,7 +30,7 @@ RSpec/ExampleWithoutDescription:
 RSpec/ExpectChange:
   EnforcedStyle: block
 
-RSpec/FilePath:
+Rails/FilePath:
   Exclude:
     - spec/**/scope/*_spec.rb
 

@@ -75,7 +75,7 @@ After installing the [Prerequisites](#prerequisites), you need to
 On your local machine, you'll need to run the following services:
    ```bash
    postgres
-   bin/webpacker-dev-server
+   bin/shakapacker-dev-server
    rails s
    ```
 

@@ -14,7 +14,7 @@
           <span class="dropdown">
             <a href="#" class="btn btn-primary dropdown-toggle align-text-top show"
                data-bs-boundary="viewport" data-bs-toggle="dropdown">
-                <%= inline_svg_pack_tag('static/@tabler/icons/icons/plus.svg') %> New
+                <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/plus.svg') %> New
             </a>
             <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 29.5px, 0px);">
               <%= link_to 'Account', new_project_account_path(project), class: 'dropdown-item' %>
@@ -26,7 +26,7 @@
       <% if policy(@project).edit? %>
         <div class="col-auto ms-auto d-print-none">
           <%= link_to edit_project_path(@project), class: 'btn btn-primary' do %>
-              <%= inline_svg_pack_tag('static/@tabler/icons/icons/pencil.svg') %> Edit
+              <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/pencil.svg') %> Edit
           <% end %>
         </div>
       <% end %>
@@ -35,7 +35,7 @@
           <%= link_to project_path(@project),
                       method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
             <span class="d-md-flex d-lg-inline-block align-middle">
-              <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
+              <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
             </span>
           <% end %>
         </div>

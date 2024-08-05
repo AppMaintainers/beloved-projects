@@ -23,7 +23,7 @@
                   </span>
                   <%= link_to link.url, target: :_blank, rel: 'noopener' do %>
                     <span class="nav-link-icon d-md-none d-lg-inline-block">
-                      <%= inline_svg_pack_tag('static/@tabler/icons/icons/link.svg') %>
+                      <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/link.svg') %>
                     </span>
                   <% end %>
                 </div>
@@ -37,7 +37,7 @@
                   <%= link_to project_link_path(@project, link),
                               method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger' do %>
                     <span class="d-md-flex d-lg-inline-block align-middle">
-                      <%= inline_svg_pack_tag('static/@tabler/icons/icons/trash.svg', class: 'm-0') %>
+                      <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/trash.svg', class: 'm-0') %>
                     </span>
                   <% end %>
                 <% end %>

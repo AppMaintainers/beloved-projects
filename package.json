@@ -37,6 +37,7 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "5"
   },
+  "packageManager": "yarn@1.22.19",
   "babel": {
     "presets": [
       "./node_modules/shakapacker/package/babel/preset.js"

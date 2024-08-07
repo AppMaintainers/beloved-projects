@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+source 'https://github.com'
 
 ruby '3.2.3'
 gem 'rails', '~> 6.1.4'
@@ -9,7 +10,9 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
-gem 'inline_svg'
+# Webpacker was replaced by Shakapacker and the spelling changed.
+# https://github.com/jamesmartin/inline_svg/issues/162
+gem 'inline_svg', git: 'https://github.com/tagliala/inline_svg.git', branch: 'feat/support-shakapacker'
 gem 'pg'
 gem 'puma'
 gem 'pundit'

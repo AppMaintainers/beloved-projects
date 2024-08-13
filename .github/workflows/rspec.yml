@@ -41,7 +41,7 @@ jobs:
       - name: Run Shakapacker
         run: |
           yarn install
-          bin/webpacker
+          bin/shakapacker
 
       - name: Run RSpec
         run: bundle exec rspec

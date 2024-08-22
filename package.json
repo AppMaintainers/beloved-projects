@@ -2,9 +2,9 @@
   "name": "beloved-projects",
   "private": true,
   "engines": {
-    "node": "18.16.1",
-    "yarn": "^1.22.19"
+    "node": "18.16.1"
   },
+  "packageManager": "yarn@1.22.19",
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^6.0.0",
@@ -37,7 +37,6 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "5"
   },
-  "packageManager": "yarn@1.22.19",
   "babel": {
     "presets": [
       "./node_modules/shakapacker/package/babel/preset.js"

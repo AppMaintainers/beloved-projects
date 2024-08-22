@@ -9,7 +9,6 @@ GIT
 
 GEM
   remote: https://rubygems.org/
-  remote: https://github.com/
   specs:
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)

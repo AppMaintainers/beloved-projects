@@ -10,8 +10,9 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
-# Webpacker was replaced by Shakapacker and the spelling changed.
-# https://github.com/jamesmartin/inline_svg/issues/162
+# `inline_svg` is not yet compatible with `shakapacker` v8, unreleased changes provide this compatibility
+# See for details: https://github.com/jamesmartin/inline_svg/issues/162
+# You can find the unreleased changes here: https://github.com/tagliala/inline_svg/tree/feat/support-shakapacker
 gem 'inline_svg', git: 'https://github.com/tagliala/inline_svg.git', branch: 'feat/support-shakapacker'
 gem 'pg'
 gem 'puma'

@@ -71,6 +71,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Amazon SES (Simple Email Service) integration
+  config.action_mailer.delivery_method = :smtp
   config.x.mail_from = 'info@appmaintainers.com'
   config.action_mailer.default_url_options = { host: 'https://beloved-projects.herokuapp.com/' }
   config.action_mailer.smtp_settings = {

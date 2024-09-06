@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 module BelovedProjects
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -40,5 +40,10 @@ module BelovedProjects
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Specify the default serializer used by `MessageEncryptor` and `MessageVerifier` instances.
+    # `ActiveSupport::MessagePack` can roundtrip some Ruby types that are not supported by JSON,
+    # and may provide improved performance, but it requires the `msgpack` gem.
+    Rails.application.config.active_support.message_serializer = :message_pack
   end
 end

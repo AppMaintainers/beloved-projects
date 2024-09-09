@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, path: 'auth', controllers: { registrations: 'auth/registrations' }
 
   resources :forms, only: [:show]
+  resources :feedbacks, only: [:create]
   get 'thank_you', to: 'static_pages#form_submission'
 
   authenticated do

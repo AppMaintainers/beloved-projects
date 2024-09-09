@@ -6,6 +6,7 @@ class Project < ApplicationRecord
 
   has_many :accounts, dependent: :destroy
   has_many :links, dependent: :destroy
+  has_many :forms, dependent: :destroy
 
   validates :title, presence: true
 end

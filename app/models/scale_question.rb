@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ScaleQuestion < ApplicationRecord
-  belongs_to :from
+  belongs_to :form
   has_many :scale_answers, dependent: :destroy
 
   validates :question, presence: true

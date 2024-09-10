@@ -51,17 +51,36 @@ RSpec.describe 'Feedbacks' do
         build(:scale_answer, scale_question: scale_question).attributes.slice('answer', 'scale_question_id')
       end
       let(:params) do
-        feedback_params
-          .merge(secret_params)
-          .merge(string_answers: [string_answer])
-          .merge(text_answers: [text_answer])
-          .merge(select_answers: [select_answer])
-          .merge(scale_answers: [scale_answer])
+        {
+          secret: form.secret,
+          feedback: {
+            form_id: form.id,
+            string_answers_attributes: [string_answer],
+            text_answers_attributes: [text_answer],
+            select_answers_attributes: [select_answer],
+            scale_answers_attributes: [scale_answer]
+          }
+        }
       end
 
-      it 'creates associated record' do
+      it 'creates string answer' do
         expect { post feedbacks_path, params: params }
           .to change { StringAnswer.count }.by(1)
+      end
+
+      it 'creates select answer' do
+        expect { post feedbacks_path, params: params }
+          .to change { SelectAnswer.count }.by(1)
+      end
+
+      it 'creates scale answer' do
+        expect { post feedbacks_path, params: params }
+          .to change { ScaleAnswer.count }.by(1)
+      end
+
+      it 'creates text answer' do
+        expect { post feedbacks_path, params: params }
+          .to change { TextAnswer.count }.by(1)
       end
     end
   end

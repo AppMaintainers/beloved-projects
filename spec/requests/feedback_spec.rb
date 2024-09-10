@@ -8,7 +8,7 @@ RSpec.describe 'Feedbacks' do
     let(:feedback_params) { { feedback: { form_id: form.id } } }
     let(:secret_params) { { secret: form.secret } }
 
-    context 'for mismatching secret' do
+    context 'when mismatching secret' do
       let(:params) { feedback_params }
 
       it 'redirects not authorized' do
@@ -18,7 +18,7 @@ RSpec.describe 'Feedbacks' do
       end
     end
 
-    context 'simple submit' do
+    context 'when submitting only feedback' do
       let(:params) { feedback_params.merge(secret_params) }
 
       it 'creates feedback' do
@@ -33,7 +33,7 @@ RSpec.describe 'Feedbacks' do
       end
     end
 
-    context 'nested attributes' do
+    context 'when also submitting nested attributes' do
       let(:string_question) { create(:string_question, form: form) }
       let(:string_answer) do
         build(:string_answer, string_question: string_question).attributes.slice('answer', 'string_question_id')

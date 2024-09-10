@@ -4,10 +4,10 @@ FactoryBot.define do
   factory :feedback do
     trait :with_answers do
       after :create do |feedback|
-        string_question_1 = create :string_question
-        string_question_2 = create :string_question
-        create :string_answer, feedback: feedback, string_question: string_question_1
-        create :string_answer, feedback: feedback, string_question: string_question_2
+        2.times do
+          create(:string_question)
+            .then { create(:string_answer, feedback: feedback, string_question: _1) }
+        end
       end
     end
   end

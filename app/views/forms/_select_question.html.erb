@@ -8,6 +8,7 @@
     id="feedback_select_answers_attributes_<%= question.id %>_answer"
     name="feedback[select_answers_attributes][][answer]"
     class="form-select">
+    <option disabled selected value> -- select an option -- </option>
     <% question.options.each do |option| %>
       <option><%= option %></option>
     <% end %>

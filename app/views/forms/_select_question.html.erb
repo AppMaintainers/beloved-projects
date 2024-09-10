@@ -1,0 +1,22 @@
+<div class="mb-3">
+  <label
+    for="feedback_select_answers_attributes_<%= question.id %>_answer"
+    class="form-label"
+  >
+    <%= question.question %>
+  </label>
+  <select
+    id="feedback_select_answers_attributes_<%= question.id %>_answer"
+    name="feedback[select_answers_attributes][][answer]"
+    class="form-select"
+  >
+    <% question.options.each do |option| %>
+      <option><%= option %></option>
+    <% end %>
+  </select>
+  <input
+    type="hidden"
+    id="feedback_select_answers_attributes_<%= question.id %>_select_question_id"
+    name="feedback[select_answers_attributes][][select_question_id]"
+    value="<%= question.id %>"/>
+</div>

@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
     skip_authorization
     raise Pundit::NotAuthorizedError if @form.secret != params[:secret]
 
-    if create_feedback
+    if Feedback.create(feedback_params)
       redirect_to thank_you_path
     else
       flash[:alert] = 'No such form exists.'
@@ -20,41 +20,17 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.fetch(:feedback, {}).permit(:form_id)
+    params
+      .fetch(:feedback, {})
+      .permit(
+        string_answers_attributes: [:answer, :string_question_id],
+        text_answers_attributes: [:answer, :text_question_id],
+        select_answers_attributes: [:answer, :select_question_id],
+        scale_answers_attributes: [:answer, :scale_question_id],
+      )
   end
 
   def load_form
-    @form = Form.find_by(id: feedback_params[:form_id])
-  end
-
-  def create_feedback
-    ApplicationRecord.transaction do
-      feedback = Feedback.create
-      params.fetch(:string_answers, []).each do |string_answer_params|
-        string_answer_params
-          .permit(:answer, :string_question_id)
-          .merge(feedback: feedback)
-          .then { StringAnswer.create(_1) }
-      end
-      params.fetch(:text_answers, []).each do |text_answer_params|
-        text_answer_params
-          .permit(:answer, :text_question_id)
-          .merge(feedback: feedback)
-          .then { TextAnswer.create(_1) }
-      end
-      params.fetch(:select_answers, []).each do |select_answer_params|
-        select_answer_params
-          .permit(:answer, :select_question_id)
-          .merge(feedback: feedback)
-          .then { SelectAnswer.create(_1) }
-      end
-      params.fetch(:scale_answers, []).each do |scale_answer_params|
-        scale_answer_params
-          .permit(:answer, :scale_question_id)
-          .merge(feedback: feedback)
-          .then { ScaleAnswer.create(_1) }
-      end
-      true
-    end
+    @form = Form.find_by(id: params.fetch(:feedback, {}).permit(:form_id)[:form_id])
   end
 end

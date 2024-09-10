@@ -1,0 +1,17 @@
+<div class="mb-3">
+  <label
+    for="feedback_text_answers_attributes_<%= question.id %>_answer"
+    class="form-label"
+  >
+    <%= question.question %>
+  </label>
+  <textarea
+    id="feedback_text_answers_attributes_<%= question.id %>_answer"
+    name="feedback[text_answers_attributes][][answer]"
+    class="form-control"></textarea>
+  <input
+    type="hidden"
+    id="feedback_text_answers_attributes_<%= question.id %>_text_question_id"
+    name="feedback[text_answers_attributes][][text_question_id]"
+    value="<%= question.id %>"/>
+</div>

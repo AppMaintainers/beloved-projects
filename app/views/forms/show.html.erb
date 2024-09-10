@@ -26,7 +26,7 @@
                      @form.text_questions.to_a,
                      @form.select_questions.to_a,
                      @form.scale_questions.to_a
-                   ].flatten.sort_by { _1.order }.each do |question| %>
+                   ].flatten.sort_by(&:order).each do |question| %>
                   <% if question.is_a? StringQuestion %>
                     <%= render 'string_question', question: question, f: f %>
                   <% end %>
@@ -40,7 +40,7 @@
                     <%= render 'scale_question', question: question, f: f %>
                   <% end %>
                 <% end %>
-                <%= f.submit 'Submit', class: 'btn btn-primary'%>
+                <%= f.submit 'Submit', class: 'btn btn-primary' %>
               <% end %>
             </div>
           </div>

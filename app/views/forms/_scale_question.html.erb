@@ -1,8 +1,7 @@
 <div class="mb-3">
   <label
     for="feedback_scale_answers_attributes_<%= question.id %>_answer"
-    class="form-label"
-  >
+    class="form-label">
     <%= question.question %>
   </label>
   <input
@@ -12,10 +11,11 @@
     class="form-range"
     min="<%= question.minimum %>"
     max="<%= question.maximum %>"
-    step="1">
+    step="1"
+    autocomplete="off" />
   <input
     type="hidden"
     id="feedback_scale_answers_attributes_<%= question.id %>_scale_question_id"
     name="feedback[scale_answers_attributes][][scale_question_id]"
-    value="<%= question.id %>"/>
+    value="<%= question.id %>" />
 </div>

@@ -7,7 +7,7 @@ RSpec.describe 'Forms' do
     let(:form) { create(:form) }
     let(:params) { {} }
 
-    context 'for mismatching secret' do
+    context 'when mismatching secret' do
       it 'redirects not authorized' do
         get form_path(form), params: params
 
@@ -15,7 +15,7 @@ RSpec.describe 'Forms' do
       end
     end
 
-    context 'for matching secret' do
+    context 'when matching secret' do
       let(:params) { { secret: form.secret } }
 
       it 'displays successfully' do

@@ -8,7 +8,7 @@ FactoryBot.define do
 
     trait :with_questions do
       after :create do |form|
-        create_list :string_question, 2, form: form
+        create_list(:string_question, 2, form: form)
       end
     end
   end

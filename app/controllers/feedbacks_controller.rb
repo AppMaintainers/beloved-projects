@@ -26,7 +26,7 @@ class FeedbacksController < ApplicationController
         string_answers_attributes: [:answer, :string_question_id],
         text_answers_attributes: [:answer, :text_question_id],
         select_answers_attributes: [:answer, :select_question_id],
-        scale_answers_attributes: [:answer, :scale_question_id],
+        scale_answers_attributes: [:answer, :scale_question_id]
       )
   end
 

@@ -11,4 +11,14 @@ class Form < ApplicationRecord
 
   validates :title, presence: true
   validates :secret, presence: true, length: { is: 12 }
+
+  before_validation :set_secret
+
+  private
+
+  def set_secret
+    return if secret.present?
+
+    self.secret = SecureRandom.hex[0..11]
+  end
 end

@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :form do
     title { Faker::Book.title }
-    secret { SecureRandom.hex[0..11] }
 
     project
 

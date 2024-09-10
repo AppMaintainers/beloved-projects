@@ -1,0 +1,21 @@
+<div class="mb-3">
+  <label
+    for="feedback_scale_answers_attributes_<%= question.id %>_answer"
+    class="form-label"
+  >
+    <%= question.question %>
+  </label>
+  <input
+    type="range"
+    id="feedback_scale_answers_attributes_<%= question.id %>_answer"
+    name="feedback[scale_answers_attributes][][answer]"
+    class="form-range"
+    min="<%= question.minimum %>"
+    max="<%= question.maximum %>"
+    step="1">
+  <input
+    type="hidden"
+    id="feedback_scale_answers_attributes_<%= question.id %>_scale_question_id"
+    name="feedback[scale_answers_attributes][][scale_question_id]"
+    value="<%= question.id %>"/>
+</div>

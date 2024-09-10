@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users, path: 'auth', controllers: { registrations: 'auth/registrations' }
+  resource :magic_link, only: [:create, :show]
 
   resources :forms, only: [:show]
   resources :feedbacks, only: [:create]
@@ -22,6 +23,5 @@ Rails.application.routes.draw do
       resource :admin, only: [:create, :destroy]
       resource :deactivate, only: [:destroy]
     end
-    resource :magic_link, only: [:create, :show]
   end
 end

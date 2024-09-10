@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_09_081209) do
   create_table "forms", force: :cascade do |t|
     t.string "title", null: false
     t.string "description"
-    t.string "secret", limit: 12, default: -> { "\"left\"(md5((random())::text), 12)" }, null: false
+    t.string "secret", limit: 12, null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

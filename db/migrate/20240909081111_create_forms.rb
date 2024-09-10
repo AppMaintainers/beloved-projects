@@ -5,7 +5,7 @@ class CreateForms < ActiveRecord::Migration[7.0]
     create_table :forms do |t|
       t.string :title, null: false
       t.string :description
-      t.string :secret, limit: 12, null: false, default: -> { 'LEFT(md5(random()::text), 12)' }
+      t.string :secret, limit: 12, null: false
       t.references :project, null: false, foreign_key: true
 
       t.timestamps

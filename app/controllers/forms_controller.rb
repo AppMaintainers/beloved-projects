@@ -8,6 +8,13 @@ class FormsController < ApplicationController
     # Accessible by users who are not logged in
     skip_authorization
     raise Pundit::NotAuthorizedError if @form.secret != params[:secret]
+
+    @questions = [
+      @form.string_questions.to_a,
+      @form.text_questions.to_a,
+      @form.select_questions.to_a,
+      @form.scale_questions.to_a
+    ].flatten.sort_by(&:order)
   end
 
   private

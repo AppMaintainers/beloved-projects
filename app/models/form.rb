@@ -8,6 +8,7 @@ class Form < ApplicationRecord
   has_many :text_questions, dependent: :destroy
   has_many :select_questions, dependent: :destroy
   has_many :scale_questions, dependent: :destroy
+  has_many :feedbacks, dependent: :destroy
 
   validates :title, presence: true
   validates :secret, presence: true, length: { is: 12 }

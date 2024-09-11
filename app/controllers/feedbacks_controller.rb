@@ -24,6 +24,7 @@ class FeedbacksController < ApplicationController
     params
       .fetch(:feedback, {})
       .permit(
+        :form_id,
         string_answers_attributes: [:answer, :string_question_id],
         text_answers_attributes: [:answer, :text_question_id],
         select_answers_attributes: [:answer, :select_question_id],
@@ -32,6 +33,6 @@ class FeedbacksController < ApplicationController
   end
 
   def load_form
-    @form = Form.find_by(id: params.fetch(:feedback, {}).permit(:form_id)[:form_id])
+    @form = Form.find_by(id: feedback_params[:form_id])
   end
 end

@@ -35,8 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_09_081209) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
+    t.bigint "form_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_feedbacks_on_form_id"
   end
 
   create_table "forms", force: :cascade do |t|
@@ -177,6 +179,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_09_081209) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "feedbacks", "forms"
   add_foreign_key "forms", "projects"
   add_foreign_key "scale_answers", "feedbacks"
   add_foreign_key "scale_answers", "scale_questions"

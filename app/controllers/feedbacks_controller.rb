@@ -9,11 +9,12 @@ class FeedbacksController < ApplicationController
     skip_authorization
     raise Pundit::NotAuthorizedError if @form.secret != params[:secret]
 
-    if Feedback.create(feedback_params)
+    feedback = Feedback.new(feedback_params)
+    if feedback.save
       redirect_to thank_you_path
     else
-      flash[:alert] = 'No such form exists.'
-      redirect_to root_path
+      flash[:alert] = feedback.errors.full_messages.join('. ')
+      redirect_to form_path(@form, secret: params[:secret])
     end
   end
 

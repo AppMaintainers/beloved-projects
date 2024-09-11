@@ -22,6 +22,8 @@ linters:
         Enabled: false
       Style/FrozenStringLiteralComment:
         Enabled: false
+      Lint/UselessAssignment:
+        Enabled: false
   SelfClosingTag:
     enabled: true
     enforced_style: always

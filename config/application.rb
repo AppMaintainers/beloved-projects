@@ -40,10 +40,5 @@ module BelovedProjects
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    # Specify the default serializer used by `MessageEncryptor` and `MessageVerifier` instances.
-    # `ActiveSupport::MessagePack` can roundtrip some Ruby types that are not supported by JSON,
-    # and may provide improved performance, but it requires the `msgpack` gem.
-    Rails.application.config.active_support.message_serializer = :message_pack
   end
 end

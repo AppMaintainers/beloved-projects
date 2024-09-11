@@ -5,7 +5,7 @@ class MagicLinksController < ApplicationController
 
   def show
     skip_authorization # For this action we do not need a specific user or role.
-    message = verifier.verified(params[:token], purpose: :login)
+    message = verifier.verified(params[:token], purpose: :login)&.deep_symbolize_keys
     user = User.find_by(id: message&.fetch(:user_id))
     if user.present? && user.last_sign_in_at == message[:last_login]
       sign_in(user)

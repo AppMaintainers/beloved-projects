@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :scale_answer do
-    answer { Faker::Number.between(from: 1, to: 10) }
+    answer { (scale_question.minimum..scale_question.maximum).to_a.sample }
 
     feedback
     scale_question

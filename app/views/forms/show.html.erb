@@ -21,24 +21,8 @@
             <div class="card-body">
               <%= form_with model: Feedback, url: feedbacks_path(secret: params[:secret]), method: :post do |f| %>
                 <%= f.hidden_field :form_id, value: @form.id %>
-                <% [
-                     @form.string_questions.to_a,
-                     @form.text_questions.to_a,
-                     @form.select_questions.to_a,
-                     @form.scale_questions.to_a
-                   ].flatten.sort_by(&:order).each do |question| %>
-                  <% if question.is_a? StringQuestion %>
-                    <%= render 'string_question', question: question, f: f %>
-                  <% end %>
-                  <% if question.is_a? TextQuestion %>
-                    <%= render 'text_question', question: question, f: f %>
-                  <% end %>
-                  <% if question.is_a? SelectQuestion %>
-                    <%= render 'select_question', question: question, f: f %>
-                  <% end %>
-                  <% if question.is_a? ScaleQuestion %>
-                    <%= render 'scale_question', question: question, f: f %>
-                  <% end %>
+                <% @questions.each do |question| %>
+                  <%= render question.class.to_s.underscore, question: question, f: f %>
                 <% end %>
                 <%= f.submit 'Submit', class: 'btn btn-primary' %>
               <% end %>

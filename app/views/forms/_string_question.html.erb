@@ -1,18 +1,8 @@
 <div class="mb-3">
-  <label
-    for="feedback_string_answers_attributes_<%= question.id %>_answer"
-    class="form-label">
-    <%= question.question %>
-  </label>
-  <input
-    type="text"
-    id="feedback_string_answers_attributes_<%= question.id %>_answer"
-    name="feedback[string_answers_attributes][][answer]"
-    class="form-control"
-    autocomplete="off" />
-  <input
-    type="hidden"
-    id="feedback_string_answers_attributes_<%= question.id %>_string_question_id"
-    name="feedback[string_answers_attributes][][string_question_id]"
-    value="<%= question.id %>" />
+  <%= f.fields_for :string_answers_attributes, index: nil do |nf| %>
+    <% id = "feedback_string_answers_attributes_#{question.id}_answer" %>
+    <%= nf.label :answer, question.question, class: 'form-label', for: id %>
+    <%= nf.text_field :answer, class: 'form-control', id: id %>
+    <%= nf.hidden_field :string_question_id, value: question.id %>
+  <% end %>
 </div>

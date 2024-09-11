@@ -1,21 +1,8 @@
 <div class="mb-3">
-  <label
-    for="feedback_select_answers_attributes_<%= question.id %>_answer"
-    class="form-label">
-    <%= question.question %>
-  </label>
-  <select
-    id="feedback_select_answers_attributes_<%= question.id %>_answer"
-    name="feedback[select_answers_attributes][][answer]"
-    class="form-select">
-    <option disabled selected value> -- select an option -- </option>
-    <% question.options.each do |option| %>
-      <option><%= option %></option>
-    <% end %>
-  </select>
-  <input
-    type="hidden"
-    id="feedback_select_answers_attributes_<%= question.id %>_select_question_id"
-    name="feedback[select_answers_attributes][][select_question_id]"
-    value="<%= question.id %>" />
+  <%= f.fields_for :select_answers_attributes, index: nil do |nf| %>
+    <% id = "feedback_select_answers_attributes_#{question.id}_answer" %>
+    <%= nf.label :answer, question.question, class: 'form-label', for: id %>
+    <%= nf.select :answer, question.options, { include_blank: true }, class: 'form-select', id: id %>
+    <%= nf.hidden_field :select_question_id, value: question.id %>
+  <% end %>
 </div>

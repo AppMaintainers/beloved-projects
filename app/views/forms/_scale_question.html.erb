@@ -1,21 +1,8 @@
 <div class="mb-3">
-  <label
-    for="feedback_scale_answers_attributes_<%= question.id %>_answer"
-    class="form-label">
-    <%= question.question %>
-  </label>
-  <input
-    type="range"
-    id="feedback_scale_answers_attributes_<%= question.id %>_answer"
-    name="feedback[scale_answers_attributes][][answer]"
-    class="form-range"
-    min="<%= question.minimum %>"
-    max="<%= question.maximum %>"
-    step="1"
-    autocomplete="off" />
-  <input
-    type="hidden"
-    id="feedback_scale_answers_attributes_<%= question.id %>_scale_question_id"
-    name="feedback[scale_answers_attributes][][scale_question_id]"
-    value="<%= question.id %>" />
+  <%= f.fields_for :scale_answers_attributes, index: nil do |nf| %>
+    <% id = "feedback_scale_answers_attributes_#{question.id}_answer" %>
+    <%= nf.label :answer, question.question, class: 'form-label', for: id %>
+    <%= nf.range_field :answer, class: 'form-range', id: id, min: question.minimum, max: question.maximum, step: 1 %>
+    <%= nf.hidden_field :scale_question_id, value: question.id %>
+  <% end %>
 </div>

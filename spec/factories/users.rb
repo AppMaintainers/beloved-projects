@@ -13,9 +13,7 @@ FactoryBot.define do
     end
 
     trait :signed_in do
-      # MagicLink manages this field.
-      # MagicLink doesn't register time shorter than a millionth of a second.
-      last_sign_in_at { 1.day.ago.change(usec: 0) }
+      last_sign_in_at { 1.day.ago }
     end
   end
 end

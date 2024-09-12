@@ -15,6 +15,11 @@ class Form < ApplicationRecord
 
   before_validation :set_secret
 
+  def share_link
+    Rails.application.routes.url_helpers
+      .form_path(self, secret: secret)
+  end
+
   private
 
   def set_secret

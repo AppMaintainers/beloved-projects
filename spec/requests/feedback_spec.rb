@@ -3,6 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Feedbacks' do
+  describe 'Index' do
+    let(:form) { create(:form) }
+    let(:user) { create(:user, :admin) }
+
+    before { login_as user }
+
+    it 'displays successfully' do
+      get feedbacks_path(form_id: form.id)
+
+      expect(response).to have_http_status :ok
+    end
+  end
+
   describe 'Create' do
     let(:form) { create(:form) }
     let(:feedback_params) { { feedback: { form_id: form.id } } }

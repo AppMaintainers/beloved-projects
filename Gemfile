@@ -22,6 +22,7 @@ end
 
 group :development do
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   gem 'erb_lint'
   gem 'rubocop'
   gem 'rubocop-capybara'

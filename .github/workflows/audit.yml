@@ -1,0 +1,36 @@
+name: Audit
+on: [push]
+
+jobs:
+  bundle-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run bundle-audit
+        continue-on-error: true
+        run: |
+          gem install bundler-audit
+          bundle-audit check --update
+
+  yarn-aduit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.tool-versions'
+          cache: yarn
+
+      - name: Run yarn-audit
+        continue-on-error: true
+        run: yarn audit

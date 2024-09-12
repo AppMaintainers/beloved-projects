@@ -23,5 +23,7 @@ Rails.application.routes.draw do
       resource :admin, only: [:create, :destroy]
       resource :deactivate, only: [:destroy]
     end
+    resources :forms, only: [:index]
+    resources :feedbacks, only: [:index]
   end
 end

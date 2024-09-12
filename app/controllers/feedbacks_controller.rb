@@ -2,7 +2,11 @@
 
 class FeedbacksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create]
-  before_action :load_form, only: [:create]
+  before_action :load_form, only: [:index, :create]
+
+  def index
+    @feedbacks = policy_scope(Feedback).where(form_id: @form)
+  end
 
   def create
     # Accessible by users who are not logged in

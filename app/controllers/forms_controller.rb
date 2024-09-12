@@ -4,6 +4,10 @@ class FormsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :load_form, only: [:show]
 
+  def index
+    @forms = policy_scope(Form)
+  end
+
   def show
     # Accessible by users who are not logged in
     skip_authorization

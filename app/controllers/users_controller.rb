@@ -46,8 +46,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    unfiltered_user_params = params.fetch(:user, {}).permit(:first_name, :last_name, :email, :admin)
-    policy([:attributes, @user]).filter(unfiltered_user_params)
+    params
+      .fetch(:user, {})
+      .then { policy([:attributes, @user]).filter(_1) }
+      .permit(
+        [:first_name, :last_name, :email]
+          .then { current_user.admin? ? _1 << :admin : _1 }
+      )
   end
 
   def load_user

@@ -14,7 +14,6 @@ jobs:
           bundler-cache: true
 
       - name: Run bundle-audit
-        continue-on-error: true
         run: |
           gem install bundler-audit
           bundle-audit check --update

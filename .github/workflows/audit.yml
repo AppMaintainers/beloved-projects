@@ -31,5 +31,4 @@ jobs:
           cache: yarn
 
       - name: Run yarn-audit
-        continue-on-error: true
         run: yarn audit

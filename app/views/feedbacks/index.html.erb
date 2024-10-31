@@ -1,0 +1,41 @@
+<div class="container mx-auto">
+  <div class="page-body">
+    <div class="container-xl">
+      <h1 class="text-center text-white">Feedback</h1>
+      <div class="row row-deck row-cards">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header d-inline">
+              <h3 class="card-title"><%= @form.title %></h3>
+              <br />
+              <h5 class="card-subtitle"><%= @form.description %></h5>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <% @questions.each do |question| %>
+                      <th><%= question.question %></th>
+                    <% end %>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @answers.each do |feedback| %>
+                    <tr>
+                      <% feedback.each do |answer| %>
+                      <th><%= answer.answer %></th>
+                      <% end %>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <% if @feedbacks.blank? %>
+                <p>No feedback could be found.</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

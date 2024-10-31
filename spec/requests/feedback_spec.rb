@@ -10,7 +10,7 @@ RSpec.describe 'Feedbacks' do
     before { login_as user }
 
     it 'displays successfully' do
-      get feedbacks_path(form_id: form.id)
+      get feedbacks_path(feedback: { form_id: form.id })
 
       expect(response).to have_http_status :ok
     end

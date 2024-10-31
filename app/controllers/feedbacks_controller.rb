@@ -6,6 +6,40 @@ class FeedbacksController < ApplicationController
 
   def index
     @feedbacks = policy_scope(Feedback).where(form_id: @form)
+    @questions = [
+      @form.scale_questions,
+      @form.select_questions,
+      @form.string_questions,
+      @form.text_questions
+    ]
+                   .flatten
+                   .sort_by(&:order)
+
+    @answers = []
+    if @feedbacks.present?
+      @answers << ScaleAnswer
+                    .joins(:scale_question)
+                    .where(feedback_id: @feedbacks)
+                    .select('scale_answers.*, scale_questions.order AS question_order')
+      @answers << SelectAnswer
+                    .joins(:select_question)
+                    .where(feedback_id: @feedbacks)
+                    .select('select_answers.*, select_questions.order AS question_order')
+      @answers << StringAnswer
+                    .joins(:string_question)
+                    .where(feedback_id: @feedbacks)
+                    .select('string_answers.*, string_questions.order AS question_order')
+      @answers << TextAnswer
+                    .joins(:text_question)
+                    .where(feedback_id: @feedbacks)
+                    .select('text_answers.*, text_questions.order AS question_order')
+
+      @answers = @answers
+                   .flatten
+                   .group_by(&:feedback_id)
+                   .values
+                   .map { _1.sort_by(&:question_order) }
+    end
   end
 
   def create

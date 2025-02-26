@@ -11,11 +11,11 @@ module Attributes
     private
 
     def method_missing(name, *args)
-      name.start_with?('valid_') ? true : super
+      name.start_with?('valid_') || super
     end
 
     def respond_to_missing?(name, *args)
-      name.start_with?('valid_') ? true : super
+      name.start_with?('valid_') || super
     end
   end
 end

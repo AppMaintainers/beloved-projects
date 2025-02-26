@@ -18,7 +18,7 @@ jobs:
           gem install bundler-audit
           bundle-audit check --update
 
-  yarn-aduit:
+  yarn-audit:
     runs-on: ubuntu-latest
 
     steps:

@@ -1,3 +1,6 @@
+// Functions is used to patch bootstrap scss warnings.
+// See for details: https://github.com/twbs/bootstrap/issues/39028
+@import './functions';
 @import '@tabler/core/src/scss/tabler';
 @import 'tom-select/src/scss/tom-select';
 

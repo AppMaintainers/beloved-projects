@@ -4,8 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
 import '@tabler/core'
 
 import "../util/checkcss.js"
@@ -13,4 +11,3 @@ import "../util/tomselect.js"
 import "../stylesheets/application.scss"
 
 Rails.start()
-ActiveStorage.start()

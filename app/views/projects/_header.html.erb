@@ -23,25 +23,25 @@
           </span>
         </div>
       </div>
-      <% if policy(@project).edit? %>
+      <% if policy(project).edit? %>
         <div class="col-auto ms-auto d-print-none">
-          <%= link_to edit_project_path(@project), class: 'btn btn-primary' do %>
+          <%= link_to edit_project_path(project), class: 'btn btn-primary' do %>
               <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/pencil.svg') %> Edit
           <% end %>
         </div>
       <% end %>
-      <% if policy(@project).destroy? %>
+      <% if policy(project).destroy? %>
         <div class="col-auto ms-auto d-print-none">
-          <% if @project.deactivated_at.blank? %>
-            <%= link_to project_path(@project),
+          <% if project.deactivated_at.blank? %>
+            <%= link_to project_path(project),
                         method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
               <span class="d-md-flex d-lg-inline-block align-middle">
                 <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
               </span>
             <% end %>
           <% else %>
-            <%= link_to project_path(@project, { project: { deactivated_at: nil } }),
-              method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+            <%= link_to project_path(project, { project: { deactivated_at: nil } }),
+                        method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
               <span class="d-md-flex d-lg-inline-block align-middle">
                 <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/eye.svg', class: 'm-0') %> Reactivate
               </span>

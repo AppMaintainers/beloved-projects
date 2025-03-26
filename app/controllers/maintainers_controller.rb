@@ -4,7 +4,7 @@ class MaintainersController < ApplicationController
   before_action :load_project
 
   def edit
-    @users = policy_scope(User)
+    @users = policy_scope(User).where(users: { deactivated_at: nil })
   end
 
   def create

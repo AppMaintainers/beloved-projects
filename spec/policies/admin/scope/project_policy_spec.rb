@@ -19,8 +19,7 @@ RSpec.describe ProjectPolicy::Scope do
     context 'when the project is deactivated' do
       let(:deactivated_at) { 1.day.ago }
 
-      it { expect(resolved_scope).to be_empty }
-      it { expect(Project.count).to equal 1 }
+      it { expect(resolved_scope).to contain_exactly(project) }
     end
   end
 end

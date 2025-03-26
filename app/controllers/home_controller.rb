@@ -7,6 +7,6 @@ class HomeController < ApplicationController
                 else
                   policy_scope(current_user.projects)
                 end
-                .order(Arel.sql('projects.deactivated_at IS NULL DESC'))
+                  .order(Arel.sql('projects.deactivated_at IS NULL DESC'))
   end
 end

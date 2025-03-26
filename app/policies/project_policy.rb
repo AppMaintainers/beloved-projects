@@ -6,15 +6,15 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    admin? || record.maintainers.include?(user) && record.deactivated_at.nil?
+    admin? || (record.maintainers.include?(user) && record.deactivated_at.nil?)
   end
 
   def update?
-    admin? || record.maintainers.include?(user) && record.deactivated_at.nil?
+    admin? || (record.maintainers.include?(user) && record.deactivated_at.nil?)
   end
 
   def destroy?
-    admin? || record.maintainers.include?(user) && record.deactivated_at.nil?
+    admin? || (record.maintainers.include?(user) && record.deactivated_at.nil?)
   end
 
   class Scope < Scope

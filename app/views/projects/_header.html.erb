@@ -32,11 +32,20 @@
       <% end %>
       <% if policy(@project).destroy? %>
         <div class="col-auto ms-auto d-print-none">
-          <%= link_to project_path(@project),
-                      method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
-            <span class="d-md-flex d-lg-inline-block align-middle">
-              <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
-            </span>
+          <% if @project.deactivated_at.blank? %>
+            <%= link_to project_path(@project),
+                        method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <span class="d-md-flex d-lg-inline-block align-middle">
+                <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/trash.svg', class: 'm-0') %> Delete
+              </span>
+            <% end %>
+          <% else %>
+            <%= link_to project_path(@project, { project: { deactivated_at: nil } }),
+              method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <span class="d-md-flex d-lg-inline-block align-middle">
+                <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/eye.svg', class: 'm-0') %> Reactivate
+              </span>
+            <% end %>
           <% end %>
         </div>
       <% end %>

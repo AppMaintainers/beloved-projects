@@ -50,7 +50,13 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.fetch(:project, {}).permit(:title)
+    params
+      .fetch(:project, {})
+      .then { policy([:attributes, :project]).filter(_1) }
+      .permit(
+        [:title]
+          .then { current_user.admin? ? _1 << :deactivated_at : _1 }
+      )
   end
 
   def load_project

@@ -23,6 +23,17 @@ RSpec.describe 'Deactivates' do
       expect(response).to redirect_to users_path
     end
 
+    context 'when the user is a maintainer' do
+      let(:project) { create(:project) }
+
+      before { project.maintainers << user_to_be_deactivated }
+
+      it 'removes the user from maintainers' do
+        expect { delete user_deactivate_path(user_to_be_deactivated) }
+          .to change { ProjectsUser.count }.by(-1)
+      end
+    end
+
     context 'when the current user is not admin' do
       let(:admin) { false }
 

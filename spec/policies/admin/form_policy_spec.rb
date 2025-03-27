@@ -8,7 +8,7 @@ RSpec.describe FormPolicy do
   describe 'how to handle concrete objects' do
     let(:object_to_check) { Form }
 
-    it { is_expected.to permit_actions [:index] }
+    it { is_expected.to permit_actions [:index, :send_form] }
     it { is_expected.to forbid_actions [:show, :destroy, :new, :create, :edit, :update] }
   end
 end

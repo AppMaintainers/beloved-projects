@@ -37,4 +37,25 @@ RSpec.describe 'Forms' do
       end
     end
   end
+
+  describe 'Send Form' do
+    let(:user) { create(:user, :admin) }
+    let(:form) { create(:form) }
+
+    before do
+      login_as user
+      form.project.maintainers << create(:user)
+      form.project.maintainers << create(:user, :admin)
+    end
+
+    it 'redirects to forms index' do
+      post send_form_form_path(form)
+
+      expect(response).to redirect_to(forms_path)
+    end
+
+    it 'sends emails to non admin users' do
+      expect { post send_form_form_path(form) }.to change { ActionMailer::Base.deliveries.size }.by(1)
+    end
+  end
 end

@@ -9,6 +9,6 @@ RSpec.describe FormPolicy do
     let(:object_to_check) { Form }
 
     it { is_expected.to permit_actions [] }
-    it { is_expected.to forbid_actions [:show, :destroy, :new, :create, :edit, :update, :index] }
+    it { is_expected.to forbid_actions [:show, :destroy, :new, :create, :edit, :update, :index, :send_form] }
   end
 end

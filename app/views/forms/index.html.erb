@@ -11,6 +11,7 @@
                   <tr>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Send Form</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,12 @@
                     <tr>
                       <td><%= link_to form.title, feedbacks_path(feedback: { form_id: form.id }) %></td>
                       <td><%= form.description %></td>
+                      <td>
+                        <%= link_to 'Send', send_form_form_path(form),
+                                    method: :post,
+                                    data: { confirm: 'Are you sure you want to send this form via email to all non-admin maintainers?' },
+                                    class: 'btn btn-primary' %>
+                      </td>
                     </tr>
                   <% end %>
                 </tbody>

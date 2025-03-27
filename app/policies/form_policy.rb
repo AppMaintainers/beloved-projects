@@ -5,6 +5,10 @@ class FormPolicy < ApplicationPolicy
     admin?
   end
 
+  def send_form?
+    admin?
+  end
+
   class Scope < Scope
     def resolve
       if admin?

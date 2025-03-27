@@ -30,7 +30,7 @@
           <% end %>
         </div>
       <% end %>
-      <% form = @project.forms.last %>
+      <% form = project.forms.last %>
       <% if form.present? && policy(:feedback).index? %>
         <div class="col-auto ms-auto d-print-none">
           <%= link_to feedbacks_path(feedback: { form_id: form.id }), class: 'btn btn-primary' do %>

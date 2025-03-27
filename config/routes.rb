@@ -23,7 +23,11 @@ Rails.application.routes.draw do
       resource :admin, only: [:create, :destroy]
       resource :deactivate, only: [:destroy]
     end
-    resources :forms, only: [:index]
+    resources :forms, only: [:index] do
+      member do
+        post :send_form
+      end
+    end
     resources :feedbacks, only: [:index]
   end
 end

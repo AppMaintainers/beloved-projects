@@ -30,7 +30,15 @@
           <% end %>
         </div>
       <% end %>
-      <% if policy(project).destroy? %>
+      <% form = @project.forms.last %>
+      <% if form.present? && policy(:feedback).index? %>
+        <div class="col-auto ms-auto d-print-none">
+          <%= link_to feedbacks_path(feedback: { form_id: form.id }), class: 'btn btn-primary' do %>
+            <%= inline_svg_pack_tag('static/node_modules/@tabler/icons/icons/users.svg') %> Feedbacks
+          <% end %>
+        </div>
+      <% end %>
+      <% if policy(@project).destroy? %>
         <div class="col-auto ms-auto d-print-none">
           <% if project.deactivated_at.blank? %>
             <%= link_to project_path(project),

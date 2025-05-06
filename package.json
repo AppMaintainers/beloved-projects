@@ -35,7 +35,7 @@
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "1.77.6",
     "sass-loader": "^16.0.5",
-    "shakapacker": "8.1.0",
+    "shakapacker": "8.3.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.11",
     "webpack": "^5.98.0",
